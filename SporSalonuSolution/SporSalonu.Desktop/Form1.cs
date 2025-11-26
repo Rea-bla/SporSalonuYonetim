@@ -9,7 +9,7 @@ namespace SporSalonu.Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "OK";
+            textBox1.Text = "OKAY";
         }
     }
 }
