@@ -1,3 +1,4 @@
+
 namespace SporSalonu.Desktop
 {
     public partial class Form1 : Form
@@ -7,9 +8,6 @@ namespace SporSalonu.Desktop
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "OKAY";
-        }
+       
     }
 }
