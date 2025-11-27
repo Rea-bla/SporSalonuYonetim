@@ -416,3 +416,7 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# UI libraries (Bunifu, Guna, DevExpress, vb.)
+*.dll
+*.licx
