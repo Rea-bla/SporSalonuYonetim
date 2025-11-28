@@ -81,6 +81,7 @@
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2TextBox1.Size = new Size(240, 46);
             guna2TextBox1.TabIndex = 3;
+            guna2TextBox1.TextChanged += guna2TextBox1_TextChanged;
             // 
             // guna2TextBox2
             // 
@@ -129,6 +130,7 @@
             guna2Button1.Size = new Size(134, 33);
             guna2Button1.TabIndex = 5;
             guna2Button1.Text = "Giriş Yap";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // pictureBox1
             // 
@@ -169,7 +171,7 @@
             label1.ForeColor = Color.FromArgb(255, 177, 15);
             label1.Location = new Point(360, 516);
             label1.Name = "label1";
-            label1.Size = new Size(117, 17);
+            label1.Size = new Size(114, 17);
             label1.TabIndex = 9;
             label1.Text = "+90 546 631 66 76";
             // 
