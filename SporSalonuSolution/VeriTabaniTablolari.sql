@@ -57,6 +57,8 @@ BEGIN
         KullaniciAdi nvarchar(50) not null unique,
         Sifre nvarchar(50) not null
     );
-    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('admin', '1234');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('MuhammeT', '4488137');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Baykus', 'kedietiyedi');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Babuska', '313131');
 end
 go

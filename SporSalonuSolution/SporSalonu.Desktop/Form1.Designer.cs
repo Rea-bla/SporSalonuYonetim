@@ -80,7 +80,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(368, 0);
+            nightControlBox1.Location = new Point(440, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -102,14 +102,16 @@
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox1.Font = new Font("Segoe UI", 9F);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(144, 286);
+            guna2TextBox1.Location = new Point(165, 381);
+            guna2TextBox1.Margin = new Padding(3, 5, 3, 5);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PlaceholderForeColor = Color.Gray;
             guna2TextBox1.PlaceholderText = "Kullanıcı Adı";
             guna2TextBox1.SelectedText = "";
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2TextBox1.Size = new Size(210, 36);
+            guna2TextBox1.Size = new Size(240, 48);
             guna2TextBox1.TabIndex = 3;
+            guna2TextBox1.TextChanged += guna2TextBox1_TextChanged;
             // 
             // guna2TextBox2
             // 
@@ -124,13 +126,14 @@
             guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox2.Font = new Font("Segoe UI", 9F);
             guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(144, 346);
+            guna2TextBox2.Location = new Point(165, 461);
+            guna2TextBox2.Margin = new Padding(3, 5, 3, 5);
             guna2TextBox2.Name = "guna2TextBox2";
             guna2TextBox2.PlaceholderForeColor = Color.Gray;
             guna2TextBox2.PlaceholderText = "Parola";
             guna2TextBox2.SelectedText = "";
             guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2TextBox2.Size = new Size(210, 36);
+            guna2TextBox2.Size = new Size(240, 48);
             guna2TextBox2.TabIndex = 4;
             // 
             // guna2Button1
@@ -149,20 +152,23 @@
             guna2Button1.ForeColor = Color.Black;
             guna2Button1.HoverState.BorderColor = Color.FromArgb(255, 177, 15);
             guna2Button1.HoverState.FillColor = Color.FromArgb(255, 177, 15);
-            guna2Button1.Location = new Point(183, 408);
+            guna2Button1.Location = new Point(209, 544);
+            guna2Button1.Margin = new Padding(3, 4, 3, 4);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.PressedColor = Color.White;
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Button1.Size = new Size(134, 33);
+            guna2Button1.Size = new Size(153, 44);
             guna2Button1.TabIndex = 5;
             guna2Button1.Text = "Giriş Yap";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(62, 24);
+            pictureBox1.Location = new Point(71, 32);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(373, 298);
+            pictureBox1.Size = new Size(426, 397);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
@@ -173,18 +179,20 @@
             guna2Panel1.Dock = DockStyle.Bottom;
             guna2Panel1.FillColor = Color.Lime;
             guna2Panel1.Font = new Font("Bahnschrift Condensed", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            guna2Panel1.Location = new Point(0, 543);
+            guna2Panel1.Location = new Point(0, 724);
+            guna2Panel1.Margin = new Padding(3, 4, 3, 4);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Panel1.Size = new Size(491, 10);
+            guna2Panel1.Size = new Size(561, 13);
             guna2Panel1.TabIndex = 7;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(317, 505);
+            pictureBox2.Location = new Point(362, 673);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(37, 36);
+            pictureBox2.Size = new Size(42, 48);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
@@ -194,18 +202,18 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.FromArgb(255, 177, 15);
-            label1.Location = new Point(360, 516);
+            label1.Location = new Point(411, 688);
             label1.Name = "label1";
-            label1.Size = new Size(117, 17);
+            label1.Size = new Size(150, 23);
             label1.TabIndex = 9;
             label1.Text = "+90 546 631 66 76";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(491, 553);
+            ClientSize = new Size(561, 737);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
             Controls.Add(guna2Panel1);
@@ -215,6 +223,7 @@
             Controls.Add(guna2Button1);
             Controls.Add(guna2TextBox2);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
