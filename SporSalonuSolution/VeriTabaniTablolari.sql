@@ -49,3 +49,14 @@ begin
     );
 end
 go
+
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Yoneticiler' AND xtype='U')
+BEGIN
+    CREATE TABLE Yoneticiler (
+        YoneticiID int primary key identity(1,1),
+        KullaniciAdi nvarchar(50) not null unique,
+        Sifre nvarchar(50) not null
+    );
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('admin', '1234');
+end
+go
