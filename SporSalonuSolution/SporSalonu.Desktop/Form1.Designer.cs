@@ -104,6 +104,7 @@
             guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox2.Location = new Point(132, 342);
             guna2TextBox2.Name = "guna2TextBox2";
+            guna2TextBox2.PasswordChar = '●';
             guna2TextBox2.PlaceholderForeColor = Color.Gray;
             guna2TextBox2.PlaceholderText = "Parola";
             guna2TextBox2.SelectedText = "";
