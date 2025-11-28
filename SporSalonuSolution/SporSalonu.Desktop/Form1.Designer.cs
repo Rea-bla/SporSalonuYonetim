@@ -42,7 +42,6 @@
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
             guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(components);
-            nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -66,29 +65,6 @@
             guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
             guna2DragControl2.UseTransparentDrag = true;
             // 
-            // nightControlBox1
-            // 
-            nightControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nightControlBox1.BackColor = Color.Transparent;
-            nightControlBox1.CloseHoverColor = Color.FromArgb(199, 80, 80);
-            nightControlBox1.CloseHoverForeColor = Color.White;
-            nightControlBox1.DefaultLocation = true;
-            nightControlBox1.DisableMaximizeColor = Color.FromArgb(105, 105, 105);
-            nightControlBox1.DisableMinimizeColor = Color.FromArgb(105, 105, 105);
-            nightControlBox1.EnableCloseColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.EnableMaximizeButton = true;
-            nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.EnableMinimizeButton = true;
-            nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(368, 0);
-            nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
-            nightControlBox1.MaximizeHoverForeColor = Color.White;
-            nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
-            nightControlBox1.MinimizeHoverForeColor = Color.White;
-            nightControlBox1.Name = "nightControlBox1";
-            nightControlBox1.Size = new Size(139, 31);
-            nightControlBox1.TabIndex = 0;
-            // 
             // guna2TextBox1
             // 
             guna2TextBox1.AutoRoundedCorners = true;
@@ -100,15 +76,16 @@
             guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
+            guna2TextBox1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2TextBox1.ForeColor = Color.Black;
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(144, 286);
+            guna2TextBox1.Location = new Point(132, 276);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PlaceholderForeColor = Color.Gray;
             guna2TextBox1.PlaceholderText = "Kullanıcı Adı";
             guna2TextBox1.SelectedText = "";
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2TextBox1.Size = new Size(210, 36);
+            guna2TextBox1.Size = new Size(240, 46);
             guna2TextBox1.TabIndex = 3;
             // 
             // guna2TextBox2
@@ -122,15 +99,16 @@
             guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Font = new Font("Segoe UI", 9F);
+            guna2TextBox2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2TextBox2.ForeColor = Color.Black;
             guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(144, 346);
+            guna2TextBox2.Location = new Point(132, 342);
             guna2TextBox2.Name = "guna2TextBox2";
             guna2TextBox2.PlaceholderForeColor = Color.Gray;
             guna2TextBox2.PlaceholderText = "Parola";
             guna2TextBox2.SelectedText = "";
             guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2TextBox2.Size = new Size(210, 36);
+            guna2TextBox2.Size = new Size(240, 46);
             guna2TextBox2.TabIndex = 4;
             // 
             // guna2Button1
@@ -149,7 +127,7 @@
             guna2Button1.ForeColor = Color.Black;
             guna2Button1.HoverState.BorderColor = Color.FromArgb(255, 177, 15);
             guna2Button1.HoverState.FillColor = Color.FromArgb(255, 177, 15);
-            guna2Button1.Location = new Point(183, 408);
+            guna2Button1.Location = new Point(180, 407);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.PressedColor = Color.White;
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
@@ -210,7 +188,6 @@
             Controls.Add(pictureBox2);
             Controls.Add(guna2Panel1);
             Controls.Add(guna2TextBox1);
-            Controls.Add(nightControlBox1);
             Controls.Add(pictureBox1);
             Controls.Add(guna2Button1);
             Controls.Add(guna2TextBox2);
@@ -232,7 +209,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
-        private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
