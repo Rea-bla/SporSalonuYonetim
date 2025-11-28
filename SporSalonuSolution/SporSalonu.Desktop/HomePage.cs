@@ -22,5 +22,10 @@ namespace SporSalonu.Desktop
         {
             guna2ShadowForm1.SetShadowForm(this);
         }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
