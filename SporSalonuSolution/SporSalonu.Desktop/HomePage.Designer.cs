@@ -176,7 +176,7 @@
             guna2Button2.Image = (Image)resources.GetObject("guna2Button2.Image");
             guna2Button2.ImageAlign = HorizontalAlignment.Left;
             guna2Button2.ImageSize = new Size(52, 52);
-            guna2Button2.Location = new Point(10, 250);
+            guna2Button2.Location = new Point(10, 254);
             guna2Button2.Margin = new Padding(3, 2, 3, 2);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges8;
@@ -210,18 +210,18 @@
             // guna2Separator1
             // 
             guna2Separator1.BackColor = Color.Transparent;
-            guna2Separator1.Location = new Point(37, 152);
+            guna2Separator1.Location = new Point(39, 152);
             guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(144, 23);
+            guna2Separator1.Size = new Size(144, 20);
             guna2Separator1.TabIndex = 9;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Location = new Point(10, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(212, 172);
+            pictureBox1.Size = new Size(204, 172);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;

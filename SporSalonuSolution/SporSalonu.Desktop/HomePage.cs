@@ -27,5 +27,7 @@ namespace SporSalonu.Desktop
         {
             this.Close();
         }
+
+       
     }
 }
