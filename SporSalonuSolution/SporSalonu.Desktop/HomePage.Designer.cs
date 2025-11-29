@@ -46,6 +46,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -60,6 +62,7 @@
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
             guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
+            guna2PanelA_container = new Guna.UI2.WinForms.Guna2Panel();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -86,6 +89,7 @@
             // guna2Button5
             // 
             guna2Button5.AutoRoundedCorners = true;
+            guna2Button5.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             guna2Button5.CustomizableEdges = customizableEdges1;
             guna2Button5.DisabledState.BorderColor = Color.DarkGray;
             guna2Button5.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -112,6 +116,7 @@
             // guna2Button4
             // 
             guna2Button4.AutoRoundedCorners = true;
+            guna2Button4.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             guna2Button4.CustomizableEdges = customizableEdges3;
             guna2Button4.DisabledState.BorderColor = Color.DarkGray;
             guna2Button4.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -137,6 +142,7 @@
             // guna2Button3
             // 
             guna2Button3.AutoRoundedCorners = true;
+            guna2Button3.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             guna2Button3.CustomizableEdges = customizableEdges5;
             guna2Button3.DisabledState.BorderColor = Color.DarkGray;
             guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -162,6 +168,7 @@
             // guna2Button2
             // 
             guna2Button2.AutoRoundedCorners = true;
+            guna2Button2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             guna2Button2.CustomizableEdges = customizableEdges7;
             guna2Button2.DisabledState.BorderColor = Color.DarkGray;
             guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -187,15 +194,18 @@
             // guna2Button1
             // 
             guna2Button1.AutoRoundedCorners = true;
+            guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            guna2Button1.Checked = true;
             guna2Button1.CustomizableEdges = customizableEdges9;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.FromArgb(255, 177, 15);
+            guna2Button1.FillColor = Color.Transparent;
             guna2Button1.Font = new Font("Bahnschrift Condensed", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2Button1.ForeColor = Color.White;
             guna2Button1.HoverState.FillColor = Color.FromArgb(255, 177, 15);
+            guna2Button1.HoverState.ForeColor = Color.White;
             guna2Button1.Image = (Image)resources.GetObject("guna2Button1.Image");
             guna2Button1.ImageAlign = HorizontalAlignment.Left;
             guna2Button1.ImageSize = new Size(44, 44);
@@ -206,6 +216,7 @@
             guna2Button1.Size = new Size(197, 46);
             guna2Button1.TabIndex = 9;
             guna2Button1.Text = "    Ana Sayfa";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // guna2Separator1
             // 
@@ -260,12 +271,23 @@
             guna2DragControl1.TargetControl = this;
             guna2DragControl1.UseTransparentDrag = true;
             // 
+            // guna2PanelA_container
+            // 
+            guna2PanelA_container.CustomizableEdges = customizableEdges17;
+            guna2PanelA_container.Dock = DockStyle.Fill;
+            guna2PanelA_container.Location = new Point(218, 0);
+            guna2PanelA_container.Name = "guna2PanelA_container";
+            guna2PanelA_container.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2PanelA_container.Size = new Size(888, 536);
+            guna2PanelA_container.TabIndex = 9;
+            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
             ClientSize = new Size(1106, 546);
+            Controls.Add(guna2PanelA_container);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -295,5 +317,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Panel guna2PanelA_container;
     }
 }

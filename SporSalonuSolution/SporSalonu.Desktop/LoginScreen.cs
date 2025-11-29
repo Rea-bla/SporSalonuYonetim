@@ -48,7 +48,7 @@ namespace SporSalonu.Desktop
                 {
                     MessageBox.Show("Giriþ Baþarýlý Ýmparator! Hoþ Geldin.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // 1. Yükleme ekranýný oluþtur
-                    LoadingScreen _load = new LoadingScreen();
+                    LoadingScreen _load = new LoadingScreen();    //LoadingScreen loadingscreen = new LoadingScreen();  loadingscreen.Show(); da oluyor galiba
 
                     // 2. Yükleme ekranýný göster
                     _load.Show();
