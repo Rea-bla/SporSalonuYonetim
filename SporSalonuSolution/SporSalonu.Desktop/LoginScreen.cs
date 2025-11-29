@@ -25,30 +25,30 @@ namespace SporSalonu.Desktop
 
     
             private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            string kullanici = guna2TextBox1.Text.Trim();
-            string sifre = guna2TextBox2.Text.Trim();
-
-            if (kullanici == "" || sifre == "")
             {
+             string kullanici = guna2TextBox1.Text.Trim();
+             string sifre = guna2TextBox2.Text.Trim();
+
+                 if (kullanici == "" || sifre == "")
+                 {
                 MessageBox.Show("Lütfen kullanýcý adý ve þifre giriniz!", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }
+                 }
 
-            SqlConnection conn = bgl.Baglanti();
-            conn.Open();
+             SqlConnection conn = bgl.Baglanti();
+             conn.Open();
 
-            SqlCommand cmd = new SqlCommand(
-                "SELECT COUNT(*) FROM Yoneticiler WHERE KullaniciAdi=@k AND Sifre=@s", conn);
+             SqlCommand cmd = new SqlCommand(
+                 "SELECT COUNT(*) FROM Yoneticiler WHERE KullaniciAdi=@k AND Sifre=@s", conn);
 
-            cmd.Parameters.AddWithValue("@k", kullanici);
-            cmd.Parameters.AddWithValue("@s", sifre);
+             cmd.Parameters.AddWithValue("@k", kullanici);
+             cmd.Parameters.AddWithValue("@s", sifre);
 
-            int sonuc = (int)cmd.ExecuteScalar();
-            conn.Close();
+             int sonuc = (int)cmd.ExecuteScalar();
+             conn.Close();
 
-            if (sonuc > 0)
-            {
+                  if (sonuc > 0)
+                  {
                 MessageBox.Show("Giriþ baþarýlý, hoþ geldin Ýmparator!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Buraya admin panelinin açýlacaðý kod gelecek
@@ -56,11 +56,18 @@ namespace SporSalonu.Desktop
                 // AdminPanel admin = new AdminPanel();
                 // admin.Show();
                 // this.Hide();
+                LoadingScreen _load = new LoadingScreen();
+                _load.Show();
+
+
             }
-            else
-            {
+                  else
+                  {
                 MessageBox.Show("Hatalý kullanýcý adý veya þifre!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                  }
+            
+
+
         }
     }
     }

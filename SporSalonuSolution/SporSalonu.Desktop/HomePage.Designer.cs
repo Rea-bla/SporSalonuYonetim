@@ -78,10 +78,9 @@
             guna2Panel1.CustomizableEdges = customizableEdges13;
             guna2Panel1.Dock = DockStyle.Left;
             guna2Panel1.Location = new Point(0, 0);
-            guna2Panel1.Margin = new Padding(3, 4, 3, 4);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Panel1.Size = new Size(249, 728);
+            guna2Panel1.Size = new Size(218, 546);
             guna2Panel1.TabIndex = 0;
             // 
             // guna2Button5
@@ -101,10 +100,11 @@
             guna2Button5.Image = (Image)resources.GetObject("guna2Button5.Image");
             guna2Button5.ImageAlign = HorizontalAlignment.Left;
             guna2Button5.ImageSize = new Size(54, 54);
-            guna2Button5.Location = new Point(11, 627);
+            guna2Button5.Location = new Point(10, 470);
+            guna2Button5.Margin = new Padding(3, 2, 3, 2);
             guna2Button5.Name = "guna2Button5";
             guna2Button5.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button5.Size = new Size(225, 61);
+            guna2Button5.Size = new Size(197, 46);
             guna2Button5.TabIndex = 13;
             guna2Button5.Text = " Çıkış";
             guna2Button5.Click += guna2Button5_Click;
@@ -126,10 +126,11 @@
             guna2Button4.Image = (Image)resources.GetObject("guna2Button4.Image");
             guna2Button4.ImageAlign = HorizontalAlignment.Left;
             guna2Button4.ImageSize = new Size(60, 60);
-            guna2Button4.Location = new Point(11, 528);
+            guna2Button4.Location = new Point(10, 396);
+            guna2Button4.Margin = new Padding(3, 2, 3, 2);
             guna2Button4.Name = "guna2Button4";
             guna2Button4.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button4.Size = new Size(225, 61);
+            guna2Button4.Size = new Size(197, 46);
             guna2Button4.TabIndex = 12;
             guna2Button4.Text = "    Ödemeler";
             // 
@@ -150,10 +151,11 @@
             guna2Button3.Image = (Image)resources.GetObject("guna2Button3.Image");
             guna2Button3.ImageAlign = HorizontalAlignment.Left;
             guna2Button3.ImageSize = new Size(55, 55);
-            guna2Button3.Location = new Point(11, 429);
+            guna2Button3.Location = new Point(10, 322);
+            guna2Button3.Margin = new Padding(3, 2, 3, 2);
             guna2Button3.Name = "guna2Button3";
             guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Button3.Size = new Size(225, 61);
+            guna2Button3.Size = new Size(197, 46);
             guna2Button3.TabIndex = 11;
             guna2Button3.Text = "  Üye Ekle";
             // 
@@ -174,10 +176,11 @@
             guna2Button2.Image = (Image)resources.GetObject("guna2Button2.Image");
             guna2Button2.ImageAlign = HorizontalAlignment.Left;
             guna2Button2.ImageSize = new Size(52, 52);
-            guna2Button2.Location = new Point(11, 339);
+            guna2Button2.Location = new Point(10, 254);
+            guna2Button2.Margin = new Padding(3, 2, 3, 2);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Button2.Size = new Size(225, 61);
+            guna2Button2.Size = new Size(197, 46);
             guna2Button2.TabIndex = 10;
             guna2Button2.Text = "     Üye Listesi";
             // 
@@ -196,28 +199,29 @@
             guna2Button1.Image = (Image)resources.GetObject("guna2Button1.Image");
             guna2Button1.ImageAlign = HorizontalAlignment.Left;
             guna2Button1.ImageSize = new Size(44, 44);
-            guna2Button1.Location = new Point(11, 240);
+            guna2Button1.Location = new Point(10, 180);
+            guna2Button1.Margin = new Padding(3, 2, 3, 2);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2Button1.Size = new Size(225, 61);
+            guna2Button1.Size = new Size(197, 46);
             guna2Button1.TabIndex = 9;
             guna2Button1.Text = "    Ana Sayfa";
             // 
             // guna2Separator1
             // 
             guna2Separator1.BackColor = Color.Transparent;
-            guna2Separator1.Location = new Point(43, 215);
+            guna2Separator1.Location = new Point(38, 161);
+            guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(165, 14);
+            guna2Separator1.Size = new Size(144, 10);
             guna2Separator1.TabIndex = 9;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(11, 0);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(10, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(233, 229);
+            pictureBox1.Size = new Size(204, 172);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
@@ -228,11 +232,10 @@
             guna2Panel3.Dock = DockStyle.Bottom;
             guna2Panel3.FillColor = Color.Lime;
             guna2Panel3.Font = new Font("Bahnschrift Condensed", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            guna2Panel3.Location = new Point(0, 715);
-            guna2Panel3.Margin = new Padding(3, 4, 3, 4);
+            guna2Panel3.Location = new Point(0, 536);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2Panel3.Size = new Size(249, 13);
+            guna2Panel3.Size = new Size(218, 10);
             guna2Panel3.TabIndex = 8;
             // 
             // guna2Panel2
@@ -241,11 +244,10 @@
             guna2Panel2.Dock = DockStyle.Bottom;
             guna2Panel2.FillColor = Color.Lime;
             guna2Panel2.Font = new Font("Bahnschrift Condensed", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            guna2Panel2.Location = new Point(249, 715);
-            guna2Panel2.Margin = new Padding(3, 4, 3, 4);
+            guna2Panel2.Location = new Point(218, 536);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2Panel2.Size = new Size(1015, 13);
+            guna2Panel2.Size = new Size(888, 10);
             guna2Panel2.TabIndex = 8;
             // 
             // guna2Elipse1
@@ -260,14 +262,13 @@
             // 
             // HomePage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
-            ClientSize = new Size(1264, 728);
+            ClientSize = new Size(1106, 546);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "HomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Anasayfa";
