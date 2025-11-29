@@ -138,6 +138,7 @@
             guna2Button4.Size = new Size(197, 46);
             guna2Button4.TabIndex = 12;
             guna2Button4.Text = "    Ödemeler";
+            guna2Button4.Click += guna2Button4_Click;
             // 
             // guna2Button3
             // 
@@ -164,6 +165,7 @@
             guna2Button3.Size = new Size(197, 46);
             guna2Button3.TabIndex = 11;
             guna2Button3.Text = "  Üye Ekle";
+            guna2Button3.Click += guna2Button3_Click;
             // 
             // guna2Button2
             // 
@@ -190,6 +192,7 @@
             guna2Button2.Size = new Size(197, 46);
             guna2Button2.TabIndex = 10;
             guna2Button2.Text = "     Üye Listesi";
+            guna2Button2.Click += guna2Button2_Click;
             // 
             // guna2Button1
             // 

@@ -1,6 +1,6 @@
 ﻿namespace SporSalonu.Desktop
 {
-    partial class Memberlist
+    partial class Payments
     {
         /// <summary>
         /// Required designer variable.
@@ -38,28 +38,29 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.Location = new Point(353, 257);
+            label1.Location = new Point(306, 226);
             label1.Name = "label1";
-            label1.Size = new Size(138, 23);
+            label1.Size = new Size(165, 23);
             label1.TabIndex = 1;
-            label1.Text = "Üyeler Menüsü";
+            label1.Text = "Ödemeler Menüsü";
             // 
             // guna2DragControl1
             // 
             guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
             guna2DragControl1.UseTransparentDrag = true;
             // 
-            // Memberlist
+            // Payments
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
             ClientSize = new Size(888, 536);
             Controls.Add(label1);
+            ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Memberlist";
+            Name = "Payments";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Memberlist";
+            Text = "Payments";
             ResumeLayout(false);
             PerformLayout();
         }

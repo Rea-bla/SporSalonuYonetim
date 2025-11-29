@@ -1,6 +1,6 @@
 ﻿namespace SporSalonu.Desktop
 {
-    partial class Memberlist
+    partial class Addmember
     {
         /// <summary>
         /// Required designer variable.
@@ -38,18 +38,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.Location = new Point(353, 257);
+            label1.Location = new Point(294, 214);
             label1.Name = "label1";
-            label1.Size = new Size(138, 23);
-            label1.TabIndex = 1;
-            label1.Text = "Üyeler Menüsü";
+            label1.Size = new Size(182, 23);
+            label1.TabIndex = 0;
+            label1.Text = "Üye ekleme menüsü";
             // 
             // guna2DragControl1
             // 
             guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
             guna2DragControl1.UseTransparentDrag = true;
             // 
-            // Memberlist
+            // Addmember
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -57,9 +57,9 @@
             ClientSize = new Size(888, 536);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Memberlist";
+            Name = "Addmember";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Memberlist";
+            Text = "Addmember";
             ResumeLayout(false);
             PerformLayout();
         }

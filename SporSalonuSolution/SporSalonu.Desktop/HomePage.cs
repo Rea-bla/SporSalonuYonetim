@@ -28,7 +28,26 @@ namespace SporSalonu.Desktop
         {
             this.Close();
         }
+       
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            container(new Dashboard());
+        }
 
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            container(new Memberlist());
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            container(new Addmember());
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            container(new Payments());
+        }
         private void container(object _form)
         {
             if (guna2PanelA_container.Controls.Count > 0) guna2PanelA_container.Controls.Clear();
@@ -40,12 +59,11 @@ namespace SporSalonu.Desktop
             guna2PanelA_container.Controls.Add(fm);
             guna2PanelA_container.Tag = fm;
             fm.Show();
-
+        
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            container(new Dashboard());
-        }
+        
+
+
     }
 }
