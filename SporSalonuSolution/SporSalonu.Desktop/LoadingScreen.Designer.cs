@@ -65,11 +65,13 @@
             // 
             // guna2CircleProgressBar1
             // 
+            guna2CircleProgressBar1.Animated = true;
+            guna2CircleProgressBar1.AnimationSpeed = 0.2F;
             guna2CircleProgressBar1.BackColor = Color.Black;
             guna2CircleProgressBar1.Controls.Add(label_Val);
             guna2CircleProgressBar1.Controls.Add(label1);
             guna2CircleProgressBar1.Controls.Add(pictureBox1);
-            guna2CircleProgressBar1.FillColor = Color.Gray;
+            guna2CircleProgressBar1.FillColor = Color.DimGray;
             guna2CircleProgressBar1.FillThickness = 777;
             guna2CircleProgressBar1.Font = new Font("Segoe UI", 12F);
             guna2CircleProgressBar1.ForeColor = Color.Black;
@@ -90,7 +92,7 @@
             label_Val.AutoSize = true;
             label_Val.BackColor = Color.Transparent;
             label_Val.Font = new Font("Bahnschrift", 72F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label_Val.ForeColor = Color.Black;
+            label_Val.ForeColor = Color.Gray;
             label_Val.Location = new Point(183, 690);
             label_Val.Name = "label_Val";
             label_Val.Size = new Size(102, 115);
@@ -112,7 +114,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(554, 529);
+            pictureBox1.Location = new Point(563, 530);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(178, 177);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
