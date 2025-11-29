@@ -28,12 +28,33 @@ namespace SporSalonu.Desktop
             if (guna2CircleProgressBar1.Value == 100)
             {
                 timer1.Stop();
+
             }
             else
             {
                 guna2CircleProgressBar1.Value += 1;
                 label_Val.Text = (Convert.ToInt32(label_Val.Text) + 1).ToString();
+                if (label_Val.Text == "100")
+                {
+                    HomePage _load = new HomePage();
+
+                    // 2. Yükleme ekranını göster
+                    _load.Show();
+
+                    // 3. Giriş ekranını GİZLE (Kapatma, sadece gizle)
+                    this.Hide();
+
+                }
             }
+
+
         }
+        
+            private void LoadingScreen_FormClosed(object sender, FormClosedEventArgs e)
+            {
+                Application.Exit(); // Bu komut gizli saklı ne varsa her şeyi kapatır.
+            }
+
+
     }
 }

@@ -23,16 +23,16 @@ namespace SporSalonu.Desktop
 
         }
 
-    
-            private async void guna2Button1_Click(object sender, EventArgs e)
-            {
+
+        private async void guna2Button1_Click(object sender, EventArgs e)
+        {
             if (string.IsNullOrWhiteSpace(guna2TextBox1.Text) || string.IsNullOrWhiteSpace(guna2TextBox2.Text))
             {
                 MessageBox.Show("Lütfen kullanýcý adý ve þifre giriniz!", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-     
+
             guna2Button1.Enabled = false;
             guna2Button1.Text = "Kontrol Ediliyor...";
 
@@ -40,15 +40,22 @@ namespace SporSalonu.Desktop
             {
                 ApiServisi servis = new ApiServisi();
 
-              
+
                 bool girisBasarili = await servis.GirisYap(guna2TextBox1.Text.Trim(), guna2TextBox2.Text.Trim());
 
-             
+
                 if (girisBasarili)
                 {
                     MessageBox.Show("Giriþ Baþarýlý Ýmparator! Hoþ Geldin.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // 1. Yükleme ekranýný oluþtur
+                    LoadingScreen _load = new LoadingScreen();
 
-                  
+                    // 2. Yükleme ekranýný göster
+                    _load.Show();
+
+                    // 3. Giriþ ekranýný GÝZLE (Kapatma, sadece gizle)
+                    this.Hide();
+
                 }
                 else
                 {
@@ -61,14 +68,16 @@ namespace SporSalonu.Desktop
             }
             finally
             {
-                // 6. ADIM: Ýþlem bitince butonu eski haline getir
                 guna2Button1.Enabled = true;
                 guna2Button1.Text = "Giriþ Yap";
-
-
             }
-            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit(); // Bu komut gizli saklý ne varsa her þeyi kapatýr.
+        }
     }
-    }
+}
 
 
