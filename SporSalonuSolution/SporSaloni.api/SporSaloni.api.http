@@ -1,0 +1,6 @@
+@SporSaloni.api_HostAddress = http://localhost:5096
+
+GET {{SporSaloni.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

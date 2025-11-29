@@ -12,10 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{02
 		VeriTabaniTablolari.sql = VeriTabaniTablolari.sql
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çözüm Öğeleri", "{AC80F682-3D55-C8F8-4895-A4A9EDD49434}"
-	ProjectSection(SolutionItems) = preProject
-		SqlBağlantısı.cs = SqlBağlantısı.cs
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SporSaloni.api", "SporSaloni.api\SporSaloni.api.csproj", "{027771FD-D39A-4E4D-BD94-993D876877BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +28,10 @@ Global
 		{BAD1E7A5-01E6-491A-B9CB-7D39AE2A036A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAD1E7A5-01E6-491A-B9CB-7D39AE2A036A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAD1E7A5-01E6-491A-B9CB-7D39AE2A036A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{027771FD-D39A-4E4D-BD94-993D876877BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{027771FD-D39A-4E4D-BD94-993D876877BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{027771FD-D39A-4E4D-BD94-993D876877BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{027771FD-D39A-4E4D-BD94-993D876877BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,51 +24,50 @@ namespace SporSalonu.Desktop
         }
 
     
-            private void guna2Button1_Click(object sender, EventArgs e)
+            private async void guna2Button1_Click(object sender, EventArgs e)
             {
-             string kullanici = guna2TextBox1.Text.Trim();
-             string sifre = guna2TextBox2.Text.Trim();
-
-                 if (kullanici == "" || sifre == "")
-                 {
-                MessageBox.Show("Lütfen kullanýcý adý ve þifre giriniz!", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (string.IsNullOrWhiteSpace(guna2TextBox1.Text) || string.IsNullOrWhiteSpace(guna2TextBox2.Text))
+            {
+                MessageBox.Show("Lütfen kullanýcý adý ve þifre giriniz!", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-                 }
+            }
 
-             SqlConnection conn = bgl.Baglanti();
-             conn.Open();
+     
+            guna2Button1.Enabled = false;
+            guna2Button1.Text = "Kontrol Ediliyor...";
 
-             SqlCommand cmd = new SqlCommand(
-                 "SELECT COUNT(*) FROM Yoneticiler WHERE KullaniciAdi=@k AND Sifre=@s", conn);
+            try
+            {
+                ApiServisi servis = new ApiServisi();
 
-             cmd.Parameters.AddWithValue("@k", kullanici);
-             cmd.Parameters.AddWithValue("@s", sifre);
+              
+                bool girisBasarili = await servis.GirisYap(guna2TextBox1.Text.Trim(), guna2TextBox2.Text.Trim());
 
-             int sonuc = (int)cmd.ExecuteScalar();
-             conn.Close();
+             
+                if (girisBasarili)
+                {
+                    MessageBox.Show("Giriþ Baþarýlý Ýmparator! Hoþ Geldin.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                  if (sonuc > 0)
-                  {
-                MessageBox.Show("Giriþ baþarýlý, hoþ geldin Ýmparator!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Buraya admin panelinin açýlacaðý kod gelecek
-                // ör: 
-                // AdminPanel admin = new AdminPanel();
-                // admin.Show();
-                // this.Hide();
-                LoadingScreen _load = new LoadingScreen();
-                _load.Show();
+                  
+                }
+                else
+                {
+                    MessageBox.Show("Hatalý kullanýcý adý veya þifre!", "Giriþ Baþarýsýz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Beklenmedik bir hata oluþtu: " + ex.Message);
+            }
+            finally
+            {
+                // 6. ADIM: Ýþlem bitince butonu eski haline getir
+                guna2Button1.Enabled = true;
+                guna2Button1.Text = "Giriþ Yap";
 
 
             }
-                  else
-                  {
-                MessageBox.Show("Hatalý kullanýcý adý veya þifre!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                  }
-            
-
-
-        }
+            }
     }
     }
 
