@@ -46,14 +46,12 @@ namespace SporSalonu.Desktop
 
                 if (girisBasarili)
                 {
-                    MessageBox.Show("Giriþ Baþarýlý Ýmparator! Hoþ Geldin.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // 1. Yükleme ekranýný oluþtur
+                    
+                   
                     LoadingScreen _load = new LoadingScreen();    //LoadingScreen loadingscreen = new LoadingScreen();  loadingscreen.Show(); da oluyor galiba
 
-                    // 2. Yükleme ekranýný göster
                     _load.Show();
 
-                    // 3. Giriþ ekranýný GÝZLE (Kapatma, sadece gizle)
                     this.Hide();
 
                 }
@@ -75,7 +73,7 @@ namespace SporSalonu.Desktop
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit(); // Bu komut gizli saklý ne varsa her þeyi kapatýr.
+            Application.Exit();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace SporSalonu.API.Controllers
         }
 
         [HttpPost("giris")]
-        public IActionResult GirisYap([FromBody] LoginModel model)
+        public IActionResult GirisYap([FromBody] LoginModel model)//yapay zekaya yapmak zorunda kaldım
         {
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
 
@@ -34,7 +34,7 @@ namespace SporSalonu.API.Controllers
                         int sonuc = (int)command.ExecuteScalar();
 
                         if (sonuc > 0)
-                            return Ok(new { success = true, mesaj = "Giriş Başarılı İmparator" });
+                            return Ok(new { success = true, mesaj = "Giriş Başarılı" });
                         else
                             return Unauthorized(new { success = false, mesaj = "Hatalı Kullanıcı Adı veya Şifre" });
                     }
