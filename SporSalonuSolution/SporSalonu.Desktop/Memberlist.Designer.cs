@@ -49,7 +49,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gray;
+            BackColor = Color.White;
             ClientSize = new Size(888, 536);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;

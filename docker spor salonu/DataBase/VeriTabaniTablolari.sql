@@ -36,7 +36,7 @@ begin
         Ad nvarchar(50) not null,
         Soyad nvarchar(50) not null,
         Telefon nvarchar(15),
-        KanGrubu nvarchar(5),
+        KanGrubu nvarchar(6),
         Cinsiyet nvarchar(5),
         Boy int,       --Cm olarak alýnacaktýr                
         Kilo float,    --Kg olarak alýnacaktýr          
