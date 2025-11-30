@@ -63,6 +63,7 @@
             guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
             guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
             guna2PanelA_container = new Guna.UI2.WinForms.Guna2Panel();
+            guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -206,7 +207,7 @@
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button1.FillColor = Color.Transparent;
             guna2Button1.Font = new Font("Bahnschrift Condensed", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            guna2Button1.ForeColor = Color.White;
+            guna2Button1.ForeColor = Color.FromArgb(64, 64, 64);
             guna2Button1.HoverState.FillColor = Color.FromArgb(255, 177, 15);
             guna2Button1.HoverState.ForeColor = Color.White;
             guna2Button1.Image = (Image)resources.GetObject("guna2Button1.Image");
@@ -271,7 +272,6 @@
             // guna2DragControl1
             // 
             guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            guna2DragControl1.TargetControl = this;
             guna2DragControl1.UseTransparentDrag = true;
             // 
             // guna2PanelA_container
@@ -321,5 +321,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Panel guna2PanelA_container;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
     }
 }

@@ -41,6 +41,7 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2CircleProgressBar1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -71,7 +72,7 @@
             guna2CircleProgressBar1.Controls.Add(label_Val);
             guna2CircleProgressBar1.Controls.Add(label1);
             guna2CircleProgressBar1.Controls.Add(pictureBox1);
-            guna2CircleProgressBar1.FillColor = Color.DimGray;
+            guna2CircleProgressBar1.FillColor = Color.Black;
             guna2CircleProgressBar1.FillThickness = 777;
             guna2CircleProgressBar1.Font = new Font("Segoe UI", 12F);
             guna2CircleProgressBar1.ForeColor = Color.Black;
@@ -92,7 +93,7 @@
             label_Val.AutoSize = true;
             label_Val.BackColor = Color.Transparent;
             label_Val.Font = new Font("Bahnschrift", 72F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label_Val.ForeColor = Color.Gray;
+            label_Val.ForeColor = Color.White;
             label_Val.Location = new Point(183, 690);
             label_Val.Name = "label_Val";
             label_Val.Size = new Size(102, 115);
@@ -103,7 +104,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Bahnschrift", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.ForeColor = Color.Gray;
+            label1.ForeColor = Color.White;
             label1.Location = new Point(586, 707);
             label1.Name = "label1";
             label1.Size = new Size(123, 25);
@@ -156,5 +157,6 @@
         private Label label1;
         private Label label_Val;
         private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

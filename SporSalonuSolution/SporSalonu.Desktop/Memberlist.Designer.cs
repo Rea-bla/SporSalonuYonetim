@@ -31,7 +31,8 @@
             components = new System.ComponentModel.Container();
             label1 = new Label();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
-            guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
+            guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
+            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             SuspendLayout();
             // 
             // label1
@@ -43,11 +44,6 @@
             label1.Size = new Size(138, 23);
             label1.TabIndex = 1;
             label1.Text = "Üyeler Menüsü";
-            // 
-            // guna2DragControl1
-            // 
-            guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            guna2DragControl1.UseTransparentDrag = true;
             // 
             // Memberlist
             // 
@@ -68,6 +64,7 @@
 
         private Label label1;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
