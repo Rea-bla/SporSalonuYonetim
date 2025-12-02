@@ -25,7 +25,7 @@ namespace SporSalonu.Desktop
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (guna2CircleProgressBar1.Value == 100)
+            if (guna2CircleProgressBar1.Value == 101)
             {
                 timer1.Stop();
 
@@ -34,7 +34,7 @@ namespace SporSalonu.Desktop
             {
                 guna2CircleProgressBar1.Value += 1;
                 label_Val.Text = (Convert.ToInt32(label_Val.Text) + 1).ToString();
-                if (label_Val.Text == "100")
+                if (label_Val.Text == "101")
                 {
                     HomePage _load = new HomePage();
 

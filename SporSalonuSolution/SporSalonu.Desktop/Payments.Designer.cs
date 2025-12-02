@@ -37,19 +37,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.Location = new Point(306, 226);
+            label1.Font = new Font("Bahnschrift", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(165, 23);
+            label1.Size = new Size(103, 25);
             label1.TabIndex = 1;
-            label1.Text = "Ödemeler Menüsü";
+            label1.Text = "Ödemeler";
             // 
             // Payments
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(888, 536);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1205, 578);
             Controls.Add(label1);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;

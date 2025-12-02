@@ -51,7 +51,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            label1 = new Label();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
@@ -70,17 +69,8 @@
             Cinsiyet = new ComboBox();
             Ay3 = new Guna.UI2.WinForms.Guna2Button();
             comboBox1 = new ComboBox();
+            label1 = new Label();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.Location = new Point(294, 214);
-            label1.Name = "label1";
-            label1.Size = new Size(182, 23);
-            label1.TabIndex = 0;
-            label1.Text = "Üye ekleme menüsü";
             // 
             // Tc
             // 
@@ -93,7 +83,7 @@
             Tc.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Tc.Font = new Font("Segoe UI", 9F);
             Tc.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Tc.Location = new Point(23, 12);
+            Tc.Location = new Point(63, 126);
             Tc.Name = "Tc";
             Tc.PlaceholderText = "";
             Tc.SelectedText = "";
@@ -112,7 +102,7 @@
             Kilo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Kilo.Font = new Font("Segoe UI", 9F);
             Kilo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Kilo.Location = new Point(23, 348);
+            Kilo.Location = new Point(63, 462);
             Kilo.Name = "Kilo";
             Kilo.PlaceholderText = "";
             Kilo.SelectedText = "";
@@ -131,7 +121,7 @@
             Boy.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Boy.Font = new Font("Segoe UI", 9F);
             Boy.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Boy.Location = new Point(23, 277);
+            Boy.Location = new Point(63, 391);
             Boy.Name = "Boy";
             Boy.PlaceholderText = "";
             Boy.SelectedText = "";
@@ -150,7 +140,7 @@
             Telefon.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Telefon.Font = new Font("Segoe UI", 9F);
             Telefon.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Telefon.Location = new Point(23, 214);
+            Telefon.Location = new Point(63, 328);
             Telefon.Name = "Telefon";
             Telefon.PlaceholderText = "";
             Telefon.SelectedText = "";
@@ -169,7 +159,7 @@
             Soyad.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Soyad.Font = new Font("Segoe UI", 9F);
             Soyad.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Soyad.Location = new Point(23, 145);
+            Soyad.Location = new Point(63, 259);
             Soyad.Name = "Soyad";
             Soyad.PlaceholderText = "";
             Soyad.SelectedText = "";
@@ -188,7 +178,7 @@
             Ad.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Ad.Font = new Font("Segoe UI", 9F);
             Ad.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Ad.Location = new Point(23, 77);
+            Ad.Location = new Point(63, 191);
             Ad.Name = "Ad";
             Ad.PlaceholderText = "";
             Ad.SelectedText = "";
@@ -320,12 +310,23 @@
             comboBox1.Text = "ComboBox1";
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Bahnschrift", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(94, 25);
+            label1.TabIndex = 22;
+            label1.Text = "Üye Ekle";
+            // 
             // Addmember
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(888, 536);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1205, 578);
+            Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(Ay3);
             Controls.Add(Cinsiyet);
@@ -341,7 +342,6 @@
             Controls.Add(Boy);
             Controls.Add(Kilo);
             Controls.Add(Tc);
-            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Addmember";
             StartPosition = FormStartPosition.CenterScreen;
@@ -351,8 +351,6 @@
         }
 
         #endregion
-
-        private Label label1;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
@@ -376,5 +374,6 @@
         private ComboBox Cinsiyet;
         private Guna.UI2.WinForms.Guna2Button Ay3;
         private ComboBox comboBox1;
+        private Label label1;
     }
 }

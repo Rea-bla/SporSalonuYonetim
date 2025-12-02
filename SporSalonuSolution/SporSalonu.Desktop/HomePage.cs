@@ -28,7 +28,7 @@ namespace SporSalonu.Desktop
         {
             this.Close();
         }
-       
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             container(new Dashboard());
@@ -59,11 +59,37 @@ namespace SporSalonu.Desktop
             guna2PanelA_container.Controls.Add(fm);
             guna2PanelA_container.Tag = fm;
             fm.Show();
-        
+
         }
 
-        
+        bool sidebarExpand = true;
+        private void sidebarTransition_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                sidebar.Width -= 10;
+                if (sidebar.Width <= 69)
+                {
+                    sidebarExpand = false;
+                    sidebarTransition.Stop();
+                }
+            }
+            else
+            {
+                sidebar.Width += 10;
+                if (sidebar.Width >= 212)
+                {
+                    sidebarExpand = true;
+                    sidebarTransition.Stop();
+                }
+            }
+        }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            sidebarTransition.Start();
+        }
 
+       
     }
 }

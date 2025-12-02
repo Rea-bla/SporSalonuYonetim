@@ -23,7 +23,6 @@ namespace SporSalonu.Desktop
             DateTime simdi = DateTime.Now;
 
             // Saati Güncelle (Saat:Dakika şeklinde)
-            // Saniye de görünsün isterseniz: simdi.ToString("HH:mm:ss"); yapın
             lblSaat.Text = simdi.ToString("HH:mm");
 
             // Tarihi Güncelle (Gün Ay Yıl GünAdı)
@@ -32,8 +31,24 @@ namespace SporSalonu.Desktop
 
         }
 
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            DateTime simdi = DateTime.Now;
+
+            lblSaat.Text = simdi.ToString("HH:mm");
 
 
+            lblTarih.Text = simdi.ToString("dd MMMM yyyy dddd");
 
+            lblIsim.Text = UserSession.AdSoyad;
+
+            // HAFIZADAKİ RESMİ KUTUYA KOY
+            if (UserSession.ProfilResmi != null)
+            {
+                // "guna2CirclePictureBox1" yerine senin resim kutunun adı neyse onu yaz
+                guna2CirclePictureBox1.Image = UserSession.ProfilResmi;
+            }
+
+        }
     }
 }
