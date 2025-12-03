@@ -43,7 +43,7 @@ begin
         KayitTarihi datetime default getdate(), 
         BitisTarihi datetime,
         DogumTarihi datetime, --Yýl olarak alýnacaktýr:D
-        
+        Odeme       nvarchar(10),
         SecilenUyelikID int, 
         foreign key (SecilenUyelikID) references UyelikTipleri(UyelikTipiID)
     );
@@ -55,10 +55,16 @@ BEGIN
     CREATE TABLE Yoneticiler (
         YoneticiID int primary key identity(1,1),
         KullaniciAdi nvarchar(50) not null unique,
-        Sifre nvarchar(50) not null
+        Sifre nvarchar(50) not null,
+        AdSoyad nvarchar(50) not null,
+
     );
-    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('MuhammeT', '4488137');
-    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Baykus', 'kedietiyedi');
-    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Babuska', '313131');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('MuhammeT', '4488137','Muhammed AKYILDIZ');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Baykus', 'kedietiyedi','Furkan GULTEKIN');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Babuska', 'A123456!','Yusuf BOZKURT');
 end
 go
+
+
+
+

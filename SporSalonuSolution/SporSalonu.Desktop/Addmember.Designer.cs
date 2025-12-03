@@ -70,6 +70,7 @@
             Ay3 = new Guna.UI2.WinForms.Guna2Button();
             comboBox1 = new ComboBox();
             label1 = new Label();
+            Odeme = new ComboBox();
             SuspendLayout();
             // 
             // Tc
@@ -320,12 +321,22 @@
             label1.TabIndex = 22;
             label1.Text = "Üye Ekle";
             // 
+            // Odeme
+            // 
+            Odeme.FormattingEnabled = true;
+            Odeme.Items.AddRange(new object[] { "Ödendi", "Ödenmedi" });
+            Odeme.Location = new Point(770, 15);
+            Odeme.Name = "Odeme";
+            Odeme.Size = new Size(121, 23);
+            Odeme.TabIndex = 23;
+            // 
             // Addmember
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1205, 578);
+            Controls.Add(Odeme);
             Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(Ay3);
@@ -375,5 +386,6 @@
         private Guna.UI2.WinForms.Guna2Button Ay3;
         private ComboBox comboBox1;
         private Label label1;
+        private ComboBox Odeme;
     }
 }

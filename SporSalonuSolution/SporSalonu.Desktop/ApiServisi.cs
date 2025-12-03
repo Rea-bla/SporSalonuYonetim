@@ -36,7 +36,7 @@ namespace SporSalonu.Desktop
             }
         }
 
-        public async Task<string> UyeEkle(string tc, string ad, string soyad, string tel, string kan, string cinsiyet, int boy, double kilo, DateTime dogumTarihi, DateTime? bitisTarihi, int uyelikId)
+        public async Task<string> UyeEkle(string tc, string ad, string soyad, string tel, string kan, string cinsiyet, int boy, double kilo, DateTime dogumTarihi, DateTime? bitisTarihi, string odeme ,int uyelikId)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -54,6 +54,7 @@ namespace SporSalonu.Desktop
                         Kilo = kilo,
                         DogumTarihi = dogumTarihi,
                         BitisTarihi = bitisTarihi,
+                        Odeme = odeme,
                         SecilenUyelikID = uyelikId
                     };
 

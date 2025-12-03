@@ -84,6 +84,7 @@ namespace SporSalonu.Desktop
                 // 3. COMBOBOX VERİLERİ
                 string kanDeger = string.IsNullOrWhiteSpace(comboBox1.Text) ? null : comboBox1.Text;
                 string cinsiyetDeger = string.IsNullOrWhiteSpace(Cinsiyet.Text) ? null : Cinsiyet.Text;
+                string odemeDeger = string.IsNullOrWhiteSpace(Odeme.Text) ? null : Odeme.Text;
 
                 // Üyelik Tipi ID (Seçilmediyse 1-Standart yap)
                 int uyelikId = UyelikTip.SelectedIndex < 0 ? 1 : UyelikTip.SelectedIndex + 1;
@@ -100,6 +101,7 @@ namespace SporSalonu.Desktop
                     kiloDeger,
                     TimePicker.Value,    // Doğum Tarihi
                     _secilenBitisTarihi, // Hesaplanan Bitiş Tarihi
+                    odemeDeger,
                     uyelikId
                 );
 

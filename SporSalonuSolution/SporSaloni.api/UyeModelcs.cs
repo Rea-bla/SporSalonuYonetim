@@ -14,6 +14,7 @@ namespace SporSalonu.API
         public double Kilo { get; set; }     // (kg)(bunuda : Yusuftan selams)
         public DateTime DogumTarihi { get; set; }
         public DateTime? BitisTarihi { get; set; } 
+        public string Odeme { get; set; }
         public int SecilenUyelikID { get; set; }  
     }
 }

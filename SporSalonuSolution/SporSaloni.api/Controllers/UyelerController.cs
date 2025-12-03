@@ -56,9 +56,9 @@ namespace SporSalonu.API.Controllers
 
                     // KayitTarihi'ni yazmadık çünkü SQL'de 'default getdate()' var, otomatik atar.
                     string query = @"INSERT INTO Uyeler 
-                                    (TCNo, Ad, Soyad, Telefon, KanGrubu, Cinsiyet, Boy, Kilo, DogumTarihi, BitisTarihi, SecilenUyelikID) 
+                                    (TCNo, Ad, Soyad, Telefon, KanGrubu, Cinsiyet, Boy, Kilo, DogumTarihi, BitisTarihi, Odeme, SecilenUyelikID) 
                                     VALUES 
-                                    (@tc, @ad, @soyad, @tel, @kan, @cin, @boy, @kilo, @dt, @bitis, @uyelikId)";
+                                    (@tc, @ad, @soyad, @tel, @kan, @cin, @boy, @kilo, @dt, @bitis, @odeme, @uyelikId)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -69,6 +69,7 @@ namespace SporSalonu.API.Controllers
                         command.Parameters.AddWithValue("@kan", uye.KanGrubu ?? (object)DBNull.Value);
                         command.Parameters.AddWithValue("@cin", uye.Cinsiyet ?? (object)DBNull.Value);
                         command.Parameters.AddWithValue("@boy", uye.Boy);
+                        command.Parameters.AddWithValue("@odeme", uye.Odeme);
                         command.Parameters.AddWithValue("@kilo", uye.Kilo);
                         command.Parameters.AddWithValue("@dt", uye.DogumTarihi);
 
