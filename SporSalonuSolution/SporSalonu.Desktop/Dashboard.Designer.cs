@@ -214,13 +214,13 @@
             // 
             lblUyeSayisi.AutoSize = true;
             lblUyeSayisi.BackColor = Color.Transparent;
-            lblUyeSayisi.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblUyeSayisi.Font = new Font("Bahnschrift", 72F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblUyeSayisi.ForeColor = Color.White;
-            lblUyeSayisi.Location = new Point(51, 95);
+            lblUyeSayisi.Location = new Point(71, 53);
             lblUyeSayisi.Name = "lblUyeSayisi";
-            lblUyeSayisi.Size = new Size(137, 19);
+            lblUyeSayisi.Size = new Size(99, 115);
             lblUyeSayisi.TabIndex = 3;
-            lblUyeSayisi.Text = "Güncel Üye Sayısı";
+            lblUyeSayisi.Text = "2";
             // 
             // label3
             // 
@@ -347,7 +347,7 @@
             // 
             // lblSaat
             // 
-            lblSaat.Anchor = AnchorStyles.Top;
+            lblSaat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             lblSaat.BackColor = Color.Transparent;
             lblSaat.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblSaat.ForeColor = Color.Black;

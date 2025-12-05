@@ -147,7 +147,7 @@ namespace SporSalonu.Desktop
 
                     // Label'a yazdırma işlemi
                     // Label ismin neyse 'lblUyeSayisi' yerine onu yazmalısın.
-                    lblUyeSayisi.Text = "Toplam Üye: " + uyeSayisi.ToString();
+                    lblUyeSayisi.Text = uyeSayisi.ToString();
                 }
                 catch (Exception ex)
                 {
