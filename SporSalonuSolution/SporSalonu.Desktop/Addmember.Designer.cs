@@ -241,7 +241,7 @@
             TimePicker.Font = new Font("Segoe UI", 9F);
             TimePicker.Format = DateTimePickerFormat.Long;
             TimePicker.Location = new Point(10, 422);
-            TimePicker.MaxDate = new DateTime(2009, 1, 1, 0, 0, 0, 0);
+            TimePicker.MaxDate = new DateTime(2026, 11, 24, 0, 0, 0, 0);
             TimePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             TimePicker.Name = "TimePicker";
             TimePicker.ShadowDecoration.CustomizableEdges = customizableEdges38;
