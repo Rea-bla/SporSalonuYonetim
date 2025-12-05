@@ -200,6 +200,7 @@
             guna2Button1.ForeColor = Color.FromArgb(64, 64, 64);
             guna2Button1.HoverState.FillColor = Color.FromArgb(255, 177, 15);
             guna2Button1.HoverState.ForeColor = Color.White;
+            guna2Button1.HoverState.Image = (Image)resources.GetObject("resource.Image4");
             guna2Button1.Image = (Image)resources.GetObject("guna2Button1.Image");
             guna2Button1.ImageAlign = HorizontalAlignment.Left;
             guna2Button1.ImageOffset = new Point(5, 0);
@@ -241,9 +242,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(3, 0);
+            pictureBox2.Location = new Point(3, 3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(57, 24);
+            pictureBox2.Size = new Size(37, 21);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
