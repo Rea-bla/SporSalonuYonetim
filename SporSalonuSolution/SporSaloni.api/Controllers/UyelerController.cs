@@ -54,9 +54,9 @@ namespace SporSalonu.API.Controllers
                     connection.Open();
 
                     string query = @"INSERT INTO Uyeler 
-                                    (TCNo, Ad, Soyad, Telefon, KanGrubu, Cinsiyet, Boy, Kilo, DogumTarihi, BitisTarihi, Odeme, SecilenUyelikID) 
+                                    (TCNo, Ad, Soyad, Telefon, KanGrubu, Cinsiyet, Boy, Kilo, DogumTarihi, BitisTarihi, Odeme, Sifre, SecilenUyelikID) 
                                     VALUES 
-                                    (@tc, @ad, @soyad, @tel, @kan, @cin, @boy, @kilo, @dt, @bitis, @odeme, @uyelikId)";
+                                    (@tc, @ad, @soyad, @tel, @kan, @cin, @boy, @kilo, @dt, @bitis, @odeme, @sifre, @uyelikId)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -70,6 +70,8 @@ namespace SporSalonu.API.Controllers
                         command.Parameters.AddWithValue("@odeme", uye.Odeme);
                         command.Parameters.AddWithValue("@kilo", uye.Kilo);
                         command.Parameters.AddWithValue("@dt", uye.DogumTarihi);
+                        command.Parameters.AddWithValue("@sifre", uye.Sifre);
+
 
                         if (uye.BitisTarihi.HasValue)
                             command.Parameters.AddWithValue("@bitis", uye.BitisTarihi.Value);

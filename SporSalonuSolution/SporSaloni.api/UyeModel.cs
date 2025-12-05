@@ -15,6 +15,7 @@ namespace SporSalonu.API
         public DateTime DogumTarihi { get; set; }
         public DateTime? BitisTarihi { get; set; } 
         public string Odeme { get; set; }
+        public string Sifre { get; set; }
         public int SecilenUyelikID { get; set; }  
     }
 }

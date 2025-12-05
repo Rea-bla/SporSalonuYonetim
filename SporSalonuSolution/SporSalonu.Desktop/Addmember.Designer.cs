@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
@@ -78,7 +78,7 @@
             label2 = new Label();
             panel2 = new Panel();
             label3 = new Label();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            Sifre = new Guna.UI2.WinForms.Guna2TextBox();
             label5 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -88,7 +88,7 @@
             // 
             Tc.BorderColor = Color.Transparent;
             Tc.BorderRadius = 20;
-            Tc.CustomizableEdges = customizableEdges1;
+            Tc.CustomizableEdges = customizableEdges25;
             Tc.DefaultText = "";
             Tc.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Tc.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -103,7 +103,7 @@
             Tc.PlaceholderForeColor = Color.Gray;
             Tc.PlaceholderText = "TC";
             Tc.SelectedText = "";
-            Tc.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            Tc.ShadowDecoration.CustomizableEdges = customizableEdges26;
             Tc.Size = new Size(200, 36);
             Tc.TabIndex = 1;
             // 
@@ -111,7 +111,7 @@
             // 
             Kilo.BorderColor = Color.Black;
             Kilo.BorderRadius = 20;
-            Kilo.CustomizableEdges = customizableEdges3;
+            Kilo.CustomizableEdges = customizableEdges27;
             Kilo.DefaultText = "";
             Kilo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Kilo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -121,16 +121,12 @@
             Kilo.Font = new Font("Segoe UI", 9F);
             Kilo.ForeColor = Color.Black;
             Kilo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-<<<<<<< HEAD
-            Kilo.Location = new Point(63, 433);
-=======
             Kilo.Location = new Point(6, 300);
->>>>>>> 2019069025aa24955260ab94139bc5dd4684405a
             Kilo.Name = "Kilo";
             Kilo.PlaceholderForeColor = Color.Gray;
             Kilo.PlaceholderText = "Kilo";
             Kilo.SelectedText = "";
-            Kilo.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            Kilo.ShadowDecoration.CustomizableEdges = customizableEdges28;
             Kilo.Size = new Size(200, 36);
             Kilo.TabIndex = 2;
             // 
@@ -138,7 +134,7 @@
             // 
             Boy.BorderColor = Color.Black;
             Boy.BorderRadius = 20;
-            Boy.CustomizableEdges = customizableEdges5;
+            Boy.CustomizableEdges = customizableEdges29;
             Boy.DefaultText = "";
             Boy.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Boy.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -148,16 +144,12 @@
             Boy.Font = new Font("Segoe UI", 9F);
             Boy.ForeColor = Color.Black;
             Boy.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-<<<<<<< HEAD
-            Boy.Location = new Point(63, 379);
-=======
             Boy.Location = new Point(6, 258);
->>>>>>> 2019069025aa24955260ab94139bc5dd4684405a
             Boy.Name = "Boy";
             Boy.PlaceholderForeColor = Color.Gray;
             Boy.PlaceholderText = "Boy";
             Boy.SelectedText = "";
-            Boy.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            Boy.ShadowDecoration.CustomizableEdges = customizableEdges30;
             Boy.Size = new Size(200, 36);
             Boy.TabIndex = 3;
             // 
@@ -165,7 +157,7 @@
             // 
             Telefon.BorderColor = Color.Black;
             Telefon.BorderRadius = 20;
-            Telefon.CustomizableEdges = customizableEdges7;
+            Telefon.CustomizableEdges = customizableEdges31;
             Telefon.DefaultText = "";
             Telefon.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Telefon.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -180,7 +172,7 @@
             Telefon.PlaceholderForeColor = Color.Gray;
             Telefon.PlaceholderText = "Telefon Numarası";
             Telefon.SelectedText = "";
-            Telefon.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            Telefon.ShadowDecoration.CustomizableEdges = customizableEdges32;
             Telefon.Size = new Size(200, 36);
             Telefon.TabIndex = 4;
             // 
@@ -188,7 +180,7 @@
             // 
             Soyad.BorderColor = Color.Black;
             Soyad.BorderRadius = 20;
-            Soyad.CustomizableEdges = customizableEdges9;
+            Soyad.CustomizableEdges = customizableEdges33;
             Soyad.DefaultText = "";
             Soyad.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Soyad.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -203,7 +195,7 @@
             Soyad.PlaceholderForeColor = Color.Gray;
             Soyad.PlaceholderText = "Soyad";
             Soyad.SelectedText = "";
-            Soyad.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            Soyad.ShadowDecoration.CustomizableEdges = customizableEdges34;
             Soyad.Size = new Size(200, 36);
             Soyad.TabIndex = 5;
             // 
@@ -211,7 +203,7 @@
             // 
             Ad.BorderColor = Color.Transparent;
             Ad.BorderRadius = 20;
-            Ad.CustomizableEdges = customizableEdges11;
+            Ad.CustomizableEdges = customizableEdges35;
             Ad.DefaultText = "";
             Ad.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Ad.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -226,7 +218,7 @@
             Ad.PlaceholderForeColor = Color.Gray;
             Ad.PlaceholderText = "Ad";
             Ad.SelectedText = "";
-            Ad.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            Ad.ShadowDecoration.CustomizableEdges = customizableEdges36;
             Ad.Size = new Size(200, 36);
             Ad.TabIndex = 6;
             // 
@@ -244,7 +236,7 @@
             TimePicker.BackColor = Color.Transparent;
             TimePicker.BorderRadius = 20;
             TimePicker.Checked = true;
-            TimePicker.CustomizableEdges = customizableEdges13;
+            TimePicker.CustomizableEdges = customizableEdges37;
             TimePicker.FillColor = Color.White;
             TimePicker.Font = new Font("Segoe UI", 9F);
             TimePicker.Format = DateTimePickerFormat.Long;
@@ -252,7 +244,7 @@
             TimePicker.MaxDate = new DateTime(2009, 1, 1, 0, 0, 0, 0);
             TimePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             TimePicker.Name = "TimePicker";
-            TimePicker.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            TimePicker.ShadowDecoration.CustomizableEdges = customizableEdges38;
             TimePicker.Size = new Size(200, 36);
             TimePicker.TabIndex = 11;
             TimePicker.Value = new DateTime(2009, 1, 1, 0, 0, 0, 0);
@@ -260,7 +252,7 @@
             // Ay6
             // 
             Ay6.BorderRadius = 20;
-            Ay6.CustomizableEdges = customizableEdges15;
+            Ay6.CustomizableEdges = customizableEdges39;
             Ay6.DisabledState.BorderColor = Color.DarkGray;
             Ay6.DisabledState.CustomBorderColor = Color.DarkGray;
             Ay6.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -269,7 +261,7 @@
             Ay6.ForeColor = Color.Black;
             Ay6.Location = new Point(3, 119);
             Ay6.Name = "Ay6";
-            Ay6.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            Ay6.ShadowDecoration.CustomizableEdges = customizableEdges40;
             Ay6.Size = new Size(180, 45);
             Ay6.TabIndex = 13;
             Ay6.Text = "6 Aylık";
@@ -279,7 +271,7 @@
             // Yillik
             // 
             Yillik.BorderRadius = 20;
-            Yillik.CustomizableEdges = customizableEdges17;
+            Yillik.CustomizableEdges = customizableEdges41;
             Yillik.DisabledState.BorderColor = Color.DarkGray;
             Yillik.DisabledState.CustomBorderColor = Color.DarkGray;
             Yillik.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -288,7 +280,7 @@
             Yillik.ForeColor = Color.Black;
             Yillik.Location = new Point(3, 170);
             Yillik.Name = "Yillik";
-            Yillik.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            Yillik.ShadowDecoration.CustomizableEdges = customizableEdges42;
             Yillik.Size = new Size(180, 45);
             Yillik.TabIndex = 14;
             Yillik.Text = "YIllık ";
@@ -297,7 +289,7 @@
             // Kaydet
             // 
             Kaydet.BorderRadius = 20;
-            Kaydet.CustomizableEdges = customizableEdges19;
+            Kaydet.CustomizableEdges = customizableEdges43;
             Kaydet.DisabledState.BorderColor = Color.DarkGray;
             Kaydet.DisabledState.CustomBorderColor = Color.DarkGray;
             Kaydet.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -307,7 +299,7 @@
             Kaydet.ForeColor = Color.Black;
             Kaydet.Location = new Point(556, 490);
             Kaydet.Name = "Kaydet";
-            Kaydet.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            Kaydet.ShadowDecoration.CustomizableEdges = customizableEdges44;
             Kaydet.Size = new Size(231, 76);
             Kaydet.TabIndex = 15;
             Kaydet.Text = "Kaydet";
@@ -338,7 +330,7 @@
             // Ay3
             // 
             Ay3.BorderRadius = 20;
-            Ay3.CustomizableEdges = customizableEdges21;
+            Ay3.CustomizableEdges = customizableEdges45;
             Ay3.DisabledState.BorderColor = Color.DarkGray;
             Ay3.DisabledState.CustomBorderColor = Color.DarkGray;
             Ay3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -347,7 +339,7 @@
             Ay3.ForeColor = Color.Black;
             Ay3.Location = new Point(3, 68);
             Ay3.Name = "Ay3";
-            Ay3.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            Ay3.ShadowDecoration.CustomizableEdges = customizableEdges46;
             Ay3.Size = new Size(180, 45);
             Ay3.TabIndex = 20;
             Ay3.Text = "3 Aylık";
@@ -443,28 +435,29 @@
             label3.TabIndex = 26;
             label3.Text = "Üyelik Süresi";
             // 
-            // guna2TextBox1
+            // Sifre
             // 
-            guna2TextBox1.BorderColor = Color.Transparent;
-            guna2TextBox1.BorderRadius = 20;
-            guna2TextBox1.CustomizableEdges = customizableEdges23;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
-            guna2TextBox1.ForeColor = Color.Black;
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(822, 211);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PlaceholderForeColor = Color.Gray;
-            guna2TextBox1.PlaceholderText = "Üyelik Şifresi";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2TextBox1.Size = new Size(200, 36);
-            guna2TextBox1.TabIndex = 26;
+            Sifre.BorderColor = Color.Transparent;
+            Sifre.BorderRadius = 20;
+            Sifre.CustomizableEdges = customizableEdges47;
+            Sifre.DefaultText = "";
+            Sifre.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            Sifre.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            Sifre.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            Sifre.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            Sifre.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            Sifre.Font = new Font("Segoe UI", 9F);
+            Sifre.ForeColor = Color.Black;
+            Sifre.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            Sifre.Location = new Point(822, 211);
+            Sifre.Name = "Sifre";
+            Sifre.PlaceholderForeColor = Color.Gray;
+            Sifre.PlaceholderText = "Üyelik Şifresi";
+            Sifre.SelectedText = "";
+            Sifre.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            Sifre.Size = new Size(200, 36);
+            Sifre.TabIndex = 26;
+            Sifre.TextChanged += guna2TextBox1_TextChanged;
             // 
             // label5
             // 
@@ -483,7 +476,7 @@
             BackColor = SystemColors.Control;
             ClientSize = new Size(1205, 578);
             Controls.Add(label5);
-            Controls.Add(guna2TextBox1);
+            Controls.Add(Sifre);
             Controls.Add(panel2);
             Controls.Add(Odeme);
             Controls.Add(label1);
@@ -536,7 +529,7 @@
         private Panel panel2;
         private Label label3;
         private Label label4;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox Sifre;
         private Label label5;
     }
 }
