@@ -55,10 +55,15 @@ BEGIN
     CREATE TABLE Yoneticiler (
         YoneticiID int primary key identity(1,1),
         KullaniciAdi nvarchar(50) not null unique,
-        Sifre nvarchar(50) not null
+        Sifre nvarchar(50) not null,
+        AdSoyad nvarchar(50)
     );
-    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('MuhammeT', '4488137');
-    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Baykus', 'kedietiyedi');
-    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Babuska', '313131');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre, AdSoyad) VALUES ('MuhammeT', '4488137','Muhammed AKYILDIZ');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre, AdSoyad) VALUES ('Baykus', 'kedietiyedi','Furkan GULTEKIN');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre, AdSoyad) VALUES ('Babuska', '313131','Yusuf BOZKURT');
 end
 go
+
+
+
+
