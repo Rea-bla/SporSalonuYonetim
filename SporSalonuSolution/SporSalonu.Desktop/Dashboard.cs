@@ -44,7 +44,12 @@ namespace SporSalonu.Desktop
 
             lblTarih.Text = simdi.ToString("dd MMMM yyyy dddd");
 
-            lblIsim.Text = UserSession.AdSoyad;
+            if(UserSession.AdSoyad=="baykus")
+                         lblIsim.Text = "Furkan Gültekin";
+            if (UserSession.AdSoyad=="MuhammeT")
+                         lblIsim.Text = "Muhammed Akyıldız";
+            if (UserSession.AdSoyad=="Babuska")
+                         lblIsim.Text= "Yusuf Bozkurt";
 
             // HAFIZADAKİ RESMİ KUTUYA KOY
             if (UserSession.ProfilResmi != null)
