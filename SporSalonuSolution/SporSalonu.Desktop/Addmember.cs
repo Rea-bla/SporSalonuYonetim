@@ -124,7 +124,7 @@ namespace SporSalonu.Desktop
                     UyelikTip.SelectedIndex = 0; // Standart seçili kalsın
 
                     // Tarihleri Sıfırla
-                    TimePicker.Value = DateTime.Now;
+                    TimePicker.Value = DateTime.MaxValue;
                     _secilenBitisTarihi = null; // Hafızadaki tarihi de unut
                     UyeLabel.Text = "Tarih Seçilmedi";
                     UyeLabel.ForeColor = System.Drawing.Color.Black;
