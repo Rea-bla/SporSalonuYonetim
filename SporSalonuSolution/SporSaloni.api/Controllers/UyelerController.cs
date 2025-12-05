@@ -133,6 +133,46 @@ namespace SporSalonu.API.Controllers
                 return StatusCode(500, new { success = false, mesaj = "Hata: " + ex.Message });
             }
         }
+        [HttpPut("odeme-yap/{tcNo}")] // Çağırırken: api/uyeler/odeme-yap/11111111111
+        public IActionResult OdemeGuncelle(string tcNo)
+        {
+            if (string.IsNullOrEmpty(tcNo) || tcNo.Length != 11)
+            {
+                return BadRequest(new { success = false, mesaj = "Geçersiz TC Kimlik Numarası." });
+            }
 
+            string connectionString = _configuration.GetConnectionString("DefaultConnection");
+
+       
+            string query = "UPDATE Uyeler SET Odeme = 'Ödendi' WHERE TCNo = @tcNo";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@tcNo", tcNo);
+
+                        int etkilenenSatir = command.ExecuteNonQuery();
+
+                        if (etkilenenSatir > 0)
+                        { 
+                            return Ok(new { success = true, mesaj = "Ödeme durumu 'Ödendi' olarak güncellendi." });
+                        }
+                        else
+                        {
+                            return NotFound(new { success = false, mesaj = "Bu TC ile kayıtlı üye bulunamadı." });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, mesaj = "Güncelleme hatası: " + ex.Message });
+            }
+        }
+       
     } 
 } 

@@ -18,4 +18,5 @@ namespace SporSalonu.API
         public string Sifre { get; set; }
         public int SecilenUyelikID { get; set; }  
     }
+  
 }
