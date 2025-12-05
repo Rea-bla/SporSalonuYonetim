@@ -121,11 +121,7 @@
             Kilo.Font = new Font("Segoe UI", 9F);
             Kilo.ForeColor = Color.Black;
             Kilo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-<<<<<<< HEAD
-            Kilo.Location = new Point(63, 433);
-=======
             Kilo.Location = new Point(6, 300);
->>>>>>> 2019069025aa24955260ab94139bc5dd4684405a
             Kilo.Name = "Kilo";
             Kilo.PlaceholderForeColor = Color.Gray;
             Kilo.PlaceholderText = "Kilo";
@@ -148,11 +144,7 @@
             Boy.Font = new Font("Segoe UI", 9F);
             Boy.ForeColor = Color.Black;
             Boy.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-<<<<<<< HEAD
-            Boy.Location = new Point(63, 379);
-=======
             Boy.Location = new Point(6, 258);
->>>>>>> 2019069025aa24955260ab94139bc5dd4684405a
             Boy.Name = "Boy";
             Boy.PlaceholderForeColor = Color.Gray;
             Boy.PlaceholderText = "Boy";
@@ -249,7 +241,7 @@
             TimePicker.Font = new Font("Segoe UI", 9F);
             TimePicker.Format = DateTimePickerFormat.Long;
             TimePicker.Location = new Point(10, 422);
-            TimePicker.MaxDate = new DateTime(2009, 1, 1, 0, 0, 0, 0);
+            TimePicker.MaxDate = new DateTime(2026, 11, 24, 0, 0, 0, 0);
             TimePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             TimePicker.Name = "TimePicker";
             TimePicker.ShadowDecoration.CustomizableEdges = customizableEdges14;

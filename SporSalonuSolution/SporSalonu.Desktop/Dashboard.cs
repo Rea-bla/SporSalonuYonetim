@@ -69,7 +69,7 @@ namespace SporSalonu.Desktop
                     // 2. İsteğine uygun SQL Sorgusu
                     // NOT: Eğer sadece ödemesi 'NULL' olanları (ödemeyenleri) getirmek istersen:
                     // "SELECT Ad, Soyad, Telefon, Odeme FROM Uyeler WHERE Odeme IS NULL" yazmalısın.
-                    string sorgu = "SELECT Ad, Soyad, Telefon, Odeme FROM Uyeler";
+                    string sorgu = "SELECT Ad, Soyad, Telefon, 'Ödenmedi' AS Odeme FROM Uyeler WHERE Odeme IS NULL OR Odeme = 'Ödenmedi'";
 
                     SqlDataAdapter da = new SqlDataAdapter(sorgu, baglanti);
                     DataTable dt = new DataTable();
@@ -92,7 +92,6 @@ namespace SporSalonu.Desktop
                 }
             }
         }
-
         private void UyelikPaketleriniGetir()
         {
             // Bağlantı cümlen (Diğeriyle aynı)
