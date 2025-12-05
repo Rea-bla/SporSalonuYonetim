@@ -42,10 +42,12 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             lblIsim = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
@@ -60,6 +62,10 @@
             label1 = new Label();
             guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            label6 = new Label();
+            label4 = new Label();
+            btnSil = new Guna.UI2.WinForms.Guna2Button();
+            maskedTextBoxTC = new MaskedTextBox();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             label5 = new Label();
@@ -71,6 +77,7 @@
             guna2Panel2.SuspendLayout();
             guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).BeginInit();
+            guna2Panel4.SuspendLayout();
             SuspendLayout();
             // 
             // guna2CirclePictureBox1
@@ -314,13 +321,71 @@
             // 
             guna2Panel4.BackColor = Color.Transparent;
             guna2Panel4.BorderRadius = 20;
-            guna2Panel4.CustomizableEdges = customizableEdges8;
+            guna2Panel4.Controls.Add(label6);
+            guna2Panel4.Controls.Add(label4);
+            guna2Panel4.Controls.Add(btnSil);
+            guna2Panel4.Controls.Add(maskedTextBoxTC);
+            guna2Panel4.CustomizableEdges = customizableEdges10;
             guna2Panel4.FillColor = Color.Black;
             guna2Panel4.Location = new Point(766, 111);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges11;
             guna2Panel4.Size = new Size(353, 208);
             guna2Panel4.TabIndex = 5;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(135, 16);
+            label6.Name = "label6";
+            label6.Size = new Size(82, 19);
+            label6.TabIndex = 10;
+            label6.Text = "Üye Silme";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(48, 94);
+            label4.Name = "label4";
+            label4.Size = new Size(35, 19);
+            label4.TabIndex = 9;
+            label4.Text = "TC :";
+            // 
+            // btnSil
+            // 
+            btnSil.BorderRadius = 20;
+            btnSil.CustomizableEdges = customizableEdges8;
+            btnSil.DisabledState.BorderColor = Color.DarkGray;
+            btnSil.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnSil.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnSil.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnSil.FillColor = Color.Red;
+            btnSil.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnSil.ForeColor = Color.Black;
+            btnSil.Location = new Point(89, 136);
+            btnSil.Name = "btnSil";
+            btnSil.PressedColor = Color.FromArgb(255, 128, 128);
+            btnSil.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            btnSil.Size = new Size(180, 45);
+            btnSil.TabIndex = 8;
+            btnSil.Text = "Üyeyi Sil";
+            btnSil.Click += btnSil_Click_1;
+            // 
+            // maskedTextBoxTC
+            // 
+            maskedTextBoxTC.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            maskedTextBoxTC.Location = new Point(89, 91);
+            maskedTextBoxTC.Mask = "00000000000";
+            maskedTextBoxTC.Name = "maskedTextBoxTC";
+            maskedTextBoxTC.PromptChar = ' ';
+            maskedTextBoxTC.Size = new Size(180, 27);
+            maskedTextBoxTC.TabIndex = 7;
+            maskedTextBoxTC.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            maskedTextBoxTC.ValidatingType = typeof(int);
             // 
             // label5
             // 
@@ -337,11 +402,11 @@
             // 
             guna2Panel5.BackColor = Color.Transparent;
             guna2Panel5.BorderRadius = 20;
-            guna2Panel5.CustomizableEdges = customizableEdges10;
+            guna2Panel5.CustomizableEdges = customizableEdges12;
             guna2Panel5.FillColor = Color.Black;
             guna2Panel5.Location = new Point(355, 111);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges13;
             guna2Panel5.Size = new Size(395, 208);
             guna2Panel5.TabIndex = 8;
             // 
@@ -387,6 +452,8 @@
             guna2Panel3.ResumeLayout(false);
             guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).EndInit();
+            guna2Panel4.ResumeLayout(false);
+            guna2Panel4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -412,5 +479,9 @@
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
         private Label lblUyeSayisi;
         private Label label3;
+        private Label label6;
+        private Label label4;
+        private Guna.UI2.WinForms.Guna2Button btnSil;
+        private MaskedTextBox maskedTextBoxTC;
     }
 }

@@ -54,7 +54,6 @@ namespace SporSalonu.Desktop
             }
 
         }
-
         private void OdemeBilgileriniGetir()
         {
             // 1. Veritabanı bağlantı cümlen (Kendi sunucu bilgine göre düzenle)
@@ -154,10 +153,69 @@ namespace SporSalonu.Desktop
                 }
             }
         }
-
-        private void progressBar1_Click(object sender, EventArgs e)
+        private void btnSil_Click_1(object sender, EventArgs e)
         {
+            // 1. MaskedTextBox'tan veriyi alırken boşlukları temizle
+            string girilenTC = maskedTextBoxTC.Text.Trim();
 
+            // TC girilmemişse işlem yapma (Maske hariç uzunluk kontrolü)
+            if (string.IsNullOrEmpty(girilenTC) || girilenTC.Length < 11)
+            {
+                MessageBox.Show("Lütfen silinecek üyenin 11 haneli TC numarasını giriniz.", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Kullanıcıdan onay al
+            DialogResult cevap = MessageBox.Show(girilenTC + " TC numaralı üyeyi silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (cevap == DialogResult.Yes)
+            {
+                // Bağlantı cümlen
+                string connectionString = "Data Source=127.0.0.1,1435;Initial Catalog=SporSalonuDB;User ID=sa;Password=Admin123!;TrustServerCertificate=True;";
+
+                using (SqlConnection baglanti = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        baglanti.Open();
+
+                        // 3. SİLME SORGUSU
+                        // Tablo görselindeki sütun adı: TCNo
+                        // Bu sütunu kullanıyoruz.
+                        string silmeSorgusu = "DELETE FROM Uyeler WHERE TCNo = @tc";
+
+                        SqlCommand komut = new SqlCommand(silmeSorgusu, baglanti);
+
+                        // Parametre güvenliği (SQL Injection önler)
+                        komut.Parameters.AddWithValue("@tc", girilenTC);
+
+                        // Komutu çalıştır ve etkilenen kayıt sayısını al
+                        int silinenSayisi = komut.ExecuteNonQuery();
+
+                        if (silinenSayisi > 0)
+                        {
+                            MessageBox.Show("Üye başarıyla silindi.", "İşlem Tamam", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Kutu içini temizle
+                            maskedTextBoxTC.Clear();
+
+                            // LİSTELERİ YENİLE
+                            // Silme işleminden sonra tabloların güncel halini tekrar çekiyoruz.
+                            // (Bu metodlar daha önce yazdığımız listeleme metodlarıdır)
+                            OdemeBilgileriniGetir();
+                            ToplamUyeSayisiniYazdir();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bu TC numarasına ait bir kayıt bulunamadı. Lütfen numarayı kontrol edin.", "Bulunamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Silme işlemi sırasında hata oluştu: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }

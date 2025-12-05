@@ -23,7 +23,7 @@ namespace SporSalonu.Desktop
             UyeListesiGetir();
 
         }
-
+       
         void UyeListesiGetir()
         {
             // 1. Bağlantı Adresi 
