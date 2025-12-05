@@ -45,6 +45,7 @@ begin
         DogumTarihi datetime, --Yýl olarak alýnacaktýr:D
         Odeme       nvarchar(10),
         SecilenUyelikID int, 
+        Sifre nvarchar(18),
         foreign key (SecilenUyelikID) references UyelikTipleri(UyelikTipiID)
     );
 end
@@ -67,3 +68,7 @@ go
 
 
 
+
+use SporSalonuDB
+alter table Uyeler
+add Sifre nvarchar(50)

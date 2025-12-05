@@ -103,7 +103,7 @@
             Kilo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Kilo.Font = new Font("Segoe UI", 9F);
             Kilo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Kilo.Location = new Point(63, 462);
+            Kilo.Location = new Point(63, 433);
             Kilo.Name = "Kilo";
             Kilo.PlaceholderText = "";
             Kilo.SelectedText = "";
@@ -122,7 +122,7 @@
             Boy.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Boy.Font = new Font("Segoe UI", 9F);
             Boy.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Boy.Location = new Point(63, 391);
+            Boy.Location = new Point(63, 379);
             Boy.Name = "Boy";
             Boy.PlaceholderText = "";
             Boy.SelectedText = "";

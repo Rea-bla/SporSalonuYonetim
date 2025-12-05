@@ -44,8 +44,6 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -66,8 +64,6 @@
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             label5 = new Label();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            panel1 = new Panel();
-            guna2ProgressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
             lblSaat = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
             guna2Panel1.SuspendLayout();
@@ -75,7 +71,6 @@
             guna2Panel2.SuspendLayout();
             guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).BeginInit();
-            guna2Panel5.SuspendLayout();
             SuspendLayout();
             // 
             // guna2CirclePictureBox1
@@ -342,36 +337,13 @@
             // 
             guna2Panel5.BackColor = Color.Transparent;
             guna2Panel5.BorderRadius = 20;
-            guna2Panel5.Controls.Add(panel1);
-            guna2Panel5.Controls.Add(guna2ProgressBar1);
-            guna2Panel5.CustomizableEdges = customizableEdges12;
+            guna2Panel5.CustomizableEdges = customizableEdges10;
             guna2Panel5.FillColor = Color.Black;
             guna2Panel5.Location = new Point(355, 111);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges11;
             guna2Panel5.Size = new Size(395, 208);
             guna2Panel5.TabIndex = 8;
-            // 
-            // panel1
-            // 
-            panel1.Location = new Point(180, 133);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(38, 56);
-            panel1.TabIndex = 1;
-            // 
-            // guna2ProgressBar1
-            // 
-            guna2ProgressBar1.CustomizableEdges = customizableEdges10;
-            guna2ProgressBar1.Location = new Point(46, 146);
-            guna2ProgressBar1.Name = "guna2ProgressBar1";
-            guna2ProgressBar1.ProgressColor = Color.FromArgb(0, 0, 192);
-            guna2ProgressBar1.ProgressColor2 = Color.Fuchsia;
-            guna2ProgressBar1.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            guna2ProgressBar1.Size = new Size(300, 30);
-            guna2ProgressBar1.TabIndex = 0;
-            guna2ProgressBar1.Text = "guna2ProgressBar1";
-            guna2ProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            guna2ProgressBar1.Value = 100;
             // 
             // lblSaat
             // 
@@ -415,7 +387,6 @@
             guna2Panel3.ResumeLayout(false);
             guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).EndInit();
-            guna2Panel5.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -441,7 +412,5 @@
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
         private Label lblUyeSayisi;
         private Label label3;
-        private Panel panel1;
-        private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;
     }
 }

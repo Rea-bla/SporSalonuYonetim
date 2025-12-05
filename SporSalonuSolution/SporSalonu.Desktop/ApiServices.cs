@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SporSalonu.Desktop
 {
-    public class ApiServisi
+    public class ApiServices
     {
        
         private readonly string _apiAdresi = "http://localhost:5096";

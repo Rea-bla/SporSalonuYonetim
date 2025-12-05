@@ -75,7 +75,7 @@ namespace SporSalonu.Desktop
 
             try
             {
-                ApiServisi servis = new ApiServisi();
+                ApiServices servis = new ApiServices();
 
                 // 2. SAYISAL VERİLERİ ÇEVİR (Boşsa 0 yap)
                 int boyDeger = string.IsNullOrEmpty(Boy.Text) ? 0 : Convert.ToInt32(Boy.Text);
