@@ -43,8 +43,9 @@ begin
         KayitTarihi datetime default getdate(), 
         BitisTarihi datetime,
         DogumTarihi datetime, --Yýl olarak alýnacaktýr:D
-        
+        Odeme       nvarchar(10),
         SecilenUyelikID int, 
+        Sifre nvarchar(18),
         foreign key (SecilenUyelikID) references UyelikTipleri(UyelikTipiID)
     );
 end
@@ -56,14 +57,29 @@ BEGIN
         YoneticiID int primary key identity(1,1),
         KullaniciAdi nvarchar(50) not null unique,
         Sifre nvarchar(50) not null,
+<<<<<<< HEAD
         AdSoyad nvarchar(50)
     );
     INSERT INTO Yoneticiler (KullaniciAdi, Sifre, AdSoyad) VALUES ('MuhammeT', '4488137','Muhammed AKYILDIZ');
     INSERT INTO Yoneticiler (KullaniciAdi, Sifre, AdSoyad) VALUES ('Baykus', 'kedietiyedi','Furkan GULTEKIN');
     INSERT INTO Yoneticiler (KullaniciAdi, Sifre, AdSoyad) VALUES ('Babuska', '313131','Yusuf BOZKURT');
+=======
+        AdSoyad nvarchar(50) not null,
+
+    );
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('MuhammeT', '4488137','Muhammed AKYILDIZ');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Baykus', 'kedietiyedi','Furkan GULTEKIN');
+    INSERT INTO Yoneticiler (KullaniciAdi, Sifre) VALUES ('Babuska', 'A123456!','Yusuf BOZKURT');
+>>>>>>> 59e2ec87439799dd82161746acc740bc600a01e6
 end
 go
 
 
 
 
+<<<<<<< HEAD
+=======
+use SporSalonuDB
+alter table Uyeler
+add Sifre nvarchar(50)
+>>>>>>> 59e2ec87439799dd82161746acc740bc600a01e6

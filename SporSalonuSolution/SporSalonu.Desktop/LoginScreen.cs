@@ -38,7 +38,7 @@ namespace SporSalonu.Desktop
 
             try
             {
-                ApiServisi servis = new ApiServisi();
+                ApiServices servis = new ApiServices();
 
 
                 bool girisBasarili = await servis.GirisYap(guna2TextBox1.Text.Trim(), guna2TextBox2.Text.Trim());

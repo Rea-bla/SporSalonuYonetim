@@ -29,28 +29,30 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
@@ -70,244 +72,289 @@
             Ay3 = new Guna.UI2.WinForms.Guna2Button();
             comboBox1 = new ComboBox();
             label1 = new Label();
+            Odeme = new ComboBox();
+            panel1 = new Panel();
+            label4 = new Label();
+            label2 = new Label();
+            panel2 = new Panel();
+            label3 = new Label();
+            Sifre = new Guna.UI2.WinForms.Guna2TextBox();
+            label5 = new Label();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // Tc
             // 
-            Tc.CustomizableEdges = customizableEdges1;
-            Tc.DefaultText = "Tc";
+            Tc.BorderColor = Color.Transparent;
+            Tc.BorderRadius = 20;
+            Tc.CustomizableEdges = customizableEdges25;
+            Tc.DefaultText = "";
             Tc.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Tc.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             Tc.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             Tc.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             Tc.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Tc.Font = new Font("Segoe UI", 9F);
+            Tc.ForeColor = Color.Black;
             Tc.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Tc.Location = new Point(63, 126);
+            Tc.Location = new Point(6, 90);
             Tc.Name = "Tc";
-            Tc.PlaceholderText = "";
+            Tc.PlaceholderForeColor = Color.Gray;
+            Tc.PlaceholderText = "TC";
             Tc.SelectedText = "";
-            Tc.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            Tc.ShadowDecoration.CustomizableEdges = customizableEdges26;
             Tc.Size = new Size(200, 36);
             Tc.TabIndex = 1;
             // 
             // Kilo
             // 
-            Kilo.CustomizableEdges = customizableEdges3;
-            Kilo.DefaultText = "Kilo";
+            Kilo.BorderColor = Color.Black;
+            Kilo.BorderRadius = 20;
+            Kilo.CustomizableEdges = customizableEdges27;
+            Kilo.DefaultText = "";
             Kilo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Kilo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             Kilo.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             Kilo.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             Kilo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Kilo.Font = new Font("Segoe UI", 9F);
+            Kilo.ForeColor = Color.Black;
             Kilo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Kilo.Location = new Point(63, 462);
+            Kilo.Location = new Point(6, 300);
             Kilo.Name = "Kilo";
-            Kilo.PlaceholderText = "";
+            Kilo.PlaceholderForeColor = Color.Gray;
+            Kilo.PlaceholderText = "Kilo";
             Kilo.SelectedText = "";
-            Kilo.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            Kilo.ShadowDecoration.CustomizableEdges = customizableEdges28;
             Kilo.Size = new Size(200, 36);
             Kilo.TabIndex = 2;
             // 
             // Boy
             // 
-            Boy.CustomizableEdges = customizableEdges5;
-            Boy.DefaultText = "Boy";
+            Boy.BorderColor = Color.Black;
+            Boy.BorderRadius = 20;
+            Boy.CustomizableEdges = customizableEdges29;
+            Boy.DefaultText = "";
             Boy.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Boy.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             Boy.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             Boy.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             Boy.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Boy.Font = new Font("Segoe UI", 9F);
+            Boy.ForeColor = Color.Black;
             Boy.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Boy.Location = new Point(63, 391);
+            Boy.Location = new Point(6, 258);
             Boy.Name = "Boy";
-            Boy.PlaceholderText = "";
+            Boy.PlaceholderForeColor = Color.Gray;
+            Boy.PlaceholderText = "Boy";
             Boy.SelectedText = "";
-            Boy.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            Boy.ShadowDecoration.CustomizableEdges = customizableEdges30;
             Boy.Size = new Size(200, 36);
             Boy.TabIndex = 3;
             // 
             // Telefon
             // 
-            Telefon.CustomizableEdges = customizableEdges7;
-            Telefon.DefaultText = "Telefon";
+            Telefon.BorderColor = Color.Black;
+            Telefon.BorderRadius = 20;
+            Telefon.CustomizableEdges = customizableEdges31;
+            Telefon.DefaultText = "";
             Telefon.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Telefon.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             Telefon.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             Telefon.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             Telefon.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Telefon.Font = new Font("Segoe UI", 9F);
+            Telefon.ForeColor = Color.Black;
             Telefon.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Telefon.Location = new Point(63, 328);
+            Telefon.Location = new Point(6, 216);
             Telefon.Name = "Telefon";
-            Telefon.PlaceholderText = "";
+            Telefon.PlaceholderForeColor = Color.Gray;
+            Telefon.PlaceholderText = "Telefon Numarası";
             Telefon.SelectedText = "";
-            Telefon.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            Telefon.ShadowDecoration.CustomizableEdges = customizableEdges32;
             Telefon.Size = new Size(200, 36);
             Telefon.TabIndex = 4;
             // 
             // Soyad
             // 
-            Soyad.CustomizableEdges = customizableEdges9;
-            Soyad.DefaultText = "Soyad";
+            Soyad.BorderColor = Color.Black;
+            Soyad.BorderRadius = 20;
+            Soyad.CustomizableEdges = customizableEdges33;
+            Soyad.DefaultText = "";
             Soyad.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Soyad.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             Soyad.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             Soyad.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             Soyad.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Soyad.Font = new Font("Segoe UI", 9F);
+            Soyad.ForeColor = Color.Black;
             Soyad.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Soyad.Location = new Point(63, 259);
+            Soyad.Location = new Point(6, 174);
             Soyad.Name = "Soyad";
-            Soyad.PlaceholderText = "";
+            Soyad.PlaceholderForeColor = Color.Gray;
+            Soyad.PlaceholderText = "Soyad";
             Soyad.SelectedText = "";
-            Soyad.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            Soyad.ShadowDecoration.CustomizableEdges = customizableEdges34;
             Soyad.Size = new Size(200, 36);
             Soyad.TabIndex = 5;
             // 
             // Ad
             // 
-            Ad.CustomizableEdges = customizableEdges11;
-            Ad.DefaultText = "Ad";
+            Ad.BorderColor = Color.Transparent;
+            Ad.BorderRadius = 20;
+            Ad.CustomizableEdges = customizableEdges35;
+            Ad.DefaultText = "";
             Ad.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Ad.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             Ad.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             Ad.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             Ad.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Ad.Font = new Font("Segoe UI", 9F);
+            Ad.ForeColor = Color.Black;
             Ad.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Ad.Location = new Point(63, 191);
+            Ad.Location = new Point(6, 132);
             Ad.Name = "Ad";
-            Ad.PlaceholderText = "";
+            Ad.PlaceholderForeColor = Color.Gray;
+            Ad.PlaceholderText = "Ad";
             Ad.SelectedText = "";
-            Ad.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            Ad.ShadowDecoration.CustomizableEdges = customizableEdges36;
             Ad.Size = new Size(200, 36);
             Ad.TabIndex = 6;
             // 
             // UyeLabel
             // 
             UyeLabel.AutoSize = true;
-            UyeLabel.Location = new Point(294, 156);
+            UyeLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            UyeLabel.Location = new Point(550, 450);
             UyeLabel.Name = "UyeLabel";
-            UyeLabel.Size = new Size(49, 15);
+            UyeLabel.Size = new Size(0, 19);
             UyeLabel.TabIndex = 7;
-            UyeLabel.Text = "UyLabel";
             // 
             // TimePicker
             // 
+            TimePicker.BackColor = Color.Transparent;
+            TimePicker.BorderRadius = 20;
             TimePicker.Checked = true;
-            TimePicker.CustomizableEdges = customizableEdges13;
+            TimePicker.CustomizableEdges = customizableEdges37;
+            TimePicker.FillColor = Color.White;
             TimePicker.Font = new Font("Segoe UI", 9F);
             TimePicker.Format = DateTimePickerFormat.Long;
-            TimePicker.Location = new Point(272, 70);
-            TimePicker.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            TimePicker.Location = new Point(10, 422);
+            TimePicker.MaxDate = new DateTime(2026, 11, 24, 0, 0, 0, 0);
             TimePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             TimePicker.Name = "TimePicker";
-            TimePicker.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            TimePicker.ShadowDecoration.CustomizableEdges = customizableEdges38;
             TimePicker.Size = new Size(200, 36);
             TimePicker.TabIndex = 11;
-            TimePicker.Value = new DateTime(2025, 11, 30, 13, 48, 56, 372);
+            TimePicker.Value = new DateTime(2009, 1, 1, 0, 0, 0, 0);
             // 
             // Ay6
             // 
-            Ay6.CustomizableEdges = customizableEdges15;
+            Ay6.BorderRadius = 20;
+            Ay6.CustomizableEdges = customizableEdges39;
             Ay6.DisabledState.BorderColor = Color.DarkGray;
             Ay6.DisabledState.CustomBorderColor = Color.DarkGray;
             Ay6.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             Ay6.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            Ay6.Font = new Font("Segoe UI", 9F);
-            Ay6.ForeColor = Color.White;
-            Ay6.Location = new Point(591, 179);
+            Ay6.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            Ay6.ForeColor = Color.Black;
+            Ay6.Location = new Point(3, 119);
             Ay6.Name = "Ay6";
-            Ay6.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            Ay6.ShadowDecoration.CustomizableEdges = customizableEdges40;
             Ay6.Size = new Size(180, 45);
             Ay6.TabIndex = 13;
-            Ay6.Text = "Ay6";
+            Ay6.Text = "6 Aylık";
             Ay6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixelGridFit;
             Ay6.Click += Ay6_Click;
             // 
             // Yillik
             // 
-            Yillik.CustomizableEdges = customizableEdges17;
+            Yillik.BorderRadius = 20;
+            Yillik.CustomizableEdges = customizableEdges41;
             Yillik.DisabledState.BorderColor = Color.DarkGray;
             Yillik.DisabledState.CustomBorderColor = Color.DarkGray;
             Yillik.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             Yillik.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            Yillik.Font = new Font("Segoe UI", 9F);
-            Yillik.ForeColor = Color.White;
-            Yillik.Location = new Point(591, 230);
+            Yillik.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            Yillik.ForeColor = Color.Black;
+            Yillik.Location = new Point(3, 170);
             Yillik.Name = "Yillik";
-            Yillik.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            Yillik.ShadowDecoration.CustomizableEdges = customizableEdges42;
             Yillik.Size = new Size(180, 45);
             Yillik.TabIndex = 14;
-            Yillik.Text = "Yillik";
+            Yillik.Text = "YIllık ";
             Yillik.Click += Yillik_Click;
             // 
             // Kaydet
             // 
-            Kaydet.CustomizableEdges = customizableEdges19;
+            Kaydet.BorderRadius = 20;
+            Kaydet.CustomizableEdges = customizableEdges43;
             Kaydet.DisabledState.BorderColor = Color.DarkGray;
             Kaydet.DisabledState.CustomBorderColor = Color.DarkGray;
             Kaydet.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             Kaydet.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            Kaydet.Font = new Font("Segoe UI", 9F);
-            Kaydet.ForeColor = Color.White;
-            Kaydet.Location = new Point(591, 296);
+            Kaydet.FillColor = Color.FromArgb(255, 177, 15);
+            Kaydet.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            Kaydet.ForeColor = Color.Black;
+            Kaydet.Location = new Point(556, 490);
             Kaydet.Name = "Kaydet";
-            Kaydet.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            Kaydet.Size = new Size(180, 45);
+            Kaydet.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            Kaydet.Size = new Size(231, 76);
             Kaydet.TabIndex = 15;
             Kaydet.Text = "Kaydet";
             Kaydet.Click += Kaydet_Click;
             // 
             // UyelikTip
             // 
+            UyelikTip.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             UyelikTip.FormattingEnabled = true;
             UyelikTip.Items.AddRange(new object[] { "Standart", "Gümüş", "Altın", "Platin" });
-            UyelikTip.Location = new Point(591, 12);
+            UyelikTip.Location = new Point(298, 277);
             UyelikTip.Name = "UyelikTip";
-            UyelikTip.Size = new Size(132, 23);
+            UyelikTip.Size = new Size(132, 27);
             UyelikTip.TabIndex = 17;
-            UyelikTip.Text = "UyelikTip";
+            UyelikTip.Text = "Üyelik Tipi";
             // 
             // Cinsiyet
             // 
+            Cinsiyet.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             Cinsiyet.FormattingEnabled = true;
             Cinsiyet.Items.AddRange(new object[] { "Erkek", "Kadin" });
-            Cinsiyet.Location = new Point(426, 12);
+            Cinsiyet.Location = new Point(298, 211);
             Cinsiyet.Name = "Cinsiyet";
-            Cinsiyet.Size = new Size(132, 23);
+            Cinsiyet.Size = new Size(132, 27);
             Cinsiyet.TabIndex = 18;
             Cinsiyet.Text = "Cinsiyet";
             // 
             // Ay3
             // 
-            Ay3.CustomizableEdges = customizableEdges21;
+            Ay3.BorderRadius = 20;
+            Ay3.CustomizableEdges = customizableEdges45;
             Ay3.DisabledState.BorderColor = Color.DarkGray;
             Ay3.DisabledState.CustomBorderColor = Color.DarkGray;
             Ay3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             Ay3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            Ay3.Font = new Font("Segoe UI", 9F);
-            Ay3.ForeColor = Color.White;
-            Ay3.Location = new Point(591, 126);
+            Ay3.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            Ay3.ForeColor = Color.Black;
+            Ay3.Location = new Point(3, 68);
             Ay3.Name = "Ay3";
-            Ay3.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            Ay3.ShadowDecoration.CustomizableEdges = customizableEdges46;
             Ay3.Size = new Size(180, 45);
             Ay3.TabIndex = 20;
-            Ay3.Text = "Ay3";
+            Ay3.Text = "3 Aylık";
             Ay3.Click += Ay3_Click;
             // 
             // comboBox1
             // 
+            comboBox1.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "0 Rh +", "0 Rh -", "A Rh+", "A Rh-", "B Rh+", "B Rh-", "AB Rh+", "AB Rh-" });
-            comboBox1.Location = new Point(272, 12);
+            comboBox1.Location = new Point(298, 244);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
+            comboBox1.Size = new Size(132, 27);
             comboBox1.TabIndex = 21;
-            comboBox1.Text = "ComboBox1";
+            comboBox1.Text = "Kan Grubu";
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label1
@@ -320,32 +367,133 @@
             label1.TabIndex = 22;
             label1.Text = "Üye Ekle";
             // 
+            // Odeme
+            // 
+            Odeme.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            Odeme.FormattingEnabled = true;
+            Odeme.Items.AddRange(new object[] { "Ödendi", "Ödenmedi" });
+            Odeme.Location = new Point(298, 310);
+            Odeme.Name = "Odeme";
+            Odeme.Size = new Size(132, 27);
+            Odeme.TabIndex = 23;
+            Odeme.Text = "Ödeme Bilgisi";
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(Tc);
+            panel1.Controls.Add(Ad);
+            panel1.Controls.Add(Soyad);
+            panel1.Controls.Add(Kilo);
+            panel1.Controls.Add(Telefon);
+            panel1.Controls.Add(Boy);
+            panel1.Controls.Add(TimePicker);
+            panel1.Location = new Point(49, 59);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(213, 488);
+            panel1.TabIndex = 24;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label4.Location = new Point(48, 391);
+            label4.Name = "label4";
+            label4.Size = new Size(105, 19);
+            label4.TabIndex = 26;
+            label4.Text = "Doğum Tarihi";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label2.Location = new Point(32, 37);
+            label2.Name = "label2";
+            label2.Size = new Size(149, 19);
+            label2.TabIndex = 7;
+            label2.Text = "Üye Kişisel Bilgileri";
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(Ay3);
+            panel2.Controls.Add(Ay6);
+            panel2.Controls.Add(Yillik);
+            panel2.Location = new Point(505, 116);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(187, 237);
+            panel2.TabIndex = 25;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label3.Location = new Point(45, 21);
+            label3.Name = "label3";
+            label3.Size = new Size(104, 19);
+            label3.TabIndex = 26;
+            label3.Text = "Üyelik Süresi";
+            // 
+            // Sifre
+            // 
+            Sifre.BorderColor = Color.Transparent;
+            Sifre.BorderRadius = 20;
+            Sifre.CustomizableEdges = customizableEdges47;
+            Sifre.DefaultText = "";
+            Sifre.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            Sifre.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            Sifre.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            Sifre.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            Sifre.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            Sifre.Font = new Font("Segoe UI", 9F);
+            Sifre.ForeColor = Color.Black;
+            Sifre.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            Sifre.Location = new Point(822, 211);
+            Sifre.Name = "Sifre";
+            Sifre.PlaceholderForeColor = Color.Gray;
+            Sifre.PlaceholderText = "Üyelik Şifresi";
+            Sifre.SelectedText = "";
+            Sifre.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            Sifre.Size = new Size(200, 36);
+            Sifre.TabIndex = 26;
+            Sifre.TextChanged += guna2TextBox1_TextChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label5.Location = new Point(831, 166);
+            label5.Name = "label5";
+            label5.Size = new Size(176, 19);
+            label5.TabIndex = 27;
+            label5.Text = "Mobil Uygulama Şifresi";
+            // 
             // Addmember
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1205, 578);
+            Controls.Add(label5);
+            Controls.Add(Sifre);
+            Controls.Add(panel2);
+            Controls.Add(Odeme);
             Controls.Add(label1);
             Controls.Add(comboBox1);
-            Controls.Add(Ay3);
             Controls.Add(Cinsiyet);
             Controls.Add(UyelikTip);
             Controls.Add(Kaydet);
-            Controls.Add(Yillik);
-            Controls.Add(Ay6);
-            Controls.Add(TimePicker);
             Controls.Add(UyeLabel);
-            Controls.Add(Ad);
-            Controls.Add(Soyad);
-            Controls.Add(Telefon);
-            Controls.Add(Boy);
-            Controls.Add(Kilo);
-            Controls.Add(Tc);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Addmember";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Addmember";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -375,5 +523,13 @@
         private Guna.UI2.WinForms.Guna2Button Ay3;
         private ComboBox comboBox1;
         private Label label1;
+        private ComboBox Odeme;
+        private Panel panel1;
+        private Label label2;
+        private Panel panel2;
+        private Label label3;
+        private Label label4;
+        private Guna.UI2.WinForms.Guna2TextBox Sifre;
+        private Label label5;
     }
 }

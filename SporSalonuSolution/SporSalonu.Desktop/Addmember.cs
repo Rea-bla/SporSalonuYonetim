@@ -75,17 +75,17 @@ namespace SporSalonu.Desktop
 
             try
             {
-                ApiServisi servis = new ApiServisi();
+                ApiServices servis = new ApiServices();
 
                 // 2. SAYISAL VERİLERİ ÇEVİR (Boşsa 0 yap)
                 int boyDeger = string.IsNullOrEmpty(Boy.Text) ? 0 : Convert.ToInt32(Boy.Text);
                 double kiloDeger = string.IsNullOrEmpty(Kilo.Text) ? 0 : Convert.ToDouble(Kilo.Text);
-
-                // 3. COMBOBOX VERİLERİ
+                string sifreDeger = Sifre.Text;
                 string kanDeger = string.IsNullOrWhiteSpace(comboBox1.Text) ? null : comboBox1.Text;
                 string cinsiyetDeger = string.IsNullOrWhiteSpace(Cinsiyet.Text) ? null : Cinsiyet.Text;
+                string odemeDeger = string.IsNullOrWhiteSpace(Odeme.Text) ? null : Odeme.Text;
 
-                // Üyelik Tipi ID (Seçilmediyse 1-Standart yap)
+ 
                 int uyelikId = UyelikTip.SelectedIndex < 0 ? 1 : UyelikTip.SelectedIndex + 1;
 
                 // 4. API'YE GÖNDER
@@ -98,8 +98,10 @@ namespace SporSalonu.Desktop
                     cinsiyetDeger,
                     boyDeger,
                     kiloDeger,
+                    sifreDeger,
                     TimePicker.Value,    // Doğum Tarihi
                     _secilenBitisTarihi, // Hesaplanan Bitiş Tarihi
+                    odemeDeger,
                     uyelikId
                 );
 
@@ -115,6 +117,7 @@ namespace SporSalonu.Desktop
                     Telefon.Clear();
                     Boy.Clear();
                     Kilo.Clear();
+                    Sifre.Clear();
 
                     // Seçimleri Sıfırla
                     comboBox1.SelectedIndex = -1; // Veya comboBox1
@@ -147,6 +150,11 @@ namespace SporSalonu.Desktop
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

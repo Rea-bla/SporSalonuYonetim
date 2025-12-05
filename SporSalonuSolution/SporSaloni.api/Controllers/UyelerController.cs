@@ -14,16 +14,15 @@ namespace SporSalonu.API.Controllers
             _configuration = configuration;
         }
 
+        // --- ÜYE EKLEME METODU ---
         [HttpPost("ekle")]
         public IActionResult UyeEkle([FromBody] UyeModel uye)
         {
-           
             if (uye.TCNo.Length != 11)
             {
                 return BadRequest(new { success = false, mesaj = "TC Kimlik Numarası 11 haneli olmalıdır!" });
             }
 
-           
             try
             {
                 int toplam = 0;
@@ -45,7 +44,7 @@ namespace SporSalonu.API.Controllers
                 return BadRequest(new { success = false, mesaj = "TC Kimlik sadece rakamlardan oluşmalıdır!" });
             }
 
-            // --- SQL KAYIT İŞLEMİ (YENİ SÜTUNLARLA) ---
+            // --- SQL KAYIT İŞLEMİ ---
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -54,25 +53,26 @@ namespace SporSalonu.API.Controllers
                 {
                     connection.Open();
 
-                    // KayitTarihi'ni yazmadık çünkü SQL'de 'default getdate()' var, otomatik atar.
                     string query = @"INSERT INTO Uyeler 
-                                    (TCNo, Ad, Soyad, Telefon, KanGrubu, Cinsiyet, Boy, Kilo, DogumTarihi, BitisTarihi, SecilenUyelikID) 
+                                    (TCNo, Ad, Soyad, Telefon, KanGrubu, Cinsiyet, Boy, Kilo, DogumTarihi, BitisTarihi, Odeme, Sifre, SecilenUyelikID) 
                                     VALUES 
-                                    (@tc, @ad, @soyad, @tel, @kan, @cin, @boy, @kilo, @dt, @bitis, @uyelikId)";
+                                    (@tc, @ad, @soyad, @tel, @kan, @cin, @boy, @kilo, @dt, @bitis, @odeme, @sifre, @uyelikId)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@tc", uye.TCNo);
                         command.Parameters.AddWithValue("@ad", uye.Ad);
                         command.Parameters.AddWithValue("@soyad", uye.Soyad);
-                        command.Parameters.AddWithValue("@tel", uye.Telefon ?? (object)DBNull.Value); // Boşsa hata vermesin
+                        command.Parameters.AddWithValue("@tel", uye.Telefon ?? (object)DBNull.Value);
                         command.Parameters.AddWithValue("@kan", uye.KanGrubu ?? (object)DBNull.Value);
                         command.Parameters.AddWithValue("@cin", uye.Cinsiyet ?? (object)DBNull.Value);
                         command.Parameters.AddWithValue("@boy", uye.Boy);
+                        command.Parameters.AddWithValue("@odeme", uye.Odeme);
                         command.Parameters.AddWithValue("@kilo", uye.Kilo);
                         command.Parameters.AddWithValue("@dt", uye.DogumTarihi);
+                        command.Parameters.AddWithValue("@sifre", uye.Sifre);
 
-                        // Bitiş tarihi null ise veritabanına NULL gönder
+
                         if (uye.BitisTarihi.HasValue)
                             command.Parameters.AddWithValue("@bitis", uye.BitisTarihi.Value);
                         else
@@ -90,7 +90,6 @@ namespace SporSalonu.API.Controllers
                 }
                 catch (Exception ex)
                 {
-                    // TC Kimlik çakışması hatası
                     if (ex.Message.Contains("UNIQUE KEY") || ex.Message.Contains("PRIMARY KEY"))
                         return BadRequest(new { success = false, mesaj = "Bu TC Kimlik zaten sistemde kayıtlı!" });
 
@@ -98,5 +97,42 @@ namespace SporSalonu.API.Controllers
                 }
             }
         }
-    }
-}
+
+  
+        [HttpDelete("sil/{tcNo}")]
+        public IActionResult UyeSil(string tcNo)
+        {
+            // TC doğrulama
+            if (string.IsNullOrEmpty(tcNo) || tcNo.Length != 11)
+            {
+                return BadRequest(new { success = false, mesaj = "Geçersiz TC Kimlik Numarası." });
+            }
+
+            string connectionString = _configuration.GetConnectionString("DefaultConnection");
+            string query = "DELETE FROM Uyeler WHERE TCNo = @tcNo";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@tcNo", tcNo);
+                        int sonuc = command.ExecuteNonQuery();
+
+                        if (sonuc > 0)
+                            return Ok(new { success = true, mesaj = "Üye başarıyla silindi." });
+                        else
+                            return NotFound(new { success = false, mesaj = "Bu TC ile kayıtlı üye bulunamadı." });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, mesaj = "Hata: " + ex.Message });
+            }
+        }
+
+    } 
+} 

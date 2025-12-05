@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SporSalonu.Desktop
 {
-    public class ApiServisi
+    public class ApiServices
     {
        
         private readonly string _apiAdresi = "http://localhost:5096";
@@ -36,7 +36,7 @@ namespace SporSalonu.Desktop
             }
         }
 
-        public async Task<string> UyeEkle(string tc, string ad, string soyad, string tel, string kan, string cinsiyet, int boy, double kilo, DateTime dogumTarihi, DateTime? bitisTarihi, int uyelikId)
+        public async Task<string> UyeEkle(string tc, string ad, string soyad, string tel, string kan, string cinsiyet, int boy, double kilo, string sifre, DateTime dogumTarihi, DateTime? bitisTarihi, string odeme ,int uyelikId)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -54,6 +54,8 @@ namespace SporSalonu.Desktop
                         Kilo = kilo,
                         DogumTarihi = dogumTarihi,
                         BitisTarihi = bitisTarihi,
+                        Odeme = odeme,
+                        Sifre = sifre,
                         SecilenUyelikID = uyelikId
                     };
 
