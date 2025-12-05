@@ -46,13 +46,34 @@ namespace SporSalonu.Desktop
 
                 if (girisBasarili)
                 {
-                    
-                   
+
+                    UserSession.AdSoyad = guna2TextBox1.Text;
+
+                    // 2. Resim Seçme Ýþlemi (Hafýzadaki isme göre)
+                    string girenKisi = UserSession.AdSoyad;
+
+                    if (girenKisi == "MuhammeT")
+                    {
+                        UserSession.ProfilResmi = Properties.Resources.resim_muhammet;
+                    }
+                    else if (girenKisi == "baykus")
+                    {
+                        UserSession.ProfilResmi = Properties.Resources.resim_baykus;
+                    }
+                    else if (girenKisi == "Babuska")
+                    {
+                        UserSession.ProfilResmi = Properties.Resources.resim_babuska;
+                    }
+                    else
+                    {
+                        UserSession.ProfilResmi = null;
+                    }
                     LoadingScreen _load = new LoadingScreen();    //LoadingScreen loadingscreen = new LoadingScreen();  loadingscreen.Show(); da oluyor galiba
 
                     _load.Show();
 
                     this.Hide();
+                    
 
                 }
                 else

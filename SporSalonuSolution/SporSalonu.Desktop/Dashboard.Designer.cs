@@ -82,7 +82,6 @@
             // 
             // guna2CirclePictureBox1
             // 
-            guna2CirclePictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             guna2CirclePictureBox1.BackColor = Color.Transparent;
             guna2CirclePictureBox1.FillColor = Color.Black;
             guna2CirclePictureBox1.ImageRotate = 0F;
@@ -91,12 +90,12 @@
             guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2CirclePictureBox1.Size = new Size(73, 73);
+            guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2CirclePictureBox1.TabIndex = 0;
             guna2CirclePictureBox1.TabStop = false;
             // 
             // lblIsim
             // 
-            lblIsim.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             lblIsim.AutoSize = true;
             lblIsim.BackColor = Color.Transparent;
             lblIsim.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
