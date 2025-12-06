@@ -46,8 +46,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             lblIsim = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
@@ -70,7 +74,11 @@
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             label5 = new Label();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            label7 = new Label();
+            BtnOdeme = new Guna.UI2.WinForms.Guna2Button();
+            TcNo = new Guna.UI2.WinForms.Guna2TextBox();
             lblSaat = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
@@ -78,6 +86,7 @@
             guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).BeginInit();
             guna2Panel4.SuspendLayout();
+            guna2Panel5.SuspendLayout();
             SuspendLayout();
             // 
             // guna2CirclePictureBox1
@@ -381,7 +390,7 @@
             maskedTextBoxTC.Mask = "00000000000";
             maskedTextBoxTC.Name = "maskedTextBoxTC";
             maskedTextBoxTC.PromptChar = ' ';
-            maskedTextBoxTC.Size = new Size(180, 27);
+            maskedTextBoxTC.Size = new Size(190, 27);
             maskedTextBoxTC.TabIndex = 7;
             maskedTextBoxTC.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             maskedTextBoxTC.ValidatingType = typeof(int);
@@ -401,13 +410,68 @@
             // 
             guna2Panel5.BackColor = Color.Transparent;
             guna2Panel5.BorderRadius = 20;
-            guna2Panel5.CustomizableEdges = customizableEdges12;
+            guna2Panel5.Controls.Add(label8);
+            guna2Panel5.Controls.Add(label7);
+            guna2Panel5.Controls.Add(BtnOdeme);
+            guna2Panel5.Controls.Add(TcNo);
+            guna2Panel5.CustomizableEdges = customizableEdges16;
             guna2Panel5.FillColor = Color.Black;
             guna2Panel5.Location = new Point(355, 111);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges17;
             guna2Panel5.Size = new Size(395, 208);
             guna2Panel5.TabIndex = 8;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(67, 86);
+            label7.Name = "label7";
+            label7.Size = new Size(35, 19);
+            label7.TabIndex = 11;
+            label7.Text = "TC :";
+            // 
+            // BtnOdeme
+            // 
+            BtnOdeme.BorderRadius = 20;
+            BtnOdeme.CustomizableEdges = customizableEdges12;
+            BtnOdeme.DisabledState.BorderColor = Color.DarkGray;
+            BtnOdeme.DisabledState.CustomBorderColor = Color.DarkGray;
+            BtnOdeme.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            BtnOdeme.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            BtnOdeme.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            BtnOdeme.ForeColor = Color.Black;
+            BtnOdeme.Location = new Point(109, 137);
+            BtnOdeme.Name = "BtnOdeme";
+            BtnOdeme.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            BtnOdeme.Size = new Size(180, 45);
+            BtnOdeme.TabIndex = 10;
+            BtnOdeme.Text = "Ödendi";
+            BtnOdeme.Click += BtnOdeme_Click;
+            // 
+            // TcNo
+            // 
+            TcNo.BorderColor = Color.Black;
+            TcNo.CustomizableEdges = customizableEdges14;
+            TcNo.DefaultText = "";
+            TcNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            TcNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            TcNo.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            TcNo.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            TcNo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            TcNo.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            TcNo.ForeColor = Color.Black;
+            TcNo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            TcNo.Location = new Point(109, 86);
+            TcNo.Margin = new Padding(4, 4, 4, 4);
+            TcNo.Name = "TcNo";
+            TcNo.PlaceholderText = "";
+            TcNo.SelectedText = "";
+            TcNo.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            TcNo.Size = new Size(190, 27);
+            TcNo.TabIndex = 9;
             // 
             // lblSaat
             // 
@@ -420,6 +484,17 @@
             lblSaat.Size = new Size(47, 25);
             lblSaat.TabIndex = 0;
             lblSaat.Text = "00:00";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(100, 16);
+            label8.Name = "label8";
+            label8.Size = new Size(199, 19);
+            label8.TabIndex = 12;
+            label8.Text = "Ödeme Bilgisi Güncelleme";
             // 
             // Dashboard
             // 
@@ -453,6 +528,8 @@
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).EndInit();
             guna2Panel4.ResumeLayout(false);
             guna2Panel4.PerformLayout();
+            guna2Panel5.ResumeLayout(false);
+            guna2Panel5.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -482,5 +559,9 @@
         private Label label4;
         private Guna.UI2.WinForms.Guna2Button btnSil;
         private MaskedTextBox maskedTextBoxTC;
+        private Label label7;
+        private Guna.UI2.WinForms.Guna2Button BtnOdeme;
+        private Guna.UI2.WinForms.Guna2TextBox TcNo;
+        private Label label8;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using SporSalonu.Desktop;
 
 namespace SporSalonu.Desktop
 {
@@ -31,7 +32,6 @@ namespace SporSalonu.Desktop
             lblTarih.Text = simdi.ToString("dd MMMM yyyy dddd");
 
         }
-
         private void Dashboard_Load(object sender, EventArgs e)
         {
             OdemeBilgileriniGetir();
@@ -44,12 +44,12 @@ namespace SporSalonu.Desktop
 
             lblTarih.Text = simdi.ToString("dd MMMM yyyy dddd");
 
-            if(UserSession.AdSoyad=="baykus")
-                         lblIsim.Text = "Furkan Gültekin";
-            if (UserSession.AdSoyad=="MuhammeT")
-                         lblIsim.Text = "Muhammed Akyıldız";
-            if (UserSession.AdSoyad=="Babuska")
-                         lblIsim.Text= "Yusuf Bozkurt";
+            if (UserSession.AdSoyad == "baykus")
+                lblIsim.Text = "Furkan Gültekin";
+            if (UserSession.AdSoyad == "MuhammeT")
+                lblIsim.Text = "Muhammed Akyıldız";
+            if (UserSession.AdSoyad == "Babuska")
+                lblIsim.Text = "Yusuf Bozkurt";
 
             // HAFIZADAKİ RESMİ KUTUYA KOY
             if (UserSession.ProfilResmi != null)
@@ -200,7 +200,6 @@ namespace SporSalonu.Desktop
                         if (silinenSayisi > 0)
                         {
                             MessageBox.Show("Üye başarıyla silindi.", "İşlem Tamam", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                             // Kutu içini temizle
                             maskedTextBoxTC.Clear();
 
@@ -220,6 +219,47 @@ namespace SporSalonu.Desktop
                         MessageBox.Show("Silme işlemi sırasında hata oluştu: " + ex.Message);
                     }
                 }
+            }
+        }
+        private async void BtnOdeme_Click(object sender, EventArgs e)
+        {
+            string girilenTc = TcNo.Text.Trim();
+
+            // 2. Basit kontrol
+            if (girilenTc.Length != 11)
+            {
+                MessageBox.Show("Lütfen 11 haneli geçerli bir TC giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string apiUrl = $"http://localhost:5096/api/uyeler/odeme-yap/{girilenTc}";
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    // PUT isteği gönderiyoruz
+                    HttpResponseMessage response = await client.PutAsync(apiUrl, null);
+
+                    // 4. Sonucu Kontrol Et
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Ödeme durumu başarıyla 'Ödendi' olarak güncellendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        OdemeBilgileriniGetir();
+                        // İstersen işlem bitince kutuyu temizleyebilirsin:
+                        // TcNo.Text = ""; 
+                    }
+                    else
+                    {
+                        // API'den gelen hata mesajını oku
+                        string hataMesaji = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show("İşlem başarısız oldu.\nDetay: " + hataMesaji, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sunucuya bağlanılamadı: " + ex.Message, "Bağlantı Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
