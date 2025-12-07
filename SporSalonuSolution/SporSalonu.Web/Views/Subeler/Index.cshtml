@@ -1,0 +1,65 @@
+﻿@model List<SporSalonu.Web.Controllers.SubelerController.Sube>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Şubelerimiz";
+}
+
+<div class="min-h-screen flex flex-col bg-[#0f0f0f]">
+
+    <main class="flex-grow">
+        @* Hero Section - Boşluklar sıfırlandı: pt-0 ve pb-4 *@
+        <section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] pt-4 pb-4">
+            <div class="max-w-6xl mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-0">Şubelerimiz</h1>
+                <p class="text-gray-300 text-lg">
+                    MY FIT'in tüm şubelerine göz atın ve en yakın çalışma saatlerini öğrenin
+                </p>
+            </div>
+        </section>
+
+        @* Branches Grid - Şubeler Listesi *@
+        <section class="py-16 bg-[#1a1a1a]">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    @foreach (var branch in Model)
+                    {
+                        <div class="bg-[#2a2a2a] rounded-lg p-6 hover:bg-[#333333] transition-all duration-300 border border-gray-700 hover:border-[#ff9933]">
+
+                            <div class="flex items-center mb-4">
+                                @* MapPin simgesi yerine icon kullanıldı *@
+                                <span class="text-[#ff9933] mr-2 text-xl">📍</span>
+                                <h3 class="text-lg font-bold text-white">@branch.Name</h3>
+                            </div>
+
+                            <p class="text-gray-400 text-sm mb-4">
+                                <span class="font-semibold text-gray-300">Lokasyon:</span> @branch.Address
+                            </p>
+
+                            <div class="space-y-3 border-t border-gray-700 pt-4">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-[#ff9933] flex-shrink-0 mt-1 text-base">📞</span>
+                                    <a href="tel:@branch.Phone" class="text-gray-400 hover:text-[#ff9933] transition text-sm">
+                                        @branch.Phone
+                                    </a>
+                                </div>
+
+                                <div class="flex items-start gap-2">
+                                    <span class="text-[#ff9933] flex-shrink-0 mt-1 text-base">⏰</span>
+                                    <span class="text-gray-400 text-sm">@branch.Hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -4,46 +4,84 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SporSalonu.Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    @* Tüm yerel CSS dosyaları kaldı, sadece Tailwind kontrol ediyor. *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SporSalonu.Web.styles.css" asp-append-version="true" />
+    
+    @* Stil Çatışmalarını Engelleyen Kod Blokları (Değişkenler) *@
+    <style>
+        :root {
+            --background: #0a0a0a;
+            --foreground: #ffffff;
+            --card: #1f1f1f;
+            --accent: #ff9933;
+            --border: #1f2937;
+        }
+
+        body {
+            background-color: var(--background) !important;
+            color: var(--foreground) !important;
+        }
+
+        /* Diğer Tailwind/Özel renk tanımları buraya gelir */
+        .bg-\[\#1f1f1f\] { background-color: var(--card) !important; }
+        .text-\[\#ff9933\] { color: var(--accent) !important; }
+        .border-\[\#333\] { border-color: var(--border) !important; }
+    </style>
 </head>
-<body>
+
+<body class="bg-[#0a0a0a]">
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SporSalonu.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+        <nav class="bg-[#1f1f1f] shadow-md text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+
+                    <a class="text-xl font-bold" asp-area="" asp-controller="Home" asp-action="Index">SporSalonu.Web</a>
+
+                    <div class="hidden sm:ml-6 sm:block">
+                        <ul class="flex space-x-4">
+                            <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                            <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Kariyer" asp-action="Index">Kariyer</a></li>
+                            <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Subeler" asp-action="Index">Şubeler</a></li>
+                            <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Iletisim" asp-action="Index">İletişim</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - SporSalonu.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    @* KRİTİK DÜZELTME: Bootstrap konteyneri tamamen kaldırıldı *@
+    @if (ViewContext.RouteData.Values["controller"].ToString() != "Iletisim" && ViewContext.RouteData.Values["controller"].ToString() != "Kariyer" && ViewContext.RouteData.Values["controller"].ToString() != "Subeler")
+    {
+        @:<div class="container">
+    }
+
+    <main role="main" class="max-w-7xl mx-auto">
+        @RenderBody()
+    </main>
+
+    @if (ViewContext.RouteData.Values["controller"].ToString() != "Iletisim" && ViewContext.RouteData.Values["controller"].ToString() != "Kariyer" && ViewContext.RouteData.Values["controller"].ToString() != "Subeler")
+    {
+        @:</div> @* Kapanış div'i *@
+    }
+    
+    <footer class="bg-[#1f1f1f] text-white border-t border-[#333] mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-4 text-center">
+            &copy; 2025 - SporSalonu.Web -
+            <a class="text-[#ff9933] hover:underline" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    @* JavaScript *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </body>
 </html>
