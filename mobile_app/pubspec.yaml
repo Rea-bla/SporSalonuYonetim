@@ -1,0 +1,31 @@
+name: mobile_app
+description: Fitness member mobile application
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # HTTP requests
+  http: ^1.1.0
+
+  # Local storage
+  shared_preferences: ^2.2.2
+
+  # QR Code generation
+  qr_flutter: ^4.1.0
+
+  # Date formatting
+  intl: ^0.18.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

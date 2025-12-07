@@ -133,7 +133,7 @@ class ApiService {
     }
   }
 
-  // Verify Entry (for QR code scanning at gym)
+  // Verify Entry
   static Future<Map<String, dynamic>> verifyEntry(String tcNo) async {
     try {
       final response = await http.post(
