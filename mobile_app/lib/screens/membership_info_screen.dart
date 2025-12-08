@@ -22,13 +22,13 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 1000),
     );
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
     _slideAnimation = Tween<Offset>(
-      begin: Offset(0, 0.3),
+      begin: const Offset(0, 0.3),
       end: Offset.zero,
     ).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeOutCubic));
     _animationController.forward();
@@ -40,11 +40,82 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
     super.dispose();
   }
 
+  // Check if payment is unpaid
+  bool isPaymentUnpaid() {
+    final odeme = widget.member.odeme.toLowerCase().trim();
+    return odeme == 'ödenmedi' || odeme == 'odenmedi';
+  }
+
+  // Check if membership should be active
+  bool isMembershipActive() {
+    // If payment is unpaid, membership is not active
+    if (isPaymentUnpaid()) {
+      return false;
+    }
+
+    // Check expiration date
+    if (widget.member.bitisTarihi != null) {
+      return widget.member.bitisTarihi!.isAfter(DateTime.now());
+    }
+
+    return widget.member.membershipActive;
+  }
+
+  // Get membership tier name from ID
+  String getMembershipName(int membershipId) {
+    switch (membershipId) {
+      case 1:
+        return 'Standard';
+      case 2:
+        return 'Silver';
+      case 3:
+        return 'Gold';
+      case 4:
+        return 'Platinum';
+      default:
+        return 'Bilinmiyor';
+    }
+  }
+
+  // Get tier-specific colors
+  List<Color> getMembershipColors(int membershipId) {
+    switch (membershipId) {
+      case 1: // Standard
+        return const [Color(0xFF6B7280), Color(0xFF4B5563)];
+      case 2: // Silver
+        return const [Color(0xFFC0C0C0), Color(0xFF9CA3AF)];
+      case 3: // Gold
+        return const [Color(0xFFFFD700), Color(0xFFFFA500)];
+      case 4: // Platinum
+        return const [Color(0xFFE5E7EB), Color(0xFFB8C5D6)];
+      default:
+        return const [Color(0xFF8B5CF6), Color(0xFF6D28D9)];
+    }
+  }
+
+  // Get tier icon
+  IconData getMembershipIcon(int membershipId) {
+    switch (membershipId) {
+      case 1:
+        return Icons.workspace_premium_rounded;
+      case 2:
+        return Icons.star_rounded;
+      case 3:
+        return Icons.diamond_rounded;
+      case 4:
+        return Icons.auto_awesome_rounded;
+      default:
+        return Icons.card_membership_rounded;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final isActive = isMembershipActive();
+
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -113,7 +184,15 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
                           child: Column(
                             children: [
                               // Status Card
-                              _buildStatusCard(),
+                              _buildStatusCard(isActive),
+                              const SizedBox(height: 20),
+
+                              // Membership Tier Card
+                              _buildMembershipTierCard(),
+                              const SizedBox(height: 20),
+
+                              // Payment Amount Card
+                              _buildPaymentCard(),
                               const SizedBox(height: 20),
 
                               // Member Info Card
@@ -121,7 +200,7 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
                               const SizedBox(height: 20),
 
                               // Warning Card (if inactive)
-                              if (!widget.member.membershipActive)
+                              if (!isActive)
                                 _buildWarningCard(),
                             ],
                           ),
@@ -140,7 +219,7 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
 
   Widget _buildCustomAppBar(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Row(
         children: [
           ClipRRect(
@@ -157,14 +236,14 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
                   ),
                 ),
                 child: IconButton(
-                  icon: Icon(Icons.arrow_back_rounded, color: Colors.white),
+                  icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
                   onPressed: () => Navigator.pop(context),
                 ),
               ),
             ),
           ),
-          SizedBox(width: 15),
-          Text(
+          const SizedBox(width: 15),
+          const Text(
             'Üyelik Bilgileri',
             style: TextStyle(
               fontSize: 24,
@@ -172,7 +251,7 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
               color: Colors.white,
               shadows: [
                 Shadow(
-                  color: Colors.black.withOpacity(0.2),
+                  color: Colors.black26,
                   offset: Offset(0, 2),
                   blurRadius: 4,
                 ),
@@ -184,8 +263,7 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
     );
   }
 
-  Widget _buildStatusCard() {
-    final isActive = widget.member.membershipActive;
+  Widget _buildStatusCard(bool isActive) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),
       child: BackdropFilter(
@@ -219,20 +297,20 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
             children: [
               // Icon with gradient background
               Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: isActive
-                        ? [Color(0xFF10B981), Color(0xFF059669)]
-                        : [Color(0xFFEF4444), Color(0xFFDC2626)],
+                        ? const [Color(0xFF10B981), Color(0xFF059669)]
+                        : const [Color(0xFFEF4444), Color(0xFFDC2626)],
                   ),
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: (isActive ? Color(0xFF10B981) : Color(0xFFEF4444))
+                      color: (isActive ? const Color(0xFF10B981) : const Color(0xFFEF4444))
                           .withOpacity(0.5),
                       blurRadius: 20,
-                      offset: Offset(0, 10),
+                      offset: const Offset(0, 10),
                     ),
                   ],
                 ),
@@ -244,18 +322,18 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
               ),
               const SizedBox(height: 20),
               Text(
-                isActive ? 'Üyeliğiniz Aktif' : 'Üyeliğiniz Sona Ermiş',
-                style: TextStyle(
+                isActive ? 'Üyeliğiniz Aktif' : 'Üyeliğiniz Aktif Değil',
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
-              if (isActive) ...[
+              if (isActive && widget.member.daysRemaining > 0) ...[
                 const SizedBox(height: 15),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(20),
@@ -263,18 +341,261 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.access_time_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        '${widget.member.daysRemaining} gün kaldı',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMembershipTierCard() {
+    final membershipId = widget.member.secilenUyelikID;
+    final tierName = getMembershipName(membershipId);
+    final tierColors = getMembershipColors(membershipId);
+    final tierIcon = getMembershipIcon(membershipId);
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(25),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(30),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.white.withOpacity(0.3),
+                Colors.white.withOpacity(0.2),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(25),
+            border: Border.all(
+              color: Colors.white.withOpacity(0.3),
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 20,
+                spreadRadius: 5,
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              // Tier Icon
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: tierColors),
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: tierColors[0].withOpacity(0.5),
+                      blurRadius: 20,
+                      offset: const Offset(0, 10),
+                    ),
+                  ],
+                ),
+                child: Icon(
+                  tierIcon,
+                  size: 50,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 20),
+              // Tier Name
+              Text(
+                tierName,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.2,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 10),
+              // Tier Badge
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: tierColors),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: tierColors[0].withOpacity(0.3),
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: const Text(
+                  'ÜYELİK SEVİYESİ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPaymentCard() {
+    final isPaid = !isPaymentUnpaid();
+    final amount = widget.member.fiyat;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(25),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(30),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.white.withOpacity(0.3),
+                Colors.white.withOpacity(0.2),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(25),
+            border: Border.all(
+              color: Colors.white.withOpacity(0.3),
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 20,
+                spreadRadius: 5,
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              // Money Icon
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: isPaid
+                        ? const [Color(0xFF10B981), Color(0xFF059669)]
+                        : const [Color(0xFFEF4444), Color(0xFFDC2626)],
+                  ),
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: (isPaid ? const Color(0xFF10B981) : const Color(0xFFEF4444))
+                          .withOpacity(0.5),
+                      blurRadius: 20,
+                      offset: const Offset(0, 10),
+                    ),
+                  ],
+                ),
+                child: Icon(
+                  isPaid ? Icons.check_circle_rounded : Icons.payments_rounded,
+                  size: 50,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Label
+              Text(
+                isPaid ? 'Ödeme Tamamlandı' : 'Ödenmesi Gereken Tutar',
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.9),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 10),
+
+              // Amount
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      '${amount.toStringAsFixed(2)} ₺',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              if (!isPaid) ...[
+                const SizedBox(height: 20),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFFEF4444), Color(0xFFDC2626)],
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFFEF4444).withOpacity(0.4),
+                        blurRadius: 12,
+                        offset: const Offset(0, 6),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Icon(
+                        Icons.warning_rounded,
                         color: Colors.white,
                         size: 20,
                       ),
                       SizedBox(width: 8),
                       Text(
-                        '${widget.member.daysRemaining} gün kaldı',
+                        'Ödeme Bekliyor',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
                         ),
                       ),
                     ],
@@ -320,7 +641,7 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Üyelik Detayları',
                 style: TextStyle(
                   fontSize: 22,
@@ -333,14 +654,14 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
                 icon: Icons.person_rounded,
                 label: 'Ad Soyad',
                 value: widget.member.fullName,
-                gradient: [Color(0xFF8B5CF6), Color(0xFF6D28D9)],
+                gradient: const [Color(0xFF8B5CF6), Color(0xFF6D28D9)],
               ),
               const SizedBox(height: 16),
               _buildInfoRow(
                 icon: Icons.badge_rounded,
                 label: 'TC Kimlik No',
                 value: widget.member.tcNo,
-                gradient: [Color(0xFF3B82F6), Color(0xFF1D4ED8)],
+                gradient: const [Color(0xFF3B82F6), Color(0xFF1D4ED8)],
               ),
               const SizedBox(height: 16),
               _buildInfoRow(
@@ -349,21 +670,16 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
                 value: widget.member.bitisTarihi != null
                     ? DateFormat('dd/MM/yyyy').format(widget.member.bitisTarihi!)
                     : 'Belirtilmemiş',
-                gradient: [Color(0xFFEC4899), Color(0xFFBE185D)],
+                gradient: const [Color(0xFFEC4899), Color(0xFFBE185D)],
               ),
               const SizedBox(height: 16),
               _buildInfoRow(
                 icon: Icons.payment_rounded,
                 label: 'Ödeme Durumu',
                 value: widget.member.odeme.isEmpty ? 'Bilgi yok' : widget.member.odeme,
-                gradient: [Color(0xFF10B981), Color(0xFF059669)],
-              ),
-              const SizedBox(height: 16),
-              _buildInfoRow(
-                icon: Icons.numbers_rounded,
-                label: 'Üyelik ID',
-                value: widget.member.secilenUyelikID.toString(),
-                gradient: [Color(0xFFF59E0B), Color(0xFFD97706)],
+                gradient: isPaymentUnpaid()
+                    ? const [Color(0xFFEF4444), Color(0xFFDC2626)]
+                    : const [Color(0xFF10B981), Color(0xFF059669)],
               ),
             ],
           ),
@@ -389,7 +705,7 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
               BoxShadow(
                 color: gradient[0].withOpacity(0.4),
                 blurRadius: 10,
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
               ),
             ],
           ),
@@ -411,7 +727,7 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
               const SizedBox(height: 4),
               Text(
                 value,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -436,8 +752,8 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color(0xFFF59E0B).withOpacity(0.3),
-                Color(0xFFD97706).withOpacity(0.2),
+                const Color(0xFFF59E0B).withOpacity(0.3),
+                const Color(0xFFD97706).withOpacity(0.2),
               ],
             ),
             borderRadius: BorderRadius.circular(20),
@@ -449,28 +765,28 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
               BoxShadow(
                 color: Colors.orange.withOpacity(0.2),
                 blurRadius: 15,
-                offset: Offset(0, 5),
+                offset: const Offset(0, 5),
               ),
             ],
           ),
           child: Row(
             children: [
               Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Color(0xFFF59E0B), Color(0xFFD97706)],
                   ),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.info_rounded,
                   color: Colors.white,
                   size: 24,
                 ),
               ),
               const SizedBox(width: 15),
-              Expanded(
+              const Expanded(
                 child: Text(
                   'Üyeliğinizi yenilemek için lütfen resepsiyonla iletişime geçin.',
                   style: TextStyle(
