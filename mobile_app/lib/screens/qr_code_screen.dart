@@ -22,7 +22,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1200),
     );
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
@@ -39,11 +39,38 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
     super.dispose();
   }
 
+  // Check if payment is unpaid
+  bool isPaymentUnpaid() {
+    final odeme = widget.member.odeme.toLowerCase().trim();
+    // Check for various spellings and variations
+    return odeme == 'ödenmedi' ||
+        odeme == 'odenmedi' ||
+        odeme == 'ödenmemiş' ||
+        odeme == 'odenmemis' ||
+        odeme.contains('ödenmedi') ||
+        odeme.contains('odenmedi');
+  }
+
+  // Check if membership should be active
+  bool isMembershipActive() {
+    // If payment is unpaid, membership is not active
+    if (isPaymentUnpaid()) {
+      return false;
+    }
+
+    // Check expiration date
+    if (widget.member.bitisTarihi != null) {
+      return widget.member.bitisTarihi!.isAfter(DateTime.now());
+    }
+
+    return widget.member.membershipActive;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -141,7 +168,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
 
   Widget _buildCustomAppBar(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Row(
         children: [
           ClipRRect(
@@ -158,14 +185,14 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
                   ),
                 ),
                 child: IconButton(
-                  icon: Icon(Icons.arrow_back_rounded, color: Colors.white),
+                  icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
                   onPressed: () => Navigator.pop(context),
                 ),
               ),
             ),
           ),
-          SizedBox(width: 15),
-          Text(
+          const SizedBox(width: 15),
+          const Text(
             'QR Kodum',
             style: TextStyle(
               fontSize: 24,
@@ -173,7 +200,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
               color: Colors.white,
               shadows: [
                 Shadow(
-                  color: Colors.black.withOpacity(0.2),
+                  color: Colors.black26,
                   offset: Offset(0, 2),
                   blurRadius: 4,
                 ),
@@ -186,7 +213,12 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
   }
 
   Widget _buildInfoCard() {
-    final isActive = widget.member.membershipActive;
+    final isActive = isMembershipActive();
+    // Debug: Print the values to check
+    print('Payment status: ${widget.member.odeme}');
+    print('Is payment unpaid: ${isPaymentUnpaid()}');
+    print('Is membership active: $isActive');
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),
       child: BackdropFilter(
@@ -220,7 +252,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
             children: [
               Text(
                 widget.member.fullName,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -229,20 +261,20 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
               ),
               const SizedBox(height: 15),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: isActive
-                        ? [Color(0xFF10B981), Color(0xFF059669)]
-                        : [Color(0xFFEF4444), Color(0xFFDC2626)],
+                        ? const [Color(0xFF10B981), Color(0xFF059669)]
+                        : const [Color(0xFFEF4444), Color(0xFFDC2626)],
                   ),
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: (isActive ? Color(0xFF10B981) : Color(0xFFEF4444))
+                      color: (isActive ? const Color(0xFF10B981) : const Color(0xFFEF4444))
                           .withOpacity(0.4),
                       blurRadius: 12,
-                      offset: Offset(0, 6),
+                      offset: const Offset(0, 6),
                     ),
                   ],
                 ),
@@ -254,10 +286,10 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
                       color: Colors.white,
                       size: 20,
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Text(
-                      isActive ? 'Üyelik Aktif' : 'Üyelik Süresi Dolmuş',
-                      style: TextStyle(
+                      isActive ? 'Üyelik Aktif' : 'Üyelik Aktif Değil',
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
@@ -304,7 +336,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
           ),
           child: Column(
             children: [
-              Text(
+              const Text(
                 'Giriş QR Kodunuz',
                 style: TextStyle(
                   fontSize: 20,
@@ -324,7 +356,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
                     BoxShadow(
                       color: Colors.black.withOpacity(0.1),
                       blurRadius: 20,
-                      offset: Offset(0, 10),
+                      offset: const Offset(0, 10),
                     ),
                   ],
                 ),
@@ -353,7 +385,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
                 ),
                 child: Text(
                   widget.member.tcNo,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -380,8 +412,8 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color(0xFF3B82F6).withOpacity(0.3),
-                Color(0xFF1D4ED8).withOpacity(0.2),
+                const Color(0xFF3B82F6).withOpacity(0.3),
+                const Color(0xFF1D4ED8).withOpacity(0.2),
               ],
             ),
             borderRadius: BorderRadius.circular(20),
@@ -393,28 +425,28 @@ class _QRCodeScreenState extends State<QRCodeScreen> with SingleTickerProviderSt
               BoxShadow(
                 color: Colors.blue.withOpacity(0.2),
                 blurRadius: 15,
-                offset: Offset(0, 5),
+                offset: const Offset(0, 5),
               ),
             ],
           ),
           child: Row(
             children: [
               Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(12),
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)],
                   ),
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.all(Radius.circular(14)),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.info_rounded,
                   color: Colors.white,
                   size: 28,
                 ),
               ),
               const SizedBox(width: 15),
-              Expanded(
+              const Expanded(
                 child: Text(
                   'Spor salonuna giriş yaparken bu QR kodu okutunuz veya TC kimlik numaranızı gösteriniz.',
                   style: TextStyle(
