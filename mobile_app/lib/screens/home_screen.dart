@@ -8,6 +8,21 @@ import 'qr_code_screen.dart';
 import 'change_password_screen.dart';
 import 'login_screen.dart';
 
+// MenuItemData class - defined outside the widget
+class MenuItemData {
+  final IconData icon;
+  final String title;
+  final List<Color> gradient;
+  final VoidCallback onTap;
+
+  MenuItemData({
+    required this.icon,
+    required this.title,
+    required this.gradient,
+    required this.onTap,
+  });
+}
+
 class HomeScreen extends StatefulWidget {
   final Member member;
 
@@ -27,13 +42,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1200),
     );
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
     _slideAnimation = Tween<Offset>(
-      begin: Offset(0, 0.3),
+      begin: const Offset(0, 0.3),
       end: Offset.zero,
     ).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeOutCubic));
     _animationController.forward();
@@ -43,6 +58,27 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   void dispose() {
     _animationController.dispose();
     super.dispose();
+  }
+
+  // Check if payment is unpaid
+  bool isPaymentUnpaid() {
+    final odeme = widget.member.odeme.toLowerCase().trim();
+    return odeme == 'ödenmedi' || odeme == 'odenmedi';
+  }
+
+  // Check if membership should be active
+  bool isMembershipActive() {
+    // If payment is unpaid, membership is not active
+    if (isPaymentUnpaid()) {
+      return false;
+    }
+
+    // Check expiration date
+    if (widget.member.bitisTarihi != null) {
+      return widget.member.bitisTarihi!.isAfter(DateTime.now());
+    }
+
+    return widget.member.membershipActive;
   }
 
   Future<void> _logout(BuildContext context) async {
@@ -58,9 +94,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    final membershipActive = isMembershipActive();
+    final paymentUnpaid = isPaymentUnpaid();
+
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -116,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               Column(
                 children: [
                   // Custom App Bar
-                  _buildCustomAppBar(),
+                  _buildCustomAppBar(paymentUnpaid),
 
                   // Content
                   Expanded(
@@ -129,8 +168,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              // Payment Warning Banner (if unpaid)
+                              if (paymentUnpaid) ...[
+                                _buildPaymentWarningBanner(),
+                                const SizedBox(height: 20),
+                              ],
+
                               // Welcome Card
-                              _buildWelcomeCard(),
+                              _buildWelcomeCard(membershipActive),
                               const SizedBox(height: 30),
 
                               // Menu Grid
@@ -150,13 +195,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     );
   }
 
-  Widget _buildCustomAppBar() {
+  Widget _buildCustomAppBar(bool hasUnpaidPayment) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
+          const Text(
             'Ana Sayfa',
             style: TextStyle(
               fontSize: 28,
@@ -164,40 +209,212 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               color: Colors.white,
               shadows: [
                 Shadow(
-                  color: Colors.black.withOpacity(0.2),
+                  color: Colors.black26,
                   offset: Offset(0, 2),
                   blurRadius: 4,
                 ),
               ],
             ),
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                    color: Colors.white.withOpacity(0.3),
-                    width: 1,
+          Row(
+            children: [
+              // Notification bell with badge
+              if (hasUnpaidPayment)
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(
+                                color: Colors.white.withOpacity(0.3),
+                                width: 1,
+                              ),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(Icons.notifications_active_rounded, color: Colors.white),
+                              onPressed: () {},
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        right: 8,
+                        top: 8,
+                        child: Container(
+                          width: 10,
+                          height: 10,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFEF4444),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 2),
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color(0xFFEF4444).withOpacity(0.5),
+                                blurRadius: 4,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                child: IconButton(
-                  icon: Icon(Icons.logout_rounded, color: Colors.white),
-                  onPressed: () => _logout(context),
-                  tooltip: 'Çıkış Yap',
+              // Logout button
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(
+                        color: Colors.white.withOpacity(0.3),
+                        width: 1,
+                      ),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(Icons.logout_rounded, color: Colors.white),
+                      onPressed: () => _logout(context),
+                      tooltip: 'Çıkış Yap',
+                    ),
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
         ],
       ),
     );
   }
 
-  Widget _buildWelcomeCard() {
+  Widget _buildPaymentWarningBanner() {
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0.0, end: 1.0),
+      duration: const Duration(milliseconds: 800),
+      curve: Curves.elasticOut,
+      builder: (context, value, child) {
+        return Transform.scale(
+          scale: value,
+          child: child,
+        );
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color(0xFFEF4444).withOpacity(0.9),
+                  const Color(0xFFDC2626).withOpacity(0.8),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: Colors.red.withOpacity(0.4),
+                width: 1.5,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFFEF4444).withOpacity(0.3),
+                  blurRadius: 20,
+                  offset: const Offset(0, 8),
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(
+                        Icons.warning_rounded,
+                        color: Colors.white,
+                        size: 28,
+                      ),
+                    ),
+                    const SizedBox(width: 15),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Ödeme Yapılmadı!',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            'Üyeliğiniz aktif değil',
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.9),
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 15),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.15),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Row(
+                    children: [
+                      Icon(
+                        Icons.info_outline_rounded,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          'Lütfen ödemenizi tamamlamak için resepsiyonla iletişime geçin.',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            height: 1.4,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildWelcomeCard(bool membershipActive) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),
       child: BackdropFilter(
@@ -233,18 +450,18 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.3),
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.person,
                       color: Colors.white,
                       size: 28,
                     ),
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -257,10 +474,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text(
                           widget.member.fullName,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -272,24 +489,24 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: widget.member.membershipActive
-                        ? [Color(0xFF10B981), Color(0xFF059669)]
-                        : [Color(0xFFEF4444), Color(0xFFDC2626)],
+                    colors: membershipActive
+                        ? [const Color(0xFF10B981), const Color(0xFF059669)]
+                        : [const Color(0xFFEF4444), const Color(0xFFDC2626)],
                   ),
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: (widget.member.membershipActive
-                          ? Color(0xFF10B981)
-                          : Color(0xFFEF4444))
+                      color: (membershipActive
+                          ? const Color(0xFF10B981)
+                          : const Color(0xFFEF4444))
                           .withOpacity(0.4),
                       blurRadius: 12,
-                      offset: Offset(0, 6),
+                      offset: const Offset(0, 6),
                     ),
                   ],
                 ),
@@ -297,18 +514,18 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
-                      widget.member.membershipActive
+                      membershipActive
                           ? Icons.check_circle_rounded
                           : Icons.cancel_rounded,
                       color: Colors.white,
                       size: 20,
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Text(
-                      widget.member.membershipActive
+                      membershipActive
                           ? 'Üyelik Aktif'
-                          : 'Üyelik Süresi Dolmuş',
-                      style: TextStyle(
+                          : 'Üyelik Aktif Değil',
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
@@ -329,7 +546,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       MenuItemData(
         icon: Icons.card_membership_rounded,
         title: 'Üyelik\nBilgileri',
-        gradient: [Color(0xFF8B5CF6), Color(0xFF6D28D9)],
+        gradient: const [Color(0xFF8B5CF6), Color(0xFF6D28D9)],
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -340,7 +557,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       MenuItemData(
         icon: Icons.person_rounded,
         title: 'Kişisel\nBilgiler',
-        gradient: [Color(0xFFF59E0B), Color(0xFFD97706)],
+        gradient: const [Color(0xFFF59E0B), Color(0xFFD97706)],
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -351,7 +568,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       MenuItemData(
         icon: Icons.qr_code_rounded,
         title: 'QR\nKodum',
-        gradient: [Color(0xFF10B981), Color(0xFF059669)],
+        gradient: const [Color(0xFF10B981), Color(0xFF059669)],
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -362,7 +579,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       MenuItemData(
         icon: Icons.lock_reset_rounded,
         title: 'Şifre\nDeğiştir',
-        gradient: [Color(0xFFEF4444), Color(0xFFDC2626)],
+        gradient: const [Color(0xFFEF4444), Color(0xFFDC2626)],
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -374,8 +591,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
     return GridView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 15,
         mainAxisSpacing: 15,
@@ -439,7 +656,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        padding: EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: item.gradient,
@@ -449,7 +666,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             BoxShadow(
                               color: item.gradient[0].withOpacity(0.4),
                               blurRadius: 15,
-                              offset: Offset(0, 8),
+                              offset: const Offset(0, 8),
                             ),
                           ],
                         ),
@@ -459,11 +676,11 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 15),
+                      const SizedBox(height: 15),
                       Text(
                         item.title,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -480,18 +697,4 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       ),
     );
   }
-}
-
-class MenuItemData {
-  final IconData icon;
-  final String title;
-  final List<Color> gradient;
-  final VoidCallback onTap;
-
-  MenuItemData({
-    required this.icon,
-    required this.title,
-    required this.gradient,
-    required this.onTap,
-  });
 }

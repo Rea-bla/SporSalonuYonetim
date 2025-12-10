@@ -12,6 +12,7 @@ class Member {
   final String odeme;
   final int secilenUyelikID;
   final bool? isActive;
+  final double fiyat;
 
   Member({
     required this.tcNo,
@@ -27,6 +28,7 @@ class Member {
     required this.odeme,
     required this.secilenUyelikID,
     this.isActive,
+    required this.fiyat,
   });
 
   factory Member.fromJson(Map<String, dynamic> json) {
@@ -48,6 +50,7 @@ class Member {
       odeme: json['odeme'] ?? json['Odeme'] ?? '',
       secilenUyelikID: json['secilenUyelikID'] ?? json['SecilenUyelikID'] ?? 0,
       isActive: json['isActive'] ?? json['IsActive'],
+      fiyat: (json['fiyat'] ?? json['Fiyat'] ?? 0).toDouble(),
     );
   }
 
@@ -65,6 +68,7 @@ class Member {
       'bitisTarihi': bitisTarihi?.toIso8601String(),
       'odeme': odeme,
       'secilenUyelikID': secilenUyelikID,
+      'fiyat': fiyat,
     };
   }
 
