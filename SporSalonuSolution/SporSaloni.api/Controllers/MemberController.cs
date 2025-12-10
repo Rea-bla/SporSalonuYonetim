@@ -274,7 +274,7 @@ namespace SporSalonu.API.Controllers
         public string TCNo { get; set; }
         public string Telefon { get; set; }
         public string KanGrubu { get; set; }
-        public int Boy { get; set; }
+        public int Boy { get; set; } // yusuftan selamlar efenim
         public double Kilo { get; set; }
     }
 

@@ -2,10 +2,9 @@
 
 namespace SporSalonu.Web.Controllers
 {
-    public class UyelerController : Controller
+    public class UyeOlController : Controller
     {
-        // GET: /Uyeler/UyeOl
-        public IActionResult UyeOl()
+        public IActionResult Index()
         {
             return View();
         }
