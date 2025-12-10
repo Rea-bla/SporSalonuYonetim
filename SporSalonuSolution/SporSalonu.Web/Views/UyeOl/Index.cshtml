@@ -56,7 +56,17 @@
                     </div>
                     <div>
                         <label class="block mb-1 text-sm">Kan Grubu</label>
-                        <input asp-for="KanGrubu" id="KanGrubu" placeholder="Örn: A Rh+" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <select asp-for="KanGrubu" id="KanGrubu" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]">
+                            <option value="">Seçiniz</option>
+                            <option value="A Rh+">A Rh+</option>
+                            <option value="A Rh-">A Rh-</option>
+                            <option value="B Rh+">B Rh+</option>
+                            <option value="B Rh-">B Rh-</option>
+                            <option value="AB Rh+">AB Rh+</option>
+                            <option value="AB Rh-">AB Rh-</option>
+                            <option value="0 Rh+">0 Rh+</option>
+                            <option value="0 Rh-">0 Rh-</option>
+                        </select>
                     </div>
                     <div>
                         <label class="block mb-1 text-sm">Doğum Tarihi</label>
@@ -70,12 +80,12 @@
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
                         <label for="Boy" class="block mb-1 text-sm">Boy (cm)</label>
-                        <input asp-for="Boy" id="Boy" placeholder="Boy (cm)" type="number" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <input asp-for="Boy" id="Boy" placeholder="Boy (cm)" type="text" inputmode="numeric" pattern="[0-9]*" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
                         <span asp-validation-for="Boy" class="text-red-500 text-sm block"></span>
                     </div>
                     <div>
                         <label for="Kilo" class="block mb-1 text-sm">Kilo (kg)</label>
-                        <input asp-for="Kilo" id="Kilo" placeholder="Kilo (kg)" type="number" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <input asp-for="Kilo" id="Kilo" placeholder="Kilo (kg)" type="text" inputmode="numeric" pattern="[0-9]*" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
                         <span asp-validation-for="Kilo" class="text-red-500 text-sm block"></span>
                     </div>
                 </div>
@@ -83,8 +93,14 @@
                 @* ------------------- ÜYELİK VE ÖDEME ------------------- *@
                 <h3 class="text-xl text-white pt-4 border-t border-gray-700">Üyelik Detayları</h3>
                 <div>
-                    <label class="block mb-1 text-sm">Seçilen Üyelik ID</label>
-                    <input asp-for="SecilenUyelikID" id="SecilenUyelikID" type="number" placeholder="Örn: 1 (Temel)" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                    <label class="block mb-1 text-sm">Üyelik Tipi</label>
+                    <select asp-for="SecilenUyelikID" id="SecilenUyelikID" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]">
+                        <option value="">Seçiniz</option>
+                        <option value="1">Standart</option>
+                        <option value="2">Gümüş</option>
+                        <option value="3">Altın</option>
+                        <option value="4">Platin</option>
+                    </select>
                     <span asp-validation-for="SecilenUyelikID" class="text-red-500 text-sm block"></span>
                 </div>
 
@@ -136,17 +152,15 @@
                 Boy: document.getElementById('Boy').value ? parseInt(document.getElementById('Boy').value) : 0,
                 Kilo: document.getElementById('Kilo').value ? parseInt(document.getElementById('Kilo').value) : 0,
                 SecilenUyelikID: document.getElementById('SecilenUyelikID').value ? parseInt(document.getElementById('SecilenUyelikID').value) : 1,
-                Odeme: 0,
+                Odeme: "Ödenmedi",
                 BitisTarihi: null,
                 Sifre: document.getElementById('Sifre').value,
                 KvkkOnay: true
             };
 
-            // Debug: Konsola gönderilen veriyi yazdır
             console.log('API\'ye gönderilen veri:', formData);
 
             try {
-                // API'ye POST isteği gönder
                 const response = await fetch('http://localhost:5096/api/Uyeler/ekle', {
                     method: 'POST',
                     headers: {
@@ -155,14 +169,11 @@
                     body: JSON.stringify(formData)
                 });
 
-                // Debug: Response'u konsola yazdır
                 console.log('API Response Status:', response.status);
                 console.log('API Response OK:', response.ok);
 
-                // Mesajı göster
                 mesajAlani.style.display = 'block';
 
-                // Response'un JSON olup olmadığını kontrol et
                 const contentType = response.headers.get("content-type");
                 if (!contentType || !contentType.includes("application/json")) {
                     const textResponse = await response.text();
@@ -176,11 +187,8 @@
                 if (response.ok && result.success) {
                     mesajAlani.className = 'bg-green-600 text-white p-4 mb-4 rounded font-bold text-center';
                     mesajAlani.textContent = result.mesaj;
-
-                    // Formu temizle
                     document.getElementById('kayitForm').reset();
 
-                    // 3 saniye sonra ana sayfaya yönlendir (opsiyonel)
                     setTimeout(() => {
                         // window.location.href = '/';
                     }, 3000);
@@ -203,7 +211,6 @@
                     mesajAlani.textContent = 'Bir hata oluştu: ' + error.message;
                 }
             } finally {
-                // Butonu tekrar aktif et
                 kayitBtn.disabled = false;
                 kayitBtn.textContent = 'Kayıt ve Ödeme Yap';
             }
