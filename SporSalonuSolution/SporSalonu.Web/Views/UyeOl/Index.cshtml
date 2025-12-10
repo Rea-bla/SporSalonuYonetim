@@ -1,0 +1,212 @@
+﻿@model SporSalonu.Web.Models.UyeModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Yeni Üye Kaydı";
+}
+
+<section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] pt-12 pb-12">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-4xl font-bold text-white mb-4">Yeni Üye Kaydı</h1>
+    </div>
+</section>
+
+<div class="min-h-screen bg-[#1a1a1a] py-16">
+    <div class="max-w-3xl mx-auto px-4">
+
+        @* Başarı/Hata Mesajı Alanı *@
+        <div id="mesajAlani" style="display: none;" class="p-4 mb-4 rounded font-bold text-center">
+        </div>
+
+        <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl">
+            <h2 class="text-2xl font-bold text-[#ff9933] mb-6">Detaylı Kayıt Formu</h2>
+
+            @* API'ye POST gönderecek form *@
+            <form id="kayitForm" class="space-y-5 text-white">
+
+                @* ------------------- KİŞİSEL BİLGİLER ------------------- *@
+                <h3 class="text-xl text-white pt-4 border-t border-gray-700">Kişisel Bilgiler</h3>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <input asp-for="TCNo" id="TCNo" placeholder="TC Kimlik Numarası" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <span asp-validation-for="TCNo" class="text-red-500 text-sm block"></span>
+                    </div>
+                    <div>
+                        <input asp-for="Ad" id="Ad" placeholder="Ad" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <span asp-validation-for="Ad" class="text-red-500 text-sm block"></span>
+                    </div>
+                    <div>
+                        <input asp-for="Soyad" id="Soyad" placeholder="Soyad" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <span asp-validation-for="Soyad" class="text-red-500 text-sm block"></span>
+                    </div>
+                    <div>
+                        <input asp-for="Telefon" id="Telefon" type="tel" placeholder="Telefon Numaranız (Opsiyonel)" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <span asp-validation-for="Telefon" class="text-red-500 text-sm block"></span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block mb-1 text-sm">Cinsiyet</label>
+                        <select asp-for="Cinsiyet" id="Cinsiyet" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]">
+                            <option value="">Seçiniz</option>
+                            <option value="Erkek">Erkek</option>
+                            <option value="Kadın">Kadın</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block mb-1 text-sm">Kan Grubu</label>
+                        <input asp-for="KanGrubu" id="KanGrubu" placeholder="Örn: A Rh+" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                    </div>
+                    <div>
+                        <label class="block mb-1 text-sm">Doğum Tarihi</label>
+                        <input asp-for="DogumTarihi" id="DogumTarihi" type="date" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <span asp-validation-for="DogumTarihi" class="text-red-500 text-sm block"></span>
+                    </div>
+                </div>
+
+                @* ------------------- FİZİKSEL BİLGİLER ------------------- *@
+                <h3 class="text-xl text-white pt-4 border-t border-gray-700">Fiziksel Veriler</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="Boy" class="block mb-1 text-sm">Boy (cm)</label>
+                        <input asp-for="Boy" id="Boy" placeholder="Boy (cm)" type="number" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <span asp-validation-for="Boy" class="text-red-500 text-sm block"></span>
+                    </div>
+                    <div>
+                        <label for="Kilo" class="block mb-1 text-sm">Kilo (kg)</label>
+                        <input asp-for="Kilo" id="Kilo" placeholder="Kilo (kg)" type="number" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                        <span asp-validation-for="Kilo" class="text-red-500 text-sm block"></span>
+                    </div>
+                </div>
+
+                @* ------------------- ÜYELİK VE ÖDEME ------------------- *@
+                <h3 class="text-xl text-white pt-4 border-t border-gray-700">Üyelik Detayları</h3>
+                <div>
+                    <label class="block mb-1 text-sm">Seçilen Üyelik ID</label>
+                    <input asp-for="SecilenUyelikID" id="SecilenUyelikID" type="number" placeholder="Örn: 1 (Temel)" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                    <span asp-validation-for="SecilenUyelikID" class="text-red-500 text-sm block"></span>
+                </div>
+
+                @* ------------------- ŞİFRE VE ONAY ------------------- *@
+                <h3 class="text-xl text-white pt-4 border-t border-gray-700">Hesap Güvenliği</h3>
+                <input asp-for="Sifre" id="Sifre" type="password" placeholder="Hesap Şifreniz" class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
+                <span asp-validation-for="Sifre" class="text-red-500 text-sm block"></span>
+
+                @* KVKK Onayı *@
+                <div class="flex items-center text-gray-400">
+                    <input asp-for="KvkkOnay" id="KvkkOnay" type="checkbox" class="mr-2 accent-[#ff9933]">
+                    <label for="KvkkOnay" class="text-sm">KVKK metnini okudum ve onaylıyorum.</label>
+                </div>
+                <span asp-validation-for="KvkkOnay" class="text-red-500 text-sm block"></span>
+
+                <button type="submit" id="kayitBtn" class="w-full bg-[#ff9933] text-white px-6 py-3 font-bold rounded-lg hover:bg-orange-600 transition">
+                    Kayıt ve Ödeme Yap
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById('kayitForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const kayitBtn = document.getElementById('kayitBtn');
+            const mesajAlani = document.getElementById('mesajAlani');
+
+            // Butonu devre dışı bırak
+            kayitBtn.disabled = true;
+            kayitBtn.textContent = 'Kaydediliyor...';
+
+            // Form verilerini topla
+            const formData = {
+                TCNo: document.getElementById('TCNo').value,
+                Ad: document.getElementById('Ad').value,
+                Soyad: document.getElementById('Soyad').value,
+                Telefon: document.getElementById('Telefon').value || null,
+                Cinsiyet: document.getElementById('Cinsiyet').value || null,
+                KanGrubu: document.getElementById('KanGrubu').value || null,
+                DogumTarihi: document.getElementById('DogumTarihi').value,
+                Boy: document.getElementById('Boy').value ? parseInt(document.getElementById('Boy').value) : 0,
+                Kilo: document.getElementById('Kilo').value ? parseInt(document.getElementById('Kilo').value) : 0,
+                SecilenUyelikID: document.getElementById('SecilenUyelikID').value ? parseInt(document.getElementById('SecilenUyelikID').value) : 1,
+                Odeme: 0,
+                BitisTarihi: null,
+                Sifre: document.getElementById('Sifre').value,
+                KvkkOnay: true
+            };
+
+            // Debug: Konsola gönderilen veriyi yazdır
+            console.log('API\'ye gönderilen veri:', formData);
+
+            try {
+                // API'ye POST isteği gönder
+                const response = await fetch('http://localhost:5096/api/Uyeler/ekle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Debug: Response'u konsola yazdır
+                console.log('API Response Status:', response.status);
+                console.log('API Response OK:', response.ok);
+
+                // Mesajı göster
+                mesajAlani.style.display = 'block';
+
+                // Response'un JSON olup olmadığını kontrol et
+                const contentType = response.headers.get("content-type");
+                if (!contentType || !contentType.includes("application/json")) {
+                    const textResponse = await response.text();
+                    console.error('API\'den gelen yanıt (JSON değil):', textResponse);
+                    throw new Error("API'den JSON yanıtı alınamadı. API çalışıyor mu? Port: 5096");
+                }
+
+                const result = await response.json();
+                console.log('API\'den gelen sonuç:', result);
+
+                if (response.ok && result.success) {
+                    mesajAlani.className = 'bg-green-600 text-white p-4 mb-4 rounded font-bold text-center';
+                    mesajAlani.textContent = result.mesaj;
+
+                    // Formu temizle
+                    document.getElementById('kayitForm').reset();
+
+                    // 3 saniye sonra ana sayfaya yönlendir (opsiyonel)
+                    setTimeout(() => {
+                        // window.location.href = '/';
+                    }, 3000);
+                } else {
+                    mesajAlani.className = 'bg-red-600 text-white p-4 mb-4 rounded font-bold text-center';
+                    mesajAlani.textContent = result.mesaj || 'Kayıt sırasında bir hata oluştu.';
+                }
+
+            } catch (error) {
+                console.error('Hata detayı:', error);
+                mesajAlani.style.display = 'block';
+                mesajAlani.className = 'bg-red-600 text-white p-4 mb-4 rounded font-bold text-center';
+
+                if (error.message.includes('Failed to fetch')) {
+                    mesajAlani.textContent = 'API\'ye bağlanılamadı! Kontrol edin:\n' +
+                                           '1. API çalışıyor mu? (Port: 5096)\n' +
+                                           '2. http://localhost:5096/swagger açılıyor mu?\n' +
+                                           '3. CORS ayarları doğru mu?';
+                } else {
+                    mesajAlani.textContent = 'Bir hata oluştu: ' + error.message;
+                }
+            } finally {
+                // Butonu tekrar aktif et
+                kayitBtn.disabled = false;
+                kayitBtn.textContent = 'Kayıt ve Ödeme Yap';
+            }
+        });
+    </script>
+}

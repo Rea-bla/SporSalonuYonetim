@@ -1,0 +1,67 @@
+﻿@model List<SporSalonu.Web.Controllers.PaketlerController.Paket>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Üyelik Paketleri";
+}
+
+<section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] pt-4 pb-4">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-4xl font-bold text-white mb-4">Üyelik Paketlerimiz</h1>
+        <p class="text-gray-300">İhtiyacınıza en uygun paketi seçin ve hemen başlayın.</p>
+    </div>
+</section>
+
+<div class="min-h-screen bg-[#1a1a1a] py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            @* C# DÖNGÜSÜ BAŞLANGICI *@
+            @foreach (var paket in Model)
+            {
+                // Premium paket için özel stil ayarı
+                string cardClass = paket.Ozel
+                ? "bg-[#2a2a2a] rounded-lg p-8 border-4 border-[#ff9933] shadow-2xl flex flex-col scale-105"
+                : "bg-[#1f1f1f] rounded-lg p-8 border border-gray-700 shadow-2xl flex flex-col";
+
+                string priceColor = paket.Ozel ? "text-[#ff9933]" : "text-white";
+
+                <div class="@cardClass">
+                    <h2 class="text-3xl font-extrabold @(paket.Ozel ? "text-white" : "text-[#ff9933]") mb-3">@paket.Ad</h2>
+                    <p class="text-gray-400 mb-6">@paket.Aciklama</p>
+
+                    <p class="text-5xl font-extrabold @priceColor mb-6">
+                        @paket.Fiyat <span class="text-xl font-normal text-gray-500">@(paket.Fiyat != "Fiyat Teklifi" ? "/ Ay" : "")</span>
+                    </p>
+
+                    <ul class="text-white space-y-3 mb-8 flex-grow">
+                        @foreach (var ozellik in paket.Ozellikler)
+                        {
+                            // Özellik listesindeki (❌) veya (✅) işaretine göre renk atama
+                            string iconColor = ozellik.Contains("❌") ? "text-red-400" : "text-green-400";
+                            string icon = ozellik.Contains("❌") ? "❌" : "✅";
+                            string cleanOzellik = ozellik.Replace(" (❌)", "").Replace(" (✅)", "");
+
+                            <li class="flex items-center">
+                                <span class="@iconColor mr-2">@icon</span>@cleanOzellik
+                            </li>
+                        }
+                    </ul>
+
+                    @if (paket.Fiyat == "Fiyat Teklifi")
+                    {
+                        <a asp-controller="Iletisim" asp-action="Index" class="mt-auto bg-[#ff9933] text-white px-6 py-3 text-center font-bold rounded-lg hover:bg-orange-600 transition">
+                            Teklif Al
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="UyeOl" asp-action="Index" class="mt-auto bg-[#ff9933] text-white px-6 py-3 text-center font-bold rounded-lg hover:bg-orange-600 transition">
+                            Paketi Seç
+                        </a>
+                    }
+                </div>
+            }
+            @* C# DÖNGÜSÜ SONU *@
+        </div>
+    </div>
+</div>

@@ -1,65 +1,82 @@
-﻿@model List<SporSalonu.Web.Controllers.SubelerController.Sube>
-
-@{
+﻿@{
     Layout = "_Layout";
     ViewData["Title"] = "Şubelerimiz";
 }
 
-<div class="min-h-screen flex flex-col bg-[#0f0f0f]">
+<section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] pt-12 pb-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">MY FIT Şubeleri</h1>
+        <p class="text-gray-300">Size en yakın MY FIT şubesini bulun ve hemen antrenmana başlayın.</p>
+    </div>
+</section>
 
-    <main class="flex-grow">
-        @* Hero Section - Boşluklar sıfırlandı: pt-0 ve pb-4 *@
-        <section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] pt-4 pb-4">
-            <div class="max-w-6xl mx-auto px-4">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-0">Şubelerimiz</h1>
-                <p class="text-gray-300 text-lg">
-                    MY FIT'in tüm şubelerine göz atın ve en yakın çalışma saatlerini öğrenin
-                </p>
+<div class="min-h-screen bg-[#1a1a1a] py-16">
+    <div class="max-w-7xl mx-auto px-4">
+
+        @* Şube kartlarını 2x2 olarak göstermek için grid yapısı kullanılıyor. 5. şube bir alt satıra kayacaktır. *@
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            @* ŞUBE 1: TURHAL ŞUBESİ *@
+            <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl text-white">
+                <h2 class="text-3xl font-bold text-[#ff9933] mb-4">Turhal Şube</h2>
+
+                <ul class="text-gray-400 space-y-3 text-lg text-left">
+                    <li><span class="font-semibold text-white">Adres:</span> Turhal Spor Kompleksi Yanı, Tokat</li>
+                    <li><span class="font-semibold text-white">Telefon:</span> +90 553 937 17 60 </li>
+                    <li><span class="font-semibold text-white">E-posta:</span> turhal@myfit.com</li>
+                    <li><span class="font-semibold text-white">Çalışma Saatleri:</span> 07:00 - 23:00 (Hafta İçi)</li>
+                </ul>
             </div>
-        </section>
 
-        @* Branches Grid - Şubeler Listesi *@
-        <section class="py-16 bg-[#1a1a1a]">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-                    @foreach (var branch in Model)
-                    {
-                        <div class="bg-[#2a2a2a] rounded-lg p-6 hover:bg-[#333333] transition-all duration-300 border border-gray-700 hover:border-[#ff9933]">
+            @* ŞUBE 2: SİNOP ŞUBESİ *@
+            <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl text-white">
+                <h2 class="text-3xl font-bold text-[#ff9933] mb-4">Sinop Şube</h2>
 
-                            <div class="flex items-center mb-4">
-                                @* MapPin simgesi yerine icon kullanıldı *@
-                                <span class="text-[#ff9933] mr-2 text-xl">📍</span>
-                                <h3 class="text-lg font-bold text-white">@branch.Name</h3>
-                            </div>
-
-                            <p class="text-gray-400 text-sm mb-4">
-                                <span class="font-semibold text-gray-300">Lokasyon:</span> @branch.Address
-                            </p>
-
-                            <div class="space-y-3 border-t border-gray-700 pt-4">
-                                <div class="flex items-start gap-2">
-                                    <span class="text-[#ff9933] flex-shrink-0 mt-1 text-base">📞</span>
-                                    <a href="tel:@branch.Phone" class="text-gray-400 hover:text-[#ff9933] transition text-sm">
-                                        @branch.Phone
-                                    </a>
-                                </div>
-
-                                <div class="flex items-start gap-2">
-                                    <span class="text-[#ff9933] flex-shrink-0 mt-1 text-base">⏰</span>
-                                    <span class="text-gray-400 text-sm">@branch.Hours</span>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
+                <ul class="text-gray-400 space-y-3 text-lg text-left">
+                    <li><span class="font-semibold text-white">Adres:</span> Bağcılar Caddesi, Liman Karşısı, Sinop Merkez</li>
+                    <li><span class="font-semibold text-white">Telefon:</span> +90 546 234 68 42 </li>
+                    <li><span class="font-semibold text-white">E-posta:</span> sinop@myfit.com</li>
+                    <li><span class="font-semibold text-white">Çalışma Saatleri:</span> 06:30 - 22:30 (Her Gün)</li>
+                </ul>
             </div>
-        </section>
-    </main>
 
+            @* ŞUBE 3: SİVAS ŞUBESİ *@
+            <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl text-white">
+                <h2 class="text-3xl font-bold text-[#ff9933] mb-4">Sivas Şube</h2>
+
+                <ul class="text-gray-400 space-y-3 text-lg text-left">
+                    <li><span class="font-semibold text-white">Adres:</span> Atatürk Meydanı, Yaşam Merkezi Kat: 2, Sivas</li>
+                    <li><span class="font-semibold text-white">Telefon:</span> +90 541 100 58 05 </li>
+                    <li><span class="font-semibold text-white">E-posta:</span> sivas@myfit.com</li>
+                    <li><span class="font-semibold text-white">Çalışma Saatleri:</span> 08:00 - 23:30 (Hafta İçi)</li>
+                </ul>
+            </div>
+
+            @* ŞUBE 4: MALATYA ŞUBESİ *@
+            <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl text-white">
+                <h2 class="text-3xl font-bold text-[#ff9933] mb-4">Malatya Şube</h2>
+
+                <ul class="text-gray-400 space-y-3 text-lg text-left">
+                    <li><span class="font-semibold text-white">Adres:</span> İnönü Üniversitesi Kampüsü Karşısı, Malatya</li>
+                    <li><span class="font-semibold text-white">Telefon:</span> +90 546 631 66 76</li>
+                    <li><span class="font-semibold text-white">E-posta:</span> malatya@myfit.com</li>
+                    <li><span class="font-semibold text-white">Çalışma Saatleri:</span> 07:00 - 22:00 (Her Gün)</li>
+                </ul>
+            </div>
+
+            @* ŞUBE 5:  BAĞCILAR ŞUBESİ (Yeni Eklenen) *@
+            <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl text-white md:col-span-2">
+                @* 5. kartın tam ortalanması için md:col-span-2 ile tüm satırı kaplaması sağlanmıştır *@
+                <h2 class="text-3xl font-bold text-[#ff9933] mb-4">Bağcılar Şube</h2>
+
+                <ul class="text-gray-400 space-y-3 text-lg text-left">
+                    <li><span class="font-semibold text-white">Adres:</span> Bağcılar Meydanı, Spor Merkezi, No: 42/B, İstanbul</li>
+                    <li><span class="font-semibold text-white">Telefon:</span> +90 546 234 68 42 , +90 541 100 58 05</li>
+                    <li><span class="font-semibold text-white">E-posta:</span> bagcilar@myfit.com</li>
+                    <li><span class="font-semibold text-white">Çalışma Saatleri:</span> 07:00 - 23:00 (Her Gün)</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
 </div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

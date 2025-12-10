@@ -1,8 +1,259 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+    ViewData["Title"] = "Anasayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="min-h-screen flex flex-col bg-[#1a1a1a]">
+
+    @* ========================================================== *@
+    @* 1. HERO (Başlık) Bölümü - EN ÜST BUTON DEĞİŞTİRİLDİ *@
+    @* ========================================================== *@
+    <section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] pt-24 pb-24">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-6xl md:text-8xl font-extrabold text-white mb-4 leading-tight">
+                MY <span class="text-[#ff9933]">FIT</span>'E HOŞ GELDİNİZ
+            </h1>
+            <p class="text-gray-300 text-xl md:text-2xl mb-8">
+                Hedeflerinize ulaşmanız için en modern ekipmanlar ve uzman antrenörler.
+            </p>
+            @* VKİ Hesapla butonu yerine, doğrudan Üye Ol sayfasına giden Buton *@
+            <a asp-controller="UyeOl" asp-action="Index" class="bg-[#ff9933] text-white px-10 py-4 text-lg font-bold rounded-lg hover:bg-orange-600 transition duration-300 shadow-xl">
+                HEMEN ARAMIZA KATIL
+            </a>
+        </div>
+    </section>
+
+    @* ========================================================== *@
+    @* 2. VKİ HESAPLAYICI BÖLÜMÜ *@
+    @* ========================================================== *@
+    <section id="vki-hesapla" class="py-20 bg-[#1a1a1a]">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-white mb-10 border-b border-gray-700 pb-4">Kendini Değerlendir: VKİ Hesapla</h2>
+
+            <div class="max-w-xl mx-auto px-4">
+                <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl text-white">
+                    <h3 class="text-2xl font-bold text-[#ff9933] mb-6">Hesaplayıcı</h3>
+
+                    <form id="vkiForm" class="space-y-5">
+                        <label for="boy" class="block font-medium text-left">Boy (cm):</label>
+                        <input type="number" id="boy" class="w-full bg-[#0a0a0a] text-white border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" required />
+
+                        <label for="kilo" class="block font-medium text-left">Kilo (kg):</label>
+                        <input type="number" id="kilo" class="w-full bg-[#0a0a0a] text-white border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" required />
+
+                        <button type="submit" class="w-full bg-[#ff9933] text-white px-6 py-3 font-bold rounded-lg hover:bg-orange-600 transition">
+                            VKİ Hesapla
+                        </button>
+                    </form>
+
+                    <div id="sonuc" class="mt-8 pt-6 border-t border-gray-700 hidden">
+                        <p class="text-xl font-semibold">VKİ Sonucunuz: <span id="vkiDegeri" class="text-[#ff9933]"></span></p>
+                        <p id="vkiDurum" class="text-lg mt-2"></p>
+                        <a href="#paketler-bolumu" class="mt-4 inline-block text-[#ff9933] hover:underline">Uygun Paketleri Gör >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @* ========================================================== *@
+    @* 3. SLOGAN VE VURGU BÖLÜMÜ (Yeni Eklenen Motivasyon Alanı) *@
+    @* ========================================================== *@
+    <section class="py-20 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+
+            <h2 class="text-5xl font-extrabold text-[#ff9933] mb-4">
+                SENİN ZAMANIN BAŞLIYOR!
+            </h2>
+            <p class="text-gray-300 text-2xl max-w-4xl mx-auto mb-10">
+                Erteleme bitti. MY FIT, sadece bir spor salonu değil, hedeflerine giden yoldaki en büyük desteğin.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
+
+                <div class="bg-[#1f1f1f] p-8 rounded-xl shadow-xl border-t-4 border-l-4 border-[#333] hover:border-[#ff9933] transition duration-300">
+                    <h3 class="text-3xl font-bold mb-3">🏋️‍♀️ Daha Güçlü Bir Sen</h3>
+                    <p class="text-gray-400">
+                        Modern ekipmanlarımızla her antrenmanda limitlerini aş. Kas yap, dayanıklılığını artır ve kendine hayran kal.
+                    </p>
+                </div>
+
+                <div class="bg-[#1f1f1f] p-8 rounded-xl shadow-xl border-t-4 border-l-4 border-[#333] hover:border-[#ff9933] transition duration-300">
+                    <h3 class="text-3xl font-bold mb-3">🧠 Uzman Desteği Daima Yanında</h3>
+                    <p class="text-gray-400">
+                        Kişisel antrenörlerimiz ve beslenme uzmanlarımızla her adımda doğru kararlar al. Bilimle desteklenen başarı!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    @* ========================================================== *@
+    @* 4. HİZMETLER VE NEDEN BİZ BÖLÜMÜ *@
+    @* ========================================================== *@
+    <section class="py-20 bg-[#1f1f1f]">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+
+            <h2 class="text-4xl font-bold text-white mb-10 border-b border-gray-700 pb-4">Neden MY FIT'i Seçmelisiniz?</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-white mt-12">
+
+                @* Kart 1: 7/24 Erişim *@
+                <div class="bg-[#2a2a2a] p-6 rounded-lg shadow-lg">
+                    <span class="text-5xl text-[#ff9933] mb-4 block">⏰</span>
+                    <h3 class="text-2xl font-semibold mb-2">7/24 Sınırsız Erişim</h3>
+                    <p class="text-gray-400">Ne zaman istersen antrenman yap. Programına uyum sağlayan tek salon biziz.</p>
+                </div>
+
+                @* Kart 2: Uzman Desteği *@
+                <div class="bg-[#2a2a2a] p-6 rounded-lg shadow-lg">
+                    <span class="text-5xl text-[#ff9933] mb-4 block">👩‍🎓</span>
+                    <h3 class="text-2xl font-semibold mb-2">Sertifikalı Antrenörler</h3>
+                    <p class="text-gray-400">Hedeflerine bilimsel yöntemlerle ulaş. Her zaman doğru teknikle çalış.</p>
+                </div>
+
+                @* Kart 3: Ekipman Kalitesi *@
+                <div class="bg-[#2a2a2a] p-6 rounded-lg shadow-lg">
+                    <span class="text-5xl text-[#ff9933] mb-4 block">⚙️</span>
+                    <h3 class="text-2xl font-semibold mb-2">Son Teknoloji Ekipman</h3>
+                    <p class="text-gray-400">Arızalı veya eski cihazlarla vakit kaybetme. Daima en iyi ekipmanlar hizmetinde.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    @* ========================================================== *@
+    @* 5. SAYILARLA BAŞARI BÖLÜMÜ *@
+    @* ========================================================== *@
+    <section class="py-20 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+
+            <h2 class="text-4xl font-bold text-white mb-12">MY FIT Başarısı Sayılarla Kanıtlandı</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+                @* Sayı 1: Üye Sayısı *@
+                <div class="text-white">
+                    <p class="text-6xl font-extrabold text-[#ff9933]">1200+</p>
+                    <p class="text-lg mt-2 text-gray-300">Mutlu Üye</p>
+                </div>
+
+                @* Sayı 2: Antrenör Sayısı *@
+                <div class="text-white">
+                    <p class="text-6xl font-extrabold text-[#ff9933]">15</p>
+                    <p class="text-lg mt-2 text-gray-300">Uzman Antrenör</p>
+                </div>
+
+                @* Sayı 3: Yıllık Deneyim *@
+                <div class="text-white">
+                    <p class="text-6xl font-extrabold text-[#ff9933]">8 Yıl</p>
+                    <p class="text-lg mt-2 text-gray-300">Sektör Deneyimi</p>
+                </div>
+
+                @* Sayı 4: Memnuniyet Oranı *@
+                <div class="text-white">
+                    <p class="text-6xl font-extrabold text-[#ff9933]">%98</p>
+                    <p class="text-lg mt-2 text-gray-300">Üye Memnuniyeti</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    @* ========================================================== *@
+    @* 6. PAKETLER BÖLÜMÜ *@
+    @* ========================================================== *@
+    <section id="paketler-bolumu" class="py-20 bg-[#1f1f1f]">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-white mb-10 border-b border-gray-700 pb-4">Size Uygun Üyelik Paketini Seçin</h2>
+
+            @* Paket verileri (View içinde tanımlı) *@
+            @{
+                var paketler = new List<(string Ad, string Fiyat, bool Ozel, List<string> Ozellikler)>
+                        {
+                        ("Standart Paket", "₺1000", false, new List<string> { "Tüm ekipmanlara erişim", "Sadece hafta içi kullanım", "Grup dersleri: Giriş seviye", "Antrenör danışmanlığı yok (❌)" }),
+                        ("Gümüş Paket", "₺1500", false, new List<string> { "7/24 Salon Erişimi", "Temel grup dersleri (Sınırsız)", "Özel etkinliklere giriş indirimi", "Sauna/Spa dahil değil (❌)" }),
+                        ("Altın Paket", "₺2000", false, new List<string> { "Tüm özel grup dersleri", "Sauna ve Spa kullanımı", "Kişisel antrenörle deneme seansı", "Beslenme rehberi" }),
+                        ("Platin Paket", "₺3000", true, new List<string> { "Tüm özelliklere sınırsız erişim", "Kişisel Antrenörlük (Aylık 4 seans)", "Kişiselleştirilmiş beslenme", "VIP soyunma odası" })
+                        };
+            }
+
+            @* DÖRT SÜTUNLU GRİD YAPISI *@
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                @foreach (var paket in paketler)
+                {
+                    string cardClass = paket.Ozel
+                    ? "bg-[#2a2a2a] rounded-lg p-8 border-4 border-[#ff9933] shadow-2xl flex flex-col scale-105"
+                    : "bg-[#1f1f1f] rounded-lg p-8 border border-gray-700 shadow-2xl flex flex-col";
+
+                    string priceColor = paket.Ozel ? "text-[#ff9933]" : "text-white";
+
+                    <div class="@cardClass">
+                        <h3 class="text-3xl font-extrabold @(paket.Ozel ? "text-white" : "text-[#ff9933]") mb-3">@paket.Ad</h3>
+
+                        <p class="text-5xl font-extrabold @priceColor mb-6">
+                            @paket.Fiyat <span class="text-xl font-normal text-gray-500">/ Ay</span>
+                        </p>
+
+                        <ul class="text-white space-y-3 mb-8 flex-grow text-left">
+                            @foreach (var ozellik in paket.Ozellikler)
+                            {
+                                string icon = ozellik.Contains("❌") ? "❌" : "✅";
+                                <li class="flex items-center">
+                                    <span class="@(icon == "❌" ? "text-red-400" : "text-green-400") mr-2">@icon</span>@ozellik
+                                </li>
+                            }
+                        </ul>
+
+                        <a asp-controller="UyeOl" asp-action="Index" class="mt-auto bg-[#ff9933] text-white px-6 py-3 text-center font-bold rounded-lg hover:bg-orange-600 transition">
+                            Paketi Seç
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
 </div>
+
+@section Scripts {
+    <script>
+        document.getElementById('vkiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const boyCm = parseFloat(document.getElementById('boy').value);
+            const kilo = parseFloat(document.getElementById('kilo').value);
+
+            if (boyCm > 0 && kilo > 0) {
+                const boyM = boyCm / 100;
+                const vki = kilo / (boyM * boyM);
+
+                document.getElementById('vkiDegeri').textContent = vki.toFixed(2);
+                document.getElementById('sonuc').classList.remove('hidden');
+
+                let durumMetni = "";
+                let durumRenk = "";
+
+                if (vki < 18.5) {
+                    durumMetni = "Zayıf: Kilo almanız önerilir.";
+                    durumRenk = "text-blue-400";
+                } else if (vki >= 18.5 && vki <= 24.9) {
+                    durumMetni = "Normal: Sağlıklı kilodasınız.";
+                    durumRenk = "text-green-400";
+                } else if (vki >= 25 && vki <= 29.9) {
+                    durumMetni = "Fazla Kilolu: Sağlığınız için dikkatli olmalısınız.";
+                    durumRenk = "text-yellow-400";
+                } else {
+                    durumMetni = "Obez: Uzman desteği almanız önerilir.";
+                    durumRenk = "text-red-400";
+                }
+
+                const vkiDurumElement = document.getElementById('vkiDurum');
+                vkiDurumElement.textContent = `Durumunuz: ${durumMetni}`;
+                vkiDurumElement.className = `text-lg mt-2 ${durumRenk}`;
+            }
+        });
+    </script>
+}

@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "VKİ Hesaplama";
+}
+
+<section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] pt-4 pb-4">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-4xl font-bold text-white mb-4">Vücut Kitle İndeksi (VKİ) Hesapla</h1>
+    </div>
+</section>
+
+<div class="min-h-screen bg-[#1a1a1a] py-16">
+    <div class="max-w-xl mx-auto px-4">
+        <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl text-white">
+            <h2 class="text-2xl font-bold text-[#ff9933] mb-6">Hesaplayıcı</h2>
+
+            <form id="vkiForm" class="space-y-5">
+                <label for="boy" class="block font-medium">Boy (cm):</label>
+                <input type="number" id="boy" class="w-full bg-[#0a0a0a] text-white border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" required />
+
+                <label for="kilo" class="block font-medium">Kilo (kg):</label>
+                <input type="number" id="kilo" class="w-full bg-[#0a0a0a] text-white border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" required />
+
+                <button type="submit" class="w-full bg-[#ff9933] text-white px-6 py-3 font-bold rounded-lg hover:bg-orange-600 transition">
+                    VKİ Hesapla
+                </button>
+            </form>
+
+            <div id="sonuc" class="mt-8 pt-6 border-t border-gray-700 hidden">
+                <p class="text-xl font-semibold">VKİ Sonucunuz: <span id="vkiDegeri" class="text-[#ff9933]"></span></p>
+                <p id="vkiDurum" class="text-lg mt-2"></p>
+                <p class="text-sm text-gray-400 mt-4">VKİ (Vücut Kitle İndeksi), boy ve kilonuza göre vücut ağırlığınızın tahmin edilmesinde kullanılan bir araçtır.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('vkiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const boyCm = parseFloat(document.getElementById('boy').value);
+            const kilo = parseFloat(document.getElementById('kilo').value);
+
+            if (boyCm > 0 && kilo > 0) {
+                // Boyu cm'den metreye çevir
+                const boyM = boyCm / 100;
+                // VKİ Hesaplama formülü: kilo / (boy * boy)
+                const vki = kilo / (boyM * boyM);
+
+                document.getElementById('vkiDegeri').textContent = vki.toFixed(2);
+                document.getElementById('sonuc').classList.remove('hidden');
+
+                let durumMetni = "";
+                let durumRenk = "";
+
+                // VKİ Kriterleri
+                if (vki < 18.5) {
+                    durumMetni = "Zayıf: Kilo almanız önerilir.";
+                    durumRenk = "text-blue-400";
+                } else if (vki >= 18.5 && vki <= 24.9) {
+                    durumMetni = "Normal: Sağlıklı kilodasınız.";
+                    durumRenk = "text-green-400";
+                } else if (vki >= 25 && vki <= 29.9) {
+                    durumMetni = "Fazla Kilolu: Sağlığınız için dikkatli olmalısınız.";
+                    durumRenk = "text-yellow-400";
+                } else {
+                    durumMetni = "Obez: Uzman desteği almanız önerilir.";
+                    durumRenk = "text-red-400";
+                }
+
+                const vkiDurumElement = document.getElementById('vkiDurum');
+                vkiDurumElement.textContent = `Durumunuz: ${durumMetni}`;
+                vkiDurumElement.className = `text-lg mt-2 ${durumRenk}`;
+            }
+        });
+    </script>
+}

@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SporSalonu.Web</title>
 
-    @* Tüm yerel CSS dosyaları kaldı, sadece Tailwind kontrol ediyor. *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SporSalonu.Web.styles.css" asp-append-version="true" />
-    
-    @* Stil Çatışmalarını Engelleyen Kod Blokları (Değişkenler) *@
+
+    @* Tema Rengi Tanımları ve Stil Çakışması Engelleme *@
     <style>
         :root {
             --background: #0a0a0a;
@@ -24,10 +23,17 @@
             color: var(--foreground) !important;
         }
 
-        /* Diğer Tailwind/Özel renk tanımları buraya gelir */
-        .bg-\[\#1f1f1f\] { background-color: var(--card) !important; }
-        .text-\[\#ff9933\] { color: var(--accent) !important; }
-        .border-\[\#333\] { border-color: var(--border) !important; }
+        .bg-\[\#1f1f1f\] {
+            background-color: var(--card) !important;
+        }
+
+        .text-\[\#ff9933\] {
+            color: var(--accent) !important;
+        }
+
+        .border-\[\#333\] {
+            border-color: var(--border) !important;
+        }
     </style>
 </head>
 
@@ -38,15 +44,23 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
 
-                    <a class="text-xl font-bold" asp-area="" asp-controller="Home" asp-action="Index">SporSalonu.Web</a>
+                    <a class="text-4xl font-extrabold text-white hover:text-white transition duration-300"
+                       asp-area="" asp-controller="Home" asp-action="Index">
+                        MY <span class="text-[#ff9933]">FIT</span>
+                    </a>
 
                     <div class="hidden sm:ml-6 sm:block">
                         <ul class="flex space-x-4">
-                            <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                            <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                            <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+
+ 
+                            @* --- MEVCUT SAYFALAR --- *@
                             <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Kariyer" asp-action="Index">Kariyer</a></li>
                             <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Subeler" asp-action="Index">Şubeler</a></li>
                             <li><a class="text-white hover:text-[#ff9933] px-3 py-2 rounded-md font-medium" asp-area="" asp-controller="Iletisim" asp-action="Index">İletişim</a></li>
+
+                            @* Üye Ol Butonu Vurguludur *@
+                            <li><a class="bg-[#ff9933] text-white px-3 py-2 rounded-md font-medium hover:bg-orange-600" asp-area="" asp-controller="UyeOl" asp-action="Index">Üye Ol</a></li>
                         </ul>
                     </div>
                 </div>
@@ -54,29 +68,34 @@
         </nav>
     </header>
 
-    @* KRİTİK DÜZELTME: Bootstrap konteyneri tamamen kaldırıldı *@
-    @if (ViewContext.RouteData.Values["controller"].ToString() != "Iletisim" && ViewContext.RouteData.Values["controller"].ToString() != "Kariyer" && ViewContext.RouteData.Values["controller"].ToString() != "Subeler")
-    {
-        @:<div class="container">
-    }
-
-    <main role="main" class="max-w-7xl mx-auto">
+    <main role="main" class="max-w-9xl mx-full">
         @RenderBody()
     </main>
 
-    @if (ViewContext.RouteData.Values["controller"].ToString() != "Iletisim" && ViewContext.RouteData.Values["controller"].ToString() != "Kariyer" && ViewContext.RouteData.Values["controller"].ToString() != "Subeler")
-    {
-        @:</div> @* Kapanış div'i *@
-    }
-    
-    <footer class="bg-[#1f1f1f] text-white border-t border-[#333] mt-auto">
-        <div class="max-w-7xl mx-auto px-4 py-4 text-center">
-            &copy; 2025 - SporSalonu.Web -
-            <a class="text-[#ff9933] hover:underline" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="bg-[#0a0a0a] border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-400">
+
+            @* Sosyal Medya ve Temel Linkler *@
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="hover:text-[#ff9933] transition duration-300">
+                    <i class="fab fa-instagram text-2xl"></i> @* Font Awesome ikonları için gereklidir. *@
+                </a>
+                <a href="#" class="hover:text-[#ff9933] transition duration-300">
+                    <i class="fab fa-facebook-f text-2xl"></i>
+                </a>
+                <a href="#" class="hover:text-[#ff9933] transition duration-300">
+                    <i class="fab fa-twitter text-2xl"></i>
+                </a>
+            </div>
+
+            @* Telif Hakkı Bilgisi *@
+            <p class="text-sm">
+                &copy; @DateTime.Now.Year MY FIT Spor Salonu. Tüm Hakları Saklıdır. |
+                <a href="#" class="hover:text-[#ff9933] transition duration-300">Gizlilik Politikası</a>
+            </p>
         </div>
     </footer>
 
-    @* JavaScript *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

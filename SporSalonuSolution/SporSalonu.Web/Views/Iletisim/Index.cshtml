@@ -1,104 +1,84 @@
 ﻿@{
-    // Layout'u "_Layout" olarak ayarlıyoruz. Bu, menü ve footer'ın gelmesini sağlar.
     Layout = "_Layout";
-
     ViewData["Title"] = "İletişim";
 }
 
-@* Form gönderildiğinde başarı mesajı gösterme yeri *@
-@if (ViewData["BasariMesaji"] != null)
-{
-    <div class="bg-green-600 text-white p-4 mb-4 rounded font-bold text-center max-w-7xl mx-auto">
-        @ViewData["BasariMesaji"]
+<section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] pt-12 pb-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">Bizimle İletişime Geçin</h1>
+        <p class="text-gray-300">Sorularınızı, önerilerinizi ve randevu taleplerinizi bekliyoruz.</p>
     </div>
-}
+</section>
 
-<div class="bg-[#0a0a0a] min-h-screen">
-    @* Bu div, Layout'tan gelen body etiketinin hemen altına yerleşir. *@
-    <section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">İLETİŞİM</h1>
-        </div>
-    </section>
+<div class="min-h-screen bg-[#1a1a1a] py-16">
+    <div class="max-w-7xl mx-auto px-4">
 
-@* 2. Alt (Asıl İçerik) Bölümü *@
-    <div class="min-h-screen bg-[#1a1a1a] py-16">
-        @* Alt bölüme düz koyu renk verdik *@
-        <div class="max-w-7xl mx-auto px-4">
+        @* 2 SÜTUNLU YAPI *@
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-            @* Başarı Mesajı (Burada kalacak) *@
-            @if (ViewData["BasariMesaji"] != null)
-            {
-                <div class="bg-green-600 text-white p-4 mb-4 rounded font-bold text-center">
-                    @ViewData["BasariMesaji"]
-                </div>
-            }
-                
-        <div class="grid md:grid-cols-2 gap-8">
+            @* SOL SÜTUN: İLETİŞİM FORMU (Placeholder) *@
+            <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl text-white">
+                <h2 class="text-3xl font-bold text-[#ff9933] mb-6">Bize Yazın</h2>
 
-            @* SOL SÜTUN: İletişim Bilgileri *@
-            <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333]">
-                <h2 class="text-2xl font-bold text-[#ff9933] mb-6">Bize Ulaşın</h2>
+                <form action="#" method="POST" class="space-y-5">
 
-                @* TÜM İÇERİĞİ KAPSAYAN BU DİV'E ZORLA BEYAZ RENGİ EKLEYİN *@
-                <div class="space-y-4 text-white">
+                    <input type="text" placeholder="Adınız Soyadınız" required
+                           class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
 
-                    <div>
-                        <h3 class="text-[#ff9933] font-bold mb-2">Telefon</h3>
-                        <div class="space-y-2">
-                            <p>
-                                <a href="tel:+905466316676" class="hover:text-[#ff9933] transition">0546 631 6676</a>
-                            </p>
-                            <p>
-                                <a href="tel:+905462346842" class="hover:text-[#ff9933] transition">0546 234 68 42</a>
-                            </p>
-                            <p>
-                                <a href="tel:+905411005805" class="hover:text-[#ff9933] transition">0541 100 58 05</a>
-                            </p>
-                        </div>
-                    </div>
+                    <input type="email" placeholder="E-posta Adresiniz" required
+                           class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
 
-                    <div>
-                        <h3 class="text-[#ff9933] font-bold mb-2">Email</h3>
-                        <p>myfit4458@gmail.com.tr</p>
-                    </div>
+                    <input type="text" placeholder="Konu" required
+                           class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]" />
 
-                    @* ... Adres ve Çalışma Saatleri devamı ... *@
+                    <textarea placeholder="Mesajınız" rows="5" required
+                              class="w-full bg-[#0a0a0a] border border-[#333] rounded px-4 py-3 focus:outline-none focus:border-[#ff9933]"></textarea>
 
-                </div> @* space-y-4 kapanışı *@
-            </div> @* Sol sütun kapanışı *@
-
-            @* SAĞ SÜTUN: Mesaj Gönderme Formu *@
-            <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333]">
-                <h2 class="text-2xl font-bold text-[#ff9933] mb-6">Mesaj Gönder</h2>
-                <form asp-controller="Iletisim" asp-action="Gonder" method="post" class="space-y-4">
-                    <input type="text"
-                           placeholder="Adınız"
-                           name="Adiniz"
-                           class="w-full bg-[#0a0a0a] text-white border border-[#333] rounded px-4 py-2 focus:outline-none focus:border-[#ff9933]" />
-
-                    <input type="email"
-                           placeholder="E-posta"
-                           name="Email"
-                           class="w-full bg-[#0a0a0a] text-white border border-[#333] rounded px-4 py-2 focus:outline-none focus:border-[#ff9933]" />
-
-                    <textarea placeholder="Mesajınız"
-                              name="Mesaj"
-                              rows="4"
-                              class="w-full bg-[#0a0a0a] text-white border border-[#333] rounded px-4 py-2 focus:outline-none focus:border-[#ff9933]"></textarea>
-
-                    <button type="submit"
-                            class="w-full bg-[#ff9933] text-white px-6 py-3 font-bold rounded hover:bg-orange-400 transition">
+                    <button type="submit" class="w-full bg-[#ff9933] text-white px-6 py-3 font-bold rounded-lg hover:bg-orange-600 transition">
                         Gönder
                     </button>
                 </form>
             </div>
+
+            @* SAĞ SÜTUN: İLETİŞİM BİLGİLERİ  *@
+            <div class="text-white space-y-8 flex items-center">
+                @* İçeriği dikey ortalamak için 'flex items-center' eklendi *@
+
+                <div class="bg-[#1f1f1f] p-8 rounded-lg border border-[#333] shadow-xl w-full">
+                    <h3 class="text-2xl font-bold text-[#ff9933] mb-4">Merkez Bilgilerimiz</h3>
+
+                    <ul class="space-y-4 text-gray-300 text-lg">
+                        <li class="flex items-start">
+                            <span class="text-[#ff9933] mr-3 mt-1">📍</span>
+                            Bağcılar Meydanı, Spor Merkezi, No: 42/B, İstanbul
+
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#ff9933] mr-3">📞</span>
+                            +90 546 234 68 42 , +90 541 100 58 05
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#ff9933] mr-3">📧</span>
+                            <a href="mailto:myfit4458@gmail.com" class="hover:underline">myfit4458@gmail.com</a>
+                        </li>
+                    </ul>
+
+                    @* Sosyal Medya Linkleri (Ekstra Geliştirme) *@
+                    <h3 class="text-xl font-bold text-white mt-8 mb-3">Bizi Takip Edin</h3>
+                    <div class="flex space-x-4 text-2xl">
+                        <a href="#" class="text-gray-400 hover:text-[#ff9933] transition">
+                            <i class="fab fa-instagram"></i> @* Tailwind kullanıyorsanız Font Awesome veya simge kütüphanesi gerekebilir. *@
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[#ff9933] transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[#ff9933] transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

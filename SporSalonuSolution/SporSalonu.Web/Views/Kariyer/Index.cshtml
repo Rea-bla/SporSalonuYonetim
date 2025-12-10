@@ -3,51 +3,69 @@
     ViewData["Title"] = "Kariyer";
 }
 
-@* 1. Başlık Bölümü (Geçişli Arka Plan) *@
-<section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] py-12">
-    <div class="max-w-7xl mx-auto px-4">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">KARİYER</h1>
+<section class="bg-gradient-to-b from-[#2a3a4a] to-[#1a1a1a] pt-12 pb-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">MY FIT Ailesine Katılın</h1>
+        <p class="text-gray-300">Fitness tutkunuzu kariyere dönüştürmek için doğru yerdesiniz.</p>
     </div>
 </section>
 
-@* 2. Ana İçerik Bölümü (Düz Koyu Arka Plan) *@
 <div class="min-h-screen bg-[#1a1a1a] py-16">
     <div class="max-w-7xl mx-auto px-4">
 
-        <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333]">
-            <h2 class="text-2xl font-bold text-[#ff9933] mb-4">MY FIT'te Kariyer Fırsatları</h2>
-            <p class="text-white mb-6">
-                MY FIT ailesine katılmak için açık pozisyonları kontrol edin. Dinamik ve yaratıcı bir ekip içinde büyüme
-                fırsatı bul.
-            </p>
+        @* NEDEN BİZDE ÇALIŞMALI? *@
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b border-gray-700 pb-3">Çalışanlarımıza Sunduklarımız</h2>
 
-            @* AÇIK POZİSYONLAR *@
-            <div class="space-y-4">
-                <div class="border-l-4 border-[#ff9933] pl-4 py-2">
-                    <h3 class="text-[#ff9933] font-bold">Fitness Antrenörü</h3>
-                    <p class="text-gray-300">Birden fazla şubede</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-white mt-8">
+
+                <div class="bg-[#1f1f1f] p-6 rounded-lg shadow-lg hover:shadow-[#ff9933]/50 transition duration-300">
+                    <span class="text-4xl text-[#ff9933] mb-3 block">📈</span>
+                    <h3 class="text-xl font-semibold mb-2">Sürekli Eğitim</h3>
+                    <p class="text-gray-400">Alanında uzmanlaşmanız için ücretsiz sertifika programları.</p>
                 </div>
-                <div class="border-l-4 border-[#ff9933] pl-4 py-2">
-                    <h3 class="text-[#ff9933] font-bold">Resepsiyon Görevlisi</h3>
-                    <p class="text-gray-300">Şube Müdürü yardımcısı pozisyonları</p>
+
+                <div class="bg-[#1f1f1f] p-6 rounded-lg shadow-lg hover:shadow-[#ff9933]/50 transition duration-300">
+                    <span class="text-4xl text-[#ff9933] mb-3 block">💪</span>
+                    <h3 class="text-xl font-semibold mb-2">Ücretsiz Üyelik</h3>
+                    <p class="text-gray-400">Tüm tesis ve ekipmanlar ücretsiz kullanımınıza açıktır.</p>
                 </div>
-                <div class="border-l-4 border-[#ff9933] pl-4 py-2">
-                    <h3 class="text-[#ff9933] font-bold">Beslenme Danışmanı</h3>
-                    <p class="text-gray-300">Online ve yüz yüze hizmet</p>
+
+                <div class="bg-[#1f1f1f] p-6 rounded-lg shadow-lg hover:shadow-[#ff9933]/50 transition duration-300">
+                    <span class="text-4xl text-[#ff9933] mb-3 block">🤝</span>
+                    <h3 class="text-xl font-semibold mb-2">Dinmik Ortam</h3>
+                    <p class="text-gray-400">Genç, enerjik ve destekleyici bir ekip kültürü.</p>
                 </div>
+
             </div>
-
-            @* KALDIRILAN BUTONUN YERİNE E-POSTA BİLGİSİ KOYALIM *@
-            <p class="text-white mt-8 text-lg font-semibold">
-                Başvurularınızı lütfen <a href="mailto:myfit4458@gmail.com" class="text-[#ff9933] hover:underline">myfit4458@gmail.com</a> adresine gönderiniz.
-            </p>
-
         </div>
+
+        @* AÇIK POZİSYONLAR - BAŞVUR BUTONU KALDIRILDI *@
+        <div class="bg-[#1f1f1f] rounded-lg p-8 border border-[#333] shadow-xl text-white">
+            <h2 class="text-3xl font-bold text-[#ff9933] mb-6">Açık Pozisyonlar</h2>
+
+            <ul class="space-y-4">
+                <li class="p-4 border-b border-gray-700 last:border-b-0">
+                    <h4 class="text-xl font-semibold">Kişisel Antrenör</h4>
+                    <p class="text-gray-400 text-sm">Deneyimli, sertifikalı ve iletişim becerileri yüksek.</p>
+                </li>
+
+                <li class="p-4 border-b border-gray-700 last:border-b-0">
+                    <h4 class="text-xl font-semibold">Resepsiyon Görevlisi</h4>
+                    <p class="text-gray-400 text-sm">Güler yüzlü, vardiyalı çalışmaya uygun.</p>
+                </li>
+
+                <li class="p-4 border-b border-gray-700 last:border-b-0">
+                    <h4 class="text-xl font-semibold">Temizlik ve Hijyen Personeli</h4>
+                    <p class="text-gray-400 text-sm">Esnek çalışma saatlerine uyumlu.</p>
+                </li>
+            </ul>
+
+            <p class="text-gray-400 mt-6 text-center">
+                İlgili pozisyonlar için CV'nizi ve ön yazınızı
+                <span class="text-[#ff9933]">myfit4458@gmail.com</span> adresine gönderebilirsiniz. @* E-posta Adresi Güncellendi *@
+            </p>
+        </div>
+
     </div>
 </div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
