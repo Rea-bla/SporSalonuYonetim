@@ -45,9 +45,9 @@ Projenin arayüzünden ve API yapısından örnekler:
       <td align="center"><b>⚙️ Swagger API Dokümantasyonu</b></td>
     </tr>
     <tr>
-      <td><img src="https://via.placeholder.com/250x500?text=Mobil+Giris" alt="Mobil Giriş" width="250"></td>
+      <td><img src="https://github.com/user-attachments/assets/ea71adaa-ff64-4605-ab00-6e16ed73acf7" alt="Mobil Giriş" width="250"></td>
       <td><img src="https://github.com/user-attachments/assets/2ee90865-2a90-4035-a701-550470a6dd86" alt="Üye Listesi" width="250"></td>
-      <td><img src="https://via.placeholder.com/400x300?text=Swagger+UI" alt="Swagger UI" width="400"></td>
+      <td><img src="https://github.com/user-attachments/assets/28d0ec02-09e2-4963-95fd-3d191d9e3a52" alt="Swagger UI" width="400"></td>
     </tr>
   </table>
 </div>
@@ -63,7 +63,6 @@ Projede kullanılan modern teknolojiler, kütüphaneler ve geliştirme araçlar�
   <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
   <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" />
   <img src="https://img.shields.io/badge/Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white" alt="Android Studio" />
-  <img src="https://img.shields.io/badge/Material_Design-757575?style=for-the-badge&logo=material-design&logoColor=white" alt="Material Design" />
 </div>
 
 ### 🔙 Backend & API
