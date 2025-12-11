@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://via.placeholder.com/1200x350?text=Proje+Banner+Gorseli" alt="Project Banner" width="100%" />
 
-  <h1>🚀 PROJE İSMİ BURAYA 🚀</h1>
+  <h1>🚀 SPOR SALONU YÖNETİM UYGULAMALARI 🚀</h1>
 
   <p>
     <b>Mobil uygulama ve güçlü bir Backend API altyapısı ile geliştirilmiş modern bir çözüm.</b>
