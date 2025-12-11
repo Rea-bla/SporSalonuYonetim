@@ -40,13 +40,13 @@ Projenin arayüzünden ve API yapısından örnekler:
 <div align="center">
   <table>
     <tr>
-      <td align="center"><b>📱 Mobil Giriş & Dashboard</b></td>
+      <td align="center"><b>📱 Mobil Giriş</b></td>
       <td align="center"><b>📑 Üye Yönetimi</b></td>
       <td align="center"><b>⚙️ Swagger API Dokümantasyonu</b></td>
     </tr>
     <tr>
       <td><img src="https://via.placeholder.com/250x500?text=Mobil+Giris" alt="Mobil Giriş" width="250"></td>
-      <td><img src="https://via.placeholder.com/250x500?text=Uye+Listesi" alt="Üye Listesi" width="250"></td>
+      <td><img src="https://github.com/user-attachments/assets/2ee90865-2a90-4035-a701-550470a6dd86" alt="Üye Listesi" width="250"></td>
       <td><img src="https://via.placeholder.com/400x300?text=Swagger+UI" alt="Swagger UI" width="400"></td>
     </tr>
   </table>
