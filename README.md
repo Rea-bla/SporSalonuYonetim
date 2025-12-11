@@ -25,13 +25,14 @@
 
 ## 📋 Proje Hakkında
 
-**SporSalonuYonetim**, spor salonu işletmecilerinin üyeleri, antrenman programlarını, ödemeleri ve personeli tek bir platformdan yönetmesini sağlayan kapsamlı bir yazılım çözümüdür. 
+**SporSalonuYonetim**, spor salonu süreçlerini dijitalleştirmek için geliştirilmiş, çok platformlu (Cross-Platform) bir mimariye sahiptir. Proje, farklı kullanıcı ihtiyaçlarına yönelik **4 ana bileşenden** oluşur:
 
-Proje iki ana bileşenden oluşur:
-1.  **Mobil Uygulama:** Üyeler ve yöneticiler için Flutter ile geliştirilmiş kullanıcı dostu arayüz.
-2.  **Backend API:** Veri yönetimi ve iş mantığı için .NET Core üzerinde çalışan, Dockerize edilmiş RESTful API.
+1.  **📱 Mobil Uygulama (Flutter):** Spor salonu üyelerinin antrenmanlarını takip etmesi ve profil işlemlerini yapması için geliştirilmiştir.
+2.  **🖥️ Masaüstü Uygulaması (Admin Paneli):** Sadece **yöneticiler** için tasarlanmıştır. Ödeme raporlarını ve detaylı üye takibi buradan yapılır.
+3.  **🌐 Web Sitesi :** Salonun tanıtımı, şubeler (lokasyonlar), "Hakkımızda" bilgileri ve **yeni üye kayıt** işlemleri için oluşturulmuş web arayüzüdür.
+4.  **⚙️ Backend API (.NET Core):** Tüm bu platformların (Mobil, Web, Masaüstü) ortak konuştuğu, Dockerize edilmiş merkezi veri yönetim servisidir.
 
----
+
 
 ## 📸 Ekran Görüntüleri
 
