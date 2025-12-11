@@ -1,7 +1,3 @@
-<div align="center">
-  <a href="https://github.com/Rea-bla/SporSalonuYonetim">
-    <img src="https://via.placeholder.com/1200x400?text=Spor+Salonu+Yonetim+Sistemi" alt="Spor Salonu Yönetim Banner" width="100%">
-  </a>
 
   <h1 align="center">🏋️‍♂️ Spor Salonu Yönetim Sistemi 🏋️‍♀️</h1>
 
