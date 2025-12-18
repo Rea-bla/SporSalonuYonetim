@@ -9,12 +9,15 @@ class ApiConfig {
   static const String updateMemberEndpoint = '/api/Member/update';
   static const String verifyEntryEndpoint = '/api/Member/verify-entry';
   static const String changePasswordEndpoint = '/api/Member/change-password';
+  static const String uyelikTipleriEndpoint = '/api/UyelikTipleri'; // YENİ
 
   // Full URLs
   static String get loginUrl => '$baseUrl$loginEndpoint';
   static String get updateMemberUrl => '$baseUrl$updateMemberEndpoint';
   static String get verifyEntryUrl => '$baseUrl$verifyEntryEndpoint';
   static String get changePasswordUrl => '$baseUrl$changePasswordEndpoint';
+  static String get uyelikTipleriUrl => '$baseUrl$uyelikTipleriEndpoint'; // YENİ
 
   static String getMemberUrl(String tcNo) => '$baseUrl$getMemberEndpoint/$tcNo';
+  static String getUyelikTipiUrl(int id) => '$baseUrl$uyelikTipleriEndpoint/$id'; // YENİ
 }

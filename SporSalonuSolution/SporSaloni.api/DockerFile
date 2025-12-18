@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Proje dosyasını kopyala ve restore et
+COPY ["SporSalonu.api.csproj", "./"]
+RUN dotnet restore
+
+# Kalan dosyaları kopyala ve build al
+COPY . .
+RUN dotnet publish "SporSalonu.api.csproj" -c Release -o /app/publish
+
+# Run Aşaması (Son İmaj)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "SporSalonu.api.dll"]

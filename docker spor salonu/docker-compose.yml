@@ -1,10 +1,49 @@
+version: '3.8'
+
 services:
-  sqlserver:
+  # 1. VERİTABANI (Düzeltilmiş Hali)
+  spor-db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: spor_db_container
+    restart: always
     environment:
-      SA_PASSWORD: "Admin123!"
+      MSSQL_SA_PASSWORD: "Admin123!" # Senin şifren
       ACCEPT_EULA: "Y"
     ports:
-      - "1435:1433"
-    restart: always
+      - "1435:1433" # Dışarıdan 1435, içeriden 1433
+    volumes:
+      - sql_data:/var/opt/mssql
+      # Eğer ana dizinde "DataBase" adında klasörün varsa ve içinde .sql dosyası varsa çalışır.
+      # Yoksa aşağıdaki satırı silebilirsin:
+      - ./DataBase:/docker-entrypoint-initdb.d 
+
+  # 2. API PROJESİ
+  spor-api:
+    container_name: spor_api_container
+    build:
+      context: ./SporSalonu.api  # API klasörünün tam adı
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080" # API'ye localhost:5000'den ulaşacaksın
+    depends_on:
+      - spor-db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # Connection String kodun içinden veya buradan yönetilecek
+
+  # 3. WEB SİTESİ
+  spor-web:
+    container_name: spor_web_container
+    build:
+      context: ./SporSalonu.Web  # Web klasörünün tam adı
+      dockerfile: Dockerfile
+    ports:
+      - "5001:8080" # Siteye localhost:5001'den ulaşacaksın
+    depends_on:
+      - spor-db
+      - spor-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+volumes:
+  sql_data:

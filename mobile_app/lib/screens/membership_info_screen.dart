@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:ui';
 import '../models/member_model.dart';
+import '../models/uyelik_tipi_model.dart';
+import '../services/api_service.dart';
 
 class MembershipInfoScreen extends StatefulWidget {
   final Member member;
@@ -16,6 +18,10 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
+
+  List<UyelikTipi> uyelikTipleri = [];
+  bool isLoading = true;
+  double apiFiyat = 0.0; // API'den gelen fiyat
 
   @override
   void initState() {
@@ -32,12 +38,56 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
       end: Offset.zero,
     ).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeOutCubic));
     _animationController.forward();
+
+    _loadUyelikTipleri();
   }
 
   @override
   void dispose() {
     _animationController.dispose();
     super.dispose();
+  }
+
+  Future<void> _loadUyelikTipleri() async {
+    try {
+      final tipleri = await ApiService.getUyelikTipleri();
+      setState(() {
+        uyelikTipleri = tipleri;
+      });
+
+      // Üyelik tiplerini yükledikten sonra fiyatı bul
+      _loadMembershipPrice();
+
+      setState(() {
+        isLoading = false;
+      });
+    } catch (e) {
+      setState(() => isLoading = false);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Hata: $e')),
+        );
+      }
+    }
+  }
+
+  void _loadMembershipPrice() {
+    try {
+      // Üyenin seçili üyelik ID'sine göre fiyatı bul
+      if (uyelikTipleri.isNotEmpty) {
+        final uyelik = uyelikTipleri.firstWhere(
+              (u) => u.uyelikTipId == widget.member.secilenUyelikID,
+          orElse: () => uyelikTipleri.first,
+        );
+
+        setState(() {
+          apiFiyat = uyelik.fiyat;
+        });
+      }
+    } catch (e) {
+      print('Fiyat yükleme hatası: $e');
+      // Hata durumunda member.fiyat kullanılacak
+    }
   }
 
   // Check if payment is unpaid
@@ -48,12 +98,10 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
 
   // Check if membership should be active
   bool isMembershipActive() {
-    // If payment is unpaid, membership is not active
     if (isPaymentUnpaid()) {
       return false;
     }
 
-    // Check expiration date
     if (widget.member.bitisTarihi != null) {
       return widget.member.bitisTarihi!.isAfter(DateTime.now());
     }
@@ -63,6 +111,20 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
 
   // Get membership tier name from ID
   String getMembershipName(int membershipId) {
+    // API'den yüklenen verilerle eşleştir
+    if (uyelikTipleri.isNotEmpty) {
+      try {
+        final uyelik = uyelikTipleri.firstWhere(
+              (u) => u.uyelikTipId == membershipId,
+          orElse: () => uyelikTipleri.first,
+        );
+        return uyelik.ad;
+      } catch (e) {
+        // Fallback to default names
+      }
+    }
+
+    // Varsayılan isimler
     switch (membershipId) {
       case 1:
         return 'Standard';
@@ -175,7 +237,13 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
 
                   // Main Content
                   Expanded(
-                    child: FadeTransition(
+                    child: isLoading
+                        ? const Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.white,
+                      ),
+                    )
+                        : FadeTransition(
                       opacity: _fadeAnimation,
                       child: SlideTransition(
                         position: _slideAnimation,
@@ -200,8 +268,7 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
                               const SizedBox(height: 20),
 
                               // Warning Card (if inactive)
-                              if (!isActive)
-                                _buildWarningCard(),
+                              if (!isActive) _buildWarningCard(),
                             ],
                           ),
                         ),
@@ -469,7 +536,8 @@ class _MembershipInfoScreenState extends State<MembershipInfoScreen> with Single
 
   Widget _buildPaymentCard() {
     final isPaid = !isPaymentUnpaid();
-    final amount = widget.member.fiyat;
+    // API'den gelen fiyatı kullan, yoksa member.fiyat'ı kullan
+    final amount = apiFiyat > 0 ? apiFiyat : widget.member.fiyat;
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),

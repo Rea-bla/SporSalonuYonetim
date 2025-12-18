@@ -1,0 +1,8 @@
+@echo off
+echo Spor Salonu Sistemi Kuruluyor...
+docker compose down -v
+docker compose up -d
+echo.
+echo ISLEM TAMAM! Veritabani kuruldu ve tablolar olusturuldu.
+echo Pencereyi kapatabilirsin.
+pause
